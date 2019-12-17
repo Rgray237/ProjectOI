@@ -7,3 +7,27 @@
 //
 
 import Foundation
+
+
+class Level
+{
+    var numBasicEnemies = 1
+    var numPhases = 1
+    var bookTitle: String = "blank"
+    var bookAuthor: String = "blank"
+    var enemiesInLevel: [Enemy] = []
+    
+    
+    init (enemies:[Enemy])
+    {
+        for enemy in enemies
+        {
+            enemiesInLevel.append(enemy)
+        }
+    }
+    
+    init ()
+    {
+        
+    }
+}

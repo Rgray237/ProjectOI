@@ -7,12 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D4713E4923A6B31200259583 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = D4713E4823A6B31200259583 /* Shaders.metal */; };
+		D4713E5123A6BCD300259583 /* Matrix4.m in Sources */ = {isa = PBXBuildFile; fileRef = D4713E5023A6BCD300259583 /* Matrix4.m */; };
+		D4713E5323A6BD6B00259583 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E5223A6BD6B00259583 /* Node.swift */; };
+		D4713E5723A6C70500259583 /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E5623A6C70500259583 /* Cube.swift */; };
+		D4713E5A23A8619900259583 /* MetalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E5823A8619800259583 /* MetalViewController.swift */; };
+		D4713E5B23A8619900259583 /* MySceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E5923A8619800259583 /* MySceneViewController.swift */; };
+		D4713E5D23A868C000259583 /* BufferProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E5C23A868C000259583 /* BufferProvider.swift */; };
+		D4713E5F23A875F400259583 /* MetalTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E5E23A875F300259583 /* MetalTexture.swift */; };
+		D4713E6123A87A8D00259583 /* cube.png in Resources */ = {isa = PBXBuildFile; fileRef = D4713E6023A87A8D00259583 /* cube.png */; };
 		D477F68F239DA3FA00B8BB56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F68E239DA3FA00B8BB56 /* AppDelegate.swift */; };
-		D477F691239DA3FA00B8BB56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F690239DA3FA00B8BB56 /* ViewController.swift */; };
 		D477F694239DA3FA00B8BB56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D477F692239DA3FA00B8BB56 /* Main.storyboard */; };
 		D477F696239DA3FA00B8BB56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D477F695239DA3FA00B8BB56 /* Assets.xcassets */; };
 		D477F699239DA3FA00B8BB56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D477F697239DA3FA00B8BB56 /* LaunchScreen.storyboard */; };
 		D477F6A4239DA3FA00B8BB56 /* ProjectOITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F6A3239DA3FA00B8BB56 /* ProjectOITests.swift */; };
+		D477F6B0239DA9FE00B8BB56 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D477F6AF239DA9FE00B8BB56 /* SpriteKit.framework */; };
+		D477F6B8239DAB8F00B8BB56 /* MyGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F6B7239DAB8F00B8BB56 /* MyGameScene.swift */; };
+		D477F6BA239DBAE600B8BB56 /* LevelLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F6B9239DBAE600B8BB56 /* LevelLoader.swift */; };
+		D477F6C1239DC86D00B8BB56 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F6C0239DC86D00B8BB56 /* Level.swift */; };
+		D477F6CA239E882600B8BB56 /* LEVELS.xml in Resources */ = {isa = PBXBuildFile; fileRef = D477F6C9239E882600B8BB56 /* LEVELS.xml */; };
+		D477F6CC239E934000B8BB56 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F6CB239E934000B8BB56 /* Enemy.swift */; };
+		D477F6D023A1B8FC00B8BB56 /* LevelLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F6CF23A1B8FC00B8BB56 /* LevelLoaderTests.swift */; };
+		D477F6D223A5580100B8BB56 /* Scratch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F6D123A5580100B8BB56 /* Scratch.swift */; };
+		D477F6D423A55C5B00B8BB56 /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F6D323A55C5B00B8BB56 /* Vertex.swift */; };
+		D477F6DC23A586E500B8BB56 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D477F6DB23A586E500B8BB56 /* Metal.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,9 +44,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D4713E4823A6B31200259583 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		D4713E4F23A6BCD200259583 /* Matrix4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix4.h; sourceTree = "<group>"; };
+		D4713E5023A6BCD300259583 /* Matrix4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Matrix4.m; sourceTree = "<group>"; };
+		D4713E5223A6BD6B00259583 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		D4713E5623A6C70500259583 /* Cube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
+		D4713E5823A8619800259583 /* MetalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalViewController.swift; sourceTree = "<group>"; };
+		D4713E5923A8619800259583 /* MySceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySceneViewController.swift; sourceTree = "<group>"; };
+		D4713E5C23A868C000259583 /* BufferProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BufferProvider.swift; sourceTree = "<group>"; };
+		D4713E5E23A875F300259583 /* MetalTexture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalTexture.swift; sourceTree = "<group>"; };
+		D4713E6023A87A8D00259583 /* cube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cube.png; sourceTree = "<group>"; };
 		D477F68B239DA3FA00B8BB56 /* ProjectOI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectOI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D477F68E239DA3FA00B8BB56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D477F690239DA3FA00B8BB56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D477F693239DA3FA00B8BB56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D477F695239DA3FA00B8BB56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D477F698239DA3FA00B8BB56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +63,19 @@
 		D477F69F239DA3FA00B8BB56 /* ProjectOITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectOITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D477F6A3239DA3FA00B8BB56 /* ProjectOITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectOITests.swift; sourceTree = "<group>"; };
 		D477F6A5239DA3FA00B8BB56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D477F6AF239DA9FE00B8BB56 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		D477F6B1239DAAA500B8BB56 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
+		D477F6B7239DAB8F00B8BB56 /* MyGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGameScene.swift; sourceTree = "<group>"; };
+		D477F6B9239DBAE600B8BB56 /* LevelLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelLoader.swift; sourceTree = "<group>"; };
+		D477F6C0239DC86D00B8BB56 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		D477F6C3239DCFD400B8BB56 /* ProjectOI-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ProjectOI-Bridging-Header.h"; sourceTree = "<group>"; };
+		D477F6C7239DD9A200B8BB56 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		D477F6C9239E882600B8BB56 /* LEVELS.xml */ = {isa = PBXFileReference; explicitFileType = text.xml; path = LEVELS.xml; sourceTree = "<group>"; };
+		D477F6CB239E934000B8BB56 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+		D477F6CF23A1B8FC00B8BB56 /* LevelLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelLoaderTests.swift; sourceTree = "<group>"; };
+		D477F6D123A5580100B8BB56 /* Scratch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scratch.swift; sourceTree = "<group>"; };
+		D477F6D323A55C5B00B8BB56 /* Vertex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vertex.swift; sourceTree = "<group>"; };
+		D477F6DB23A586E500B8BB56 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +83,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D477F6DC23A586E500B8BB56 /* Metal.framework in Frameworks */,
+				D477F6B0239DA9FE00B8BB56 /* SpriteKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +104,7 @@
 				D477F68D239DA3FA00B8BB56 /* ProjectOI */,
 				D477F6A2239DA3FA00B8BB56 /* ProjectOITests */,
 				D477F68C239DA3FA00B8BB56 /* Products */,
+				D477F6AE239DA9FE00B8BB56 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,12 +120,29 @@
 		D477F68D239DA3FA00B8BB56 /* ProjectOI */ = {
 			isa = PBXGroup;
 			children = (
+				D4713E6023A87A8D00259583 /* cube.png */,
+				D4713E5823A8619800259583 /* MetalViewController.swift */,
+				D4713E5923A8619800259583 /* MySceneViewController.swift */,
 				D477F68E239DA3FA00B8BB56 /* AppDelegate.swift */,
-				D477F690239DA3FA00B8BB56 /* ViewController.swift */,
 				D477F692239DA3FA00B8BB56 /* Main.storyboard */,
 				D477F695239DA3FA00B8BB56 /* Assets.xcassets */,
 				D477F697239DA3FA00B8BB56 /* LaunchScreen.storyboard */,
 				D477F69A239DA3FA00B8BB56 /* Info.plist */,
+				D477F6B7239DAB8F00B8BB56 /* MyGameScene.swift */,
+				D477F6B9239DBAE600B8BB56 /* LevelLoader.swift */,
+				D477F6C9239E882600B8BB56 /* LEVELS.xml */,
+				D477F6C0239DC86D00B8BB56 /* Level.swift */,
+				D477F6CB239E934000B8BB56 /* Enemy.swift */,
+				D477F6D123A5580100B8BB56 /* Scratch.swift */,
+				D477F6D323A55C5B00B8BB56 /* Vertex.swift */,
+				D4713E4F23A6BCD200259583 /* Matrix4.h */,
+				D4713E5023A6BCD300259583 /* Matrix4.m */,
+				D4713E5E23A875F300259583 /* MetalTexture.swift */,
+				D4713E4823A6B31200259583 /* Shaders.metal */,
+				D4713E5223A6BD6B00259583 /* Node.swift */,
+				D4713E5623A6C70500259583 /* Cube.swift */,
+				D477F6C3239DCFD400B8BB56 /* ProjectOI-Bridging-Header.h */,
+				D4713E5C23A868C000259583 /* BufferProvider.swift */,
 			);
 			path = ProjectOI;
 			sourceTree = "<group>";
@@ -92,8 +152,20 @@
 			children = (
 				D477F6A3239DA3FA00B8BB56 /* ProjectOITests.swift */,
 				D477F6A5239DA3FA00B8BB56 /* Info.plist */,
+				D477F6CF23A1B8FC00B8BB56 /* LevelLoaderTests.swift */,
 			);
 			path = ProjectOITests;
+			sourceTree = "<group>";
+		};
+		D477F6AE239DA9FE00B8BB56 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D477F6DB23A586E500B8BB56 /* Metal.framework */,
+				D477F6C7239DD9A200B8BB56 /* libxml2.tbd */,
+				D477F6B1239DAAA500B8BB56 /* SceneKit.framework */,
+				D477F6AF239DA9FE00B8BB56 /* SpriteKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +218,7 @@
 				TargetAttributes = {
 					D477F68A239DA3FA00B8BB56 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					D477F69E239DA3FA00B8BB56 = {
@@ -180,8 +253,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D477F699239DA3FA00B8BB56 /* LaunchScreen.storyboard in Resources */,
+				D4713E6123A87A8D00259583 /* cube.png in Resources */,
 				D477F696239DA3FA00B8BB56 /* Assets.xcassets in Resources */,
 				D477F694239DA3FA00B8BB56 /* Main.storyboard in Resources */,
+				D477F6CA239E882600B8BB56 /* LEVELS.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,8 +274,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D477F691239DA3FA00B8BB56 /* ViewController.swift in Sources */,
+				D477F6B8239DAB8F00B8BB56 /* MyGameScene.swift in Sources */,
+				D4713E5F23A875F400259583 /* MetalTexture.swift in Sources */,
+				D4713E5A23A8619900259583 /* MetalViewController.swift in Sources */,
+				D4713E5323A6BD6B00259583 /* Node.swift in Sources */,
+				D477F6D223A5580100B8BB56 /* Scratch.swift in Sources */,
+				D4713E4923A6B31200259583 /* Shaders.metal in Sources */,
+				D477F6CC239E934000B8BB56 /* Enemy.swift in Sources */,
+				D4713E5B23A8619900259583 /* MySceneViewController.swift in Sources */,
 				D477F68F239DA3FA00B8BB56 /* AppDelegate.swift in Sources */,
+				D4713E5D23A868C000259583 /* BufferProvider.swift in Sources */,
+				D477F6D423A55C5B00B8BB56 /* Vertex.swift in Sources */,
+				D477F6C1239DC86D00B8BB56 /* Level.swift in Sources */,
+				D4713E5123A6BCD300259583 /* Matrix4.m in Sources */,
+				D4713E5723A6C70500259583 /* Cube.swift in Sources */,
+				D477F6BA239DBAE600B8BB56 /* LevelLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D477F6A4239DA3FA00B8BB56 /* ProjectOITests.swift in Sources */,
+				D477F6D023A1B8FC00B8BB56 /* LevelLoaderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +379,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -341,7 +430,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -353,12 +442,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D3L77M4EDX;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = ProjectOI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "Robert-Gray.ProjectOI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ProjectOI/ProjectOI-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -368,12 +463,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D3L77M4EDX;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = ProjectOI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "Robert-Gray.ProjectOI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ProjectOI/ProjectOI-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

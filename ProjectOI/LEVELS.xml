@@ -1,23 +1,31 @@
 <?xml version="1.0"?>
 <catalog>
-<book id="1">
-<title>To Kill a Mockingbird</title>
+<lvl id="1">
+<enemies>
+    <enemy id="1" type="basic" x="30" y="50"></enemy>
+    <enemy id="2" type="basic" x="-40" y="-30"></enemy>
+    <enemy id="3" type="basic" x="100" y="40"></enemy>
+</enemies>
+<title>To Kill A MockingBird</title>
 <author>Harper Lee</author>
-</book>
-<book id="2">
-<title>1984</title>
-<author>George Orwell</author>
-</book>
-<book id="3">
-<title>The Lord of the Rings</title>
-<author>J.R.R Tolkien</author>
-</book>
-<book id="4">
+</lvl>
+<lvl id="2">
+<enemies>
+<enemy id="1" type="basic" x="30" y="50"></enemy>
+<enemy id="2" type="blarsic" x="-90" y="50"></enemy>
+</enemies>
+</lvl>
+<lvl id="3">
+<enemies>
+<enemy id="1" type="basic" x="30" y="50"></enemy>
+</enemies>
+</lvl>
+<lvl id="4">
 <title>The Catcher in the Rye</title>
 <author>J.D. Salinger</author>
-</book>
-<book id="5">
+</lvl>
+<lvl id="5">
 <title>The Great Gatsby</title>
 <author>F. Scott Fitzgerald</author>
-</book>
+</lvl>
 </catalog>
