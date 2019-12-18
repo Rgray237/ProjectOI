@@ -6,7 +6,7 @@ class MySceneViewController: MetalViewController,MetalViewControllerDelegate,UIG
   
   var worldModelMatrix:Matrix4!
   var objectToDraw: Cube!
-  
+  var gameWorld: GameWorld!
   let panSensivity:Float = 5.0
   var lastPanLocation: CGPoint!
 
