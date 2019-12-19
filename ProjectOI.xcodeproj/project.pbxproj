@@ -16,19 +16,21 @@
 		D4713E5D23A868C000259583 /* BufferProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E5C23A868C000259583 /* BufferProvider.swift */; };
 		D4713E5F23A875F400259583 /* MetalTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E5E23A875F300259583 /* MetalTexture.swift */; };
 		D4713E6123A87A8D00259583 /* cube.png in Resources */ = {isa = PBXBuildFile; fileRef = D4713E6023A87A8D00259583 /* cube.png */; };
+		D4713E6623ABC3E000259583 /* GameWorld.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E6223ABC3DF00259583 /* GameWorld.swift */; };
+		D4713E6723ABC3E000259583 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E6323ABC3DF00259583 /* Player.swift */; };
+		D4713E6823ABC3E000259583 /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E6423ABC3DF00259583 /* LevelManager.swift */; };
+		D4713E6C23ABC58C00259583 /* GameWorldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E6A23ABC58C00259583 /* GameWorldTests.swift */; };
+		D4713E6D23ABC58C00259583 /* WorldAndRenderManagerTests in Resources */ = {isa = PBXBuildFile; fileRef = D4713E6B23ABC58C00259583 /* WorldAndRenderManagerTests */; };
 		D477F68F239DA3FA00B8BB56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F68E239DA3FA00B8BB56 /* AppDelegate.swift */; };
 		D477F694239DA3FA00B8BB56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D477F692239DA3FA00B8BB56 /* Main.storyboard */; };
 		D477F696239DA3FA00B8BB56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D477F695239DA3FA00B8BB56 /* Assets.xcassets */; };
 		D477F699239DA3FA00B8BB56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D477F697239DA3FA00B8BB56 /* LaunchScreen.storyboard */; };
 		D477F6A4239DA3FA00B8BB56 /* ProjectOITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F6A3239DA3FA00B8BB56 /* ProjectOITests.swift */; };
 		D477F6B0239DA9FE00B8BB56 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D477F6AF239DA9FE00B8BB56 /* SpriteKit.framework */; };
-		D477F6B8239DAB8F00B8BB56 /* MyGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F6B7239DAB8F00B8BB56 /* MyGameScene.swift */; };
-		D477F6BA239DBAE600B8BB56 /* LevelLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F6B9239DBAE600B8BB56 /* LevelLoader.swift */; };
 		D477F6C1239DC86D00B8BB56 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F6C0239DC86D00B8BB56 /* Level.swift */; };
 		D477F6CA239E882600B8BB56 /* LEVELS.xml in Resources */ = {isa = PBXBuildFile; fileRef = D477F6C9239E882600B8BB56 /* LEVELS.xml */; };
 		D477F6CC239E934000B8BB56 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F6CB239E934000B8BB56 /* Enemy.swift */; };
 		D477F6D023A1B8FC00B8BB56 /* LevelLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F6CF23A1B8FC00B8BB56 /* LevelLoaderTests.swift */; };
-		D477F6D223A5580100B8BB56 /* Scratch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F6D123A5580100B8BB56 /* Scratch.swift */; };
 		D477F6D423A55C5B00B8BB56 /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F6D323A55C5B00B8BB56 /* Vertex.swift */; };
 		D477F6DC23A586E500B8BB56 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D477F6DB23A586E500B8BB56 /* Metal.framework */; };
 /* End PBXBuildFile section */
@@ -54,6 +56,11 @@
 		D4713E5C23A868C000259583 /* BufferProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BufferProvider.swift; sourceTree = "<group>"; };
 		D4713E5E23A875F300259583 /* MetalTexture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalTexture.swift; sourceTree = "<group>"; };
 		D4713E6023A87A8D00259583 /* cube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cube.png; sourceTree = "<group>"; };
+		D4713E6223ABC3DF00259583 /* GameWorld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameWorld.swift; sourceTree = "<group>"; };
+		D4713E6323ABC3DF00259583 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		D4713E6423ABC3DF00259583 /* LevelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelManager.swift; sourceTree = "<group>"; };
+		D4713E6A23ABC58C00259583 /* GameWorldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameWorldTests.swift; sourceTree = "<group>"; };
+		D4713E6B23ABC58C00259583 /* WorldAndRenderManagerTests */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WorldAndRenderManagerTests; sourceTree = "<group>"; };
 		D477F68B239DA3FA00B8BB56 /* ProjectOI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectOI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D477F68E239DA3FA00B8BB56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D477F693239DA3FA00B8BB56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -65,15 +72,12 @@
 		D477F6A5239DA3FA00B8BB56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D477F6AF239DA9FE00B8BB56 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		D477F6B1239DAAA500B8BB56 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
-		D477F6B7239DAB8F00B8BB56 /* MyGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGameScene.swift; sourceTree = "<group>"; };
-		D477F6B9239DBAE600B8BB56 /* LevelLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelLoader.swift; sourceTree = "<group>"; };
 		D477F6C0239DC86D00B8BB56 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		D477F6C3239DCFD400B8BB56 /* ProjectOI-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ProjectOI-Bridging-Header.h"; sourceTree = "<group>"; };
 		D477F6C7239DD9A200B8BB56 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		D477F6C9239E882600B8BB56 /* LEVELS.xml */ = {isa = PBXFileReference; explicitFileType = text.xml; path = LEVELS.xml; sourceTree = "<group>"; };
 		D477F6CB239E934000B8BB56 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		D477F6CF23A1B8FC00B8BB56 /* LevelLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelLoaderTests.swift; sourceTree = "<group>"; };
-		D477F6D123A5580100B8BB56 /* Scratch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scratch.swift; sourceTree = "<group>"; };
 		D477F6D323A55C5B00B8BB56 /* Vertex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vertex.swift; sourceTree = "<group>"; };
 		D477F6DB23A586E500B8BB56 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -120,6 +124,9 @@
 		D477F68D239DA3FA00B8BB56 /* ProjectOI */ = {
 			isa = PBXGroup;
 			children = (
+				D4713E6223ABC3DF00259583 /* GameWorld.swift */,
+				D4713E6423ABC3DF00259583 /* LevelManager.swift */,
+				D4713E6323ABC3DF00259583 /* Player.swift */,
 				D4713E6023A87A8D00259583 /* cube.png */,
 				D4713E5823A8619800259583 /* MetalViewController.swift */,
 				D4713E5923A8619800259583 /* MySceneViewController.swift */,
@@ -128,12 +135,9 @@
 				D477F695239DA3FA00B8BB56 /* Assets.xcassets */,
 				D477F697239DA3FA00B8BB56 /* LaunchScreen.storyboard */,
 				D477F69A239DA3FA00B8BB56 /* Info.plist */,
-				D477F6B7239DAB8F00B8BB56 /* MyGameScene.swift */,
-				D477F6B9239DBAE600B8BB56 /* LevelLoader.swift */,
 				D477F6C9239E882600B8BB56 /* LEVELS.xml */,
 				D477F6C0239DC86D00B8BB56 /* Level.swift */,
 				D477F6CB239E934000B8BB56 /* Enemy.swift */,
-				D477F6D123A5580100B8BB56 /* Scratch.swift */,
 				D477F6D323A55C5B00B8BB56 /* Vertex.swift */,
 				D4713E4F23A6BCD200259583 /* Matrix4.h */,
 				D4713E5023A6BCD300259583 /* Matrix4.m */,
@@ -150,6 +154,8 @@
 		D477F6A2239DA3FA00B8BB56 /* ProjectOITests */ = {
 			isa = PBXGroup;
 			children = (
+				D4713E6A23ABC58C00259583 /* GameWorldTests.swift */,
+				D4713E6B23ABC58C00259583 /* WorldAndRenderManagerTests */,
 				D477F6A3239DA3FA00B8BB56 /* ProjectOITests.swift */,
 				D477F6A5239DA3FA00B8BB56 /* Info.plist */,
 				D477F6CF23A1B8FC00B8BB56 /* LevelLoaderTests.swift */,
@@ -264,6 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4713E6D23ABC58C00259583 /* WorldAndRenderManagerTests in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,21 +281,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D477F6B8239DAB8F00B8BB56 /* MyGameScene.swift in Sources */,
 				D4713E5F23A875F400259583 /* MetalTexture.swift in Sources */,
 				D4713E5A23A8619900259583 /* MetalViewController.swift in Sources */,
 				D4713E5323A6BD6B00259583 /* Node.swift in Sources */,
-				D477F6D223A5580100B8BB56 /* Scratch.swift in Sources */,
 				D4713E4923A6B31200259583 /* Shaders.metal in Sources */,
+				D4713E6723ABC3E000259583 /* Player.swift in Sources */,
 				D477F6CC239E934000B8BB56 /* Enemy.swift in Sources */,
 				D4713E5B23A8619900259583 /* MySceneViewController.swift in Sources */,
 				D477F68F239DA3FA00B8BB56 /* AppDelegate.swift in Sources */,
 				D4713E5D23A868C000259583 /* BufferProvider.swift in Sources */,
+				D4713E6623ABC3E000259583 /* GameWorld.swift in Sources */,
 				D477F6D423A55C5B00B8BB56 /* Vertex.swift in Sources */,
 				D477F6C1239DC86D00B8BB56 /* Level.swift in Sources */,
 				D4713E5123A6BCD300259583 /* Matrix4.m in Sources */,
+				D4713E6823ABC3E000259583 /* LevelManager.swift in Sources */,
 				D4713E5723A6C70500259583 /* Cube.swift in Sources */,
-				D477F6BA239DBAE600B8BB56 /* LevelLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +305,7 @@
 			files = (
 				D477F6A4239DA3FA00B8BB56 /* ProjectOITests.swift in Sources */,
 				D477F6D023A1B8FC00B8BB56 /* LevelLoaderTests.swift in Sources */,
+				D4713E6C23ABC58C00259583 /* GameWorldTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
