@@ -1,9 +1,11 @@
 import Foundation
 
 
-class Player
-{
 
-    var position:[Float] = [0.0,0.0,0.0]
-    
+class Player : SentientActor
+{
+    override init() {
+        super.init()
+        
+    }
 }

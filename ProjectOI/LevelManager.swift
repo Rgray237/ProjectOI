@@ -11,7 +11,7 @@ import SpriteKit
 import GLKit
 
 
-class LevelLoader: NSObject, XMLParserDelegate
+class LevelManager: NSObject, XMLParserDelegate
 {
     internal var levels: [Level] = []
     internal var elementName = String()
@@ -24,10 +24,12 @@ class LevelLoader: NSObject, XMLParserDelegate
     internal var enemyType = String()
     internal var enemyID:String = ""
 
+    
     internal var mainGameScene = MySceneViewController()
     internal var mainGameView = UIView()
     internal var chosenLevel = Int()
     internal var llParentViewController = UIViewController()
+    internal var gameWorld = GameWorld()
     
     private var ebo = GLuint()//Element Buffer Object (EBO): Keeps track of the indices that define triangles, like the indices you have stored in the Indices array.
 
@@ -47,6 +49,22 @@ class LevelLoader: NSObject, XMLParserDelegate
         parseXMLFile()
     }
     
+    init(lvl: Int)
+    {
+        super.init()
+        chosenLevel = lvl
+        parseXMLFile()
+        loadToGameWorld()
+    }
+    
+    private func loadToGameWorld()
+    {
+        gameWorld.load()
+    }
+    func gameWorldLoaded()->Bool
+    {
+        return gameWorld.isLoaded()
+    }
     
     private func parseXMLFile() {
         if let path = Bundle.main.url(forResource: "LEVELS", withExtension: "xml") {
@@ -60,7 +78,6 @@ class LevelLoader: NSObject, XMLParserDelegate
     func dotherest()
     {
         addEnemiesToScene()
-
         
     }
 

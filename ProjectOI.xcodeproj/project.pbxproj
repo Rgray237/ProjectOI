@@ -21,6 +21,13 @@
 		D4713E6823ABC3E000259583 /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E6423ABC3DF00259583 /* LevelManager.swift */; };
 		D4713E6C23ABC58C00259583 /* GameWorldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E6A23ABC58C00259583 /* GameWorldTests.swift */; };
 		D4713E6D23ABC58C00259583 /* WorldAndRenderManagerTests in Resources */ = {isa = PBXBuildFile; fileRef = D4713E6B23ABC58C00259583 /* WorldAndRenderManagerTests */; };
+		D4713E6F23ABC73400259583 /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E6E23ABC73400259583 /* Vector3.swift */; };
+		D4713E7423ABC8B300259583 /* PlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E7323ABC8B300259583 /* PlayerTests.swift */; };
+		D4713E7623ABCBA000259583 /* GameObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E7523ABCBA000259583 /* GameObjectTests.swift */; };
+		D4713E7823ABCBB500259583 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E7723ABCBB500259583 /* GameObject.swift */; };
+		D4713E7A23B4F9CF00259583 /* SentientActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E7923B4F9CF00259583 /* SentientActor.swift */; };
+		D4713E7C23B4F9FB00259583 /* EnemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E7B23B4F9FB00259583 /* EnemyTests.swift */; };
+		D4713E7E23B4FA1000259583 /* SentientActorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E7D23B4FA1000259583 /* SentientActorTests.swift */; };
 		D477F68F239DA3FA00B8BB56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F68E239DA3FA00B8BB56 /* AppDelegate.swift */; };
 		D477F694239DA3FA00B8BB56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D477F692239DA3FA00B8BB56 /* Main.storyboard */; };
 		D477F696239DA3FA00B8BB56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D477F695239DA3FA00B8BB56 /* Assets.xcassets */; };
@@ -30,7 +37,7 @@
 		D477F6C1239DC86D00B8BB56 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F6C0239DC86D00B8BB56 /* Level.swift */; };
 		D477F6CA239E882600B8BB56 /* LEVELS.xml in Resources */ = {isa = PBXBuildFile; fileRef = D477F6C9239E882600B8BB56 /* LEVELS.xml */; };
 		D477F6CC239E934000B8BB56 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F6CB239E934000B8BB56 /* Enemy.swift */; };
-		D477F6D023A1B8FC00B8BB56 /* LevelLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F6CF23A1B8FC00B8BB56 /* LevelLoaderTests.swift */; };
+		D477F6D023A1B8FC00B8BB56 /* LevelManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F6CF23A1B8FC00B8BB56 /* LevelManagerTests.swift */; };
 		D477F6D423A55C5B00B8BB56 /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F6D323A55C5B00B8BB56 /* Vertex.swift */; };
 		D477F6DC23A586E500B8BB56 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D477F6DB23A586E500B8BB56 /* Metal.framework */; };
 /* End PBXBuildFile section */
@@ -61,6 +68,13 @@
 		D4713E6423ABC3DF00259583 /* LevelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelManager.swift; sourceTree = "<group>"; };
 		D4713E6A23ABC58C00259583 /* GameWorldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameWorldTests.swift; sourceTree = "<group>"; };
 		D4713E6B23ABC58C00259583 /* WorldAndRenderManagerTests */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WorldAndRenderManagerTests; sourceTree = "<group>"; };
+		D4713E6E23ABC73400259583 /* Vector3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector3.swift; sourceTree = "<group>"; };
+		D4713E7323ABC8B300259583 /* PlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTests.swift; sourceTree = "<group>"; };
+		D4713E7523ABCBA000259583 /* GameObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObjectTests.swift; sourceTree = "<group>"; };
+		D4713E7723ABCBB500259583 /* GameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
+		D4713E7923B4F9CF00259583 /* SentientActor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentientActor.swift; sourceTree = "<group>"; };
+		D4713E7B23B4F9FB00259583 /* EnemyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyTests.swift; sourceTree = "<group>"; };
+		D4713E7D23B4FA1000259583 /* SentientActorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentientActorTests.swift; sourceTree = "<group>"; };
 		D477F68B239DA3FA00B8BB56 /* ProjectOI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectOI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D477F68E239DA3FA00B8BB56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D477F693239DA3FA00B8BB56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -77,7 +91,7 @@
 		D477F6C7239DD9A200B8BB56 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		D477F6C9239E882600B8BB56 /* LEVELS.xml */ = {isa = PBXFileReference; explicitFileType = text.xml; path = LEVELS.xml; sourceTree = "<group>"; };
 		D477F6CB239E934000B8BB56 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
-		D477F6CF23A1B8FC00B8BB56 /* LevelLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelLoaderTests.swift; sourceTree = "<group>"; };
+		D477F6CF23A1B8FC00B8BB56 /* LevelManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelManagerTests.swift; sourceTree = "<group>"; };
 		D477F6D323A55C5B00B8BB56 /* Vertex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vertex.swift; sourceTree = "<group>"; };
 		D477F6DB23A586E500B8BB56 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -126,7 +140,6 @@
 			children = (
 				D4713E6223ABC3DF00259583 /* GameWorld.swift */,
 				D4713E6423ABC3DF00259583 /* LevelManager.swift */,
-				D4713E6323ABC3DF00259583 /* Player.swift */,
 				D4713E6023A87A8D00259583 /* cube.png */,
 				D4713E5823A8619800259583 /* MetalViewController.swift */,
 				D4713E5923A8619800259583 /* MySceneViewController.swift */,
@@ -137,7 +150,10 @@
 				D477F69A239DA3FA00B8BB56 /* Info.plist */,
 				D477F6C9239E882600B8BB56 /* LEVELS.xml */,
 				D477F6C0239DC86D00B8BB56 /* Level.swift */,
+				D4713E7923B4F9CF00259583 /* SentientActor.swift */,
 				D477F6CB239E934000B8BB56 /* Enemy.swift */,
+				D4713E6323ABC3DF00259583 /* Player.swift */,
+				D4713E7723ABCBB500259583 /* GameObject.swift */,
 				D477F6D323A55C5B00B8BB56 /* Vertex.swift */,
 				D4713E4F23A6BCD200259583 /* Matrix4.h */,
 				D4713E5023A6BCD300259583 /* Matrix4.m */,
@@ -147,6 +163,7 @@
 				D4713E5623A6C70500259583 /* Cube.swift */,
 				D477F6C3239DCFD400B8BB56 /* ProjectOI-Bridging-Header.h */,
 				D4713E5C23A868C000259583 /* BufferProvider.swift */,
+				D4713E6E23ABC73400259583 /* Vector3.swift */,
 			);
 			path = ProjectOI;
 			sourceTree = "<group>";
@@ -158,7 +175,11 @@
 				D4713E6B23ABC58C00259583 /* WorldAndRenderManagerTests */,
 				D477F6A3239DA3FA00B8BB56 /* ProjectOITests.swift */,
 				D477F6A5239DA3FA00B8BB56 /* Info.plist */,
-				D477F6CF23A1B8FC00B8BB56 /* LevelLoaderTests.swift */,
+				D477F6CF23A1B8FC00B8BB56 /* LevelManagerTests.swift */,
+				D4713E7323ABC8B300259583 /* PlayerTests.swift */,
+				D4713E7523ABCBA000259583 /* GameObjectTests.swift */,
+				D4713E7B23B4F9FB00259583 /* EnemyTests.swift */,
+				D4713E7D23B4FA1000259583 /* SentientActorTests.swift */,
 			);
 			path = ProjectOITests;
 			sourceTree = "<group>";
@@ -219,16 +240,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Robert Gray";
 				TargetAttributes = {
 					D477F68A239DA3FA00B8BB56 = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 					};
 					D477F69E239DA3FA00B8BB56 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 						TestTargetID = D477F68A239DA3FA00B8BB56;
 					};
@@ -289,12 +311,15 @@
 				D477F6CC239E934000B8BB56 /* Enemy.swift in Sources */,
 				D4713E5B23A8619900259583 /* MySceneViewController.swift in Sources */,
 				D477F68F239DA3FA00B8BB56 /* AppDelegate.swift in Sources */,
+				D4713E7823ABCBB500259583 /* GameObject.swift in Sources */,
+				D4713E7A23B4F9CF00259583 /* SentientActor.swift in Sources */,
 				D4713E5D23A868C000259583 /* BufferProvider.swift in Sources */,
 				D4713E6623ABC3E000259583 /* GameWorld.swift in Sources */,
 				D477F6D423A55C5B00B8BB56 /* Vertex.swift in Sources */,
 				D477F6C1239DC86D00B8BB56 /* Level.swift in Sources */,
 				D4713E5123A6BCD300259583 /* Matrix4.m in Sources */,
 				D4713E6823ABC3E000259583 /* LevelManager.swift in Sources */,
+				D4713E6F23ABC73400259583 /* Vector3.swift in Sources */,
 				D4713E5723A6C70500259583 /* Cube.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,9 +328,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4713E7423ABC8B300259583 /* PlayerTests.swift in Sources */,
 				D477F6A4239DA3FA00B8BB56 /* ProjectOITests.swift in Sources */,
-				D477F6D023A1B8FC00B8BB56 /* LevelLoaderTests.swift in Sources */,
+				D477F6D023A1B8FC00B8BB56 /* LevelManagerTests.swift in Sources */,
+				D4713E7E23B4FA1000259583 /* SentientActorTests.swift in Sources */,
 				D4713E6C23ABC58C00259583 /* GameWorldTests.swift in Sources */,
+				D4713E7C23B4F9FB00259583 /* EnemyTests.swift in Sources */,
+				D4713E7623ABCBA000259583 /* GameObjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +382,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -360,6 +390,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -410,6 +441,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -417,6 +449,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -462,7 +495,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ProjectOI/ProjectOI-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -482,7 +515,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Robert-Gray.ProjectOI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ProjectOI/ProjectOI-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -498,7 +531,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Robert-Gray.ProjectOITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProjectOI.app/ProjectOI";
 			};
@@ -515,7 +548,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Robert-Gray.ProjectOITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProjectOI.app/ProjectOI";
 			};

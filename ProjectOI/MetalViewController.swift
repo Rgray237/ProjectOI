@@ -51,11 +51,11 @@ class MetalViewController: UIViewController {
     commandQueue = device.makeCommandQueue()
     
     timer = CADisplayLink(target: self, selector: #selector(MetalViewController.newFrame(displayLink:)))
-    timer.add(to: RunLoop.main, forMode: RunLoopMode.defaultRunLoopMode)
+    timer.add(to: RunLoop.main, forMode: RunLoop.Mode.default)
   }
   
   func render() {
-    guard let drawable = metalLayer?.nextDrawable() else { return }
+    guard let drawable = metalLayer.nextDrawable() else {return}
     self.metalViewControllerDelegate?.renderObjects(drawable: drawable)
   }
   

@@ -1,69 +1,42 @@
-
 //
-//  ProjectOITests.swift
+//  LevelLoaderTests.swift
 //  ProjectOITests
 //
-//  Created by Robert Gray on 12/8/19.
+//  Created by Robert Gray on 12/11/19.
 //  Copyright © 2019 Robert Gray. All rights reserved.
 //
 
 import XCTest
-import SpriteKit
 @testable import ProjectOI
 
-
-class GameWorldTests: XCTestCase {
-   
-    var gw:GameWorld = GameWorld()
-  
+class LevelManagerTests: XCTestCase {
+    
+    //var parentView = UIViewController()
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+       // parentView = MySceneViewController()
+        //parentView.loadView()
     }
     
-  
-  
-    override func tearDown() {
+    override func tearDown()
+    {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+
     }
-  
-    func testWorldXYBoundaries()
+    
+    func testLoadsLevelToGameWorld()
+    {
+        let lvlManager = LevelManager(lvl:0)
+        XCTAssert(lvlManager.gameWorldLoaded())
+    }
+    
+    func testLoadsGameWorldToParentViewController()
     {
         
     }
-    
-    func testWorldHasPlayer()
-  {
-    
-  }
-  
-  func testProperNumberOfEnemies()
-  {
-    
-  }
-  
-  func testObstaclesExist()
-  {
-    
-  }
-  
-  func testNeuronsExist()
-  {
-    
-  }
-  
-  func testPortalsExist()
-  {
-    
-  }
-  
-  func testPlanesExist()
-  {
-    
-  }
-  
-  
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
@@ -71,5 +44,6 @@ class GameWorldTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
     
 }
