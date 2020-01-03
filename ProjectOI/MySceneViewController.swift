@@ -16,14 +16,11 @@ class MySceneViewController: MetalViewController,MetalViewControllerDelegate,UIG
     
     worldModelMatrix = Matrix4()
     worldModelMatrix.translate(0.0, y: 0.0, z: -9)
-    worldModelMatrix.rotateAroundX(Matrix4.degrees(toRad: 15), y: 0.0, z: 0.0)
+    worldModelMatrix.rotateAroundX(Matrix4.degrees(toRad: 90), y: 0.0, z: 0.0)
     
     objectToDraw = Cube(device: device, commandQ: commandQueue)
     self.metalViewControllerDelegate = self
     setupGestures()
-    
-    
-
   }
   
   //MARK: - MetalViewControllerDelegate
@@ -45,7 +42,7 @@ class MySceneViewController: MetalViewController,MetalViewControllerDelegate,UIG
       
     // 2
     @objc func pan(panGesture: UIPanGestureRecognizer){
-      if panGesture.state == UIGestureRecognizerState.changed {
+      if panGesture.state == UIGestureRecognizer.State.changed {
         let pointInView = panGesture.location(in: self.view)
         // 3
         let xDelta = Float((lastPanLocation.x - pointInView.x)/self.view.bounds.width) * panSensivity
@@ -54,7 +51,7 @@ class MySceneViewController: MetalViewController,MetalViewControllerDelegate,UIG
         objectToDraw.rotationY -= xDelta
         objectToDraw.rotationX -= yDelta
         lastPanLocation = pointInView
-      } else if panGesture.state == UIGestureRecognizerState.began {
+      } else if panGesture.state == UIGestureRecognizer.State.began {
         lastPanLocation = panGesture.location(in: self.view)
       }
     }
