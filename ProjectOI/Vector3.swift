@@ -10,7 +10,7 @@ import Foundation
 
 struct Vector3
 {
-    var x,y,z: Float
+    var x,y,z: Double
     
     func equals(vec:Vector3)->Bool
     {

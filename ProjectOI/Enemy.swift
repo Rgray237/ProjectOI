@@ -17,7 +17,7 @@ enum EnemyType
  case bigdum
 }
 
-class Enemy: NSObject
+class Enemy: SentientActor
 {
     var type:String = ""
     var x:Int = 0
@@ -27,6 +27,7 @@ class Enemy: NSObject
     
     init (Type:String, X:String, Y:String)
     {
+        super.init()
         type = Type
         x = Int(X) ?? 0
         y = Int(Y) ?? 0
@@ -34,6 +35,7 @@ class Enemy: NSObject
     
     init (Type:String, X:String, Y:String, ID:String)
     {
+        super.init()
         type = Type
         x = Int(X) ?? 0
         y = Int(Y) ?? 0
@@ -42,6 +44,7 @@ class Enemy: NSObject
     
     init (type:EnemyType, X:String, Y:String, ID:String)
     {
+        super.init()
         mEnemyType = type
         x = Int(X) ?? 0
         y = Int(Y) ?? 0

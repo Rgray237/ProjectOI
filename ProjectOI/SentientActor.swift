@@ -12,16 +12,22 @@ class SentientActor : GameObject
 {
     
     var health:Int!
+    var dead:Bool = false
     
     override init()
     {
         super.init()
         health = 100
+        dynamic = true
     }
     
     func takeDamage(dmg:Int)
     {
         health -= dmg
+        if (health <= 0)
+        {
+            die()
+        }
     }
     
     func attackActorFor(dmg:Int,victim:SentientActor)
@@ -29,17 +35,16 @@ class SentientActor : GameObject
         victim.takeDamage(dmg: dmg)
     }
     
+    func die()
+    {
+        dead = true
+    }
+    
     func isDead()->Bool
     {
-        if (health <= 0)
-        {
-            return true
-        }
-        else
-        {
-            return false
-        }
+        return dead
     }
+    
     
     func moveBy(vec:Vector3)
     {
@@ -48,7 +53,7 @@ class SentientActor : GameObject
         pos.z += vec.z
     }
     
-    func moveBy(x:Float, y:Float, z:Float)
+    func moveBy(x:Double, y:Double, z:Double)
     {
         moveBy(vec: Vector3(x: x, y: y, z: z))
     }

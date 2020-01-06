@@ -13,10 +13,11 @@ class GameObject
     var pos:Vector3 = Vector3(x: 0, y: 0, z: 0)
     var vel:Vector3 = Vector3(x: 0, y: 0, z: 0)
     var dynamic:Bool = false
+    var renderNode:Node!
     
     init()
     {
-        dynamic = false
+        
     }
     
     init(position:Vector3, dynamic:Bool)
@@ -34,10 +35,28 @@ class GameObject
         self.dynamic = dynamic
     }
     
+    func setVelocity(velocity: Vector3)
+    {
+        vel = velocity
+    }
+    
     func update()
     {
         pos.x += vel.x
         pos.y += vel.y
         pos.z += vel.z
     }
+    
+    func updateWithDelta(delta:CFTimeInterval)
+    {
+        pos.x += vel.x*delta
+        pos.y += vel.y*delta
+        pos.z += vel.z*delta
+    }
+    
+    func addNode(node:Node)
+    {
+        renderNode = node
+    }
+    
 }
