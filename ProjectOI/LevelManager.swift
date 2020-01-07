@@ -25,8 +25,8 @@ class LevelManager: NSObject, XMLParserDelegate
     internal var enemyID:String = ""
 
     
-    internal var mainGameScene = MySceneViewController()
-    internal var mainGameView = UIView()
+    internal var mainGameScene = SKScene()
+    internal var mainGameView = SKView()
     internal var chosenLevel = Int()
     internal var llParentViewController = UIViewController()
     internal var gameWorld = GameWorld()
@@ -44,9 +44,18 @@ class LevelManager: NSObject, XMLParserDelegate
         chosenLevel = lvl
         llParentViewController = parentViewController
         
-        mainGameScene = setupGameScene()
-        mainGameView = setupGameView()
+        mainGameView = parentViewController.view as! SKView
         parseXMLFile()
+    }
+    
+    init (lvl: Int, scene: SKScene, view:SKView)
+    {
+        super.init()
+        chosenLevel = lvl
+        mainGameView = view
+        mainGameScene = scene
+        parseXMLFile()
+        dotherest()
     }
     
     init(lvl: Int)
@@ -90,7 +99,7 @@ class LevelManager: NSObject, XMLParserDelegate
     
     func addEnemiesToScene()
     {
-        /*for enemy in levels[chosenLevel-1].enemiesInLevel
+        for enemy in levels[chosenLevel-1].enemiesInLevel
         {
             enemy.printInfo()
             
@@ -102,22 +111,11 @@ class LevelManager: NSObject, XMLParserDelegate
             mainGameScene.addChild(image)
             
         }
- */
+ 
     }
     
-    private func setupGameScene()->MySceneViewController
-    {
-        let scene = MySceneViewController()
-        return scene
-    }
     
-    private func setupGameView()->UIView
-    {
-        
-        let view = mainGameScene.view!
-        return view
-        
-    }
+    
     
     
     internal func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {

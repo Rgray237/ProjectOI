@@ -32,7 +32,7 @@ class MySceneViewController: MetalViewController,MetalViewControllerDelegate,UIG
     
     gameWorld.addNodeToObjectAtIndex(index: 0, renderNode: cube1)
     gameWorld.addNodeToObjectAtIndex(index: 1, renderNode: cube2)
-    
+
     
     objectToDraw = Cube(device: device, commandQ: commandQueue)
     self.metalViewControllerDelegate = self
@@ -52,8 +52,9 @@ class MySceneViewController: MetalViewController,MetalViewControllerDelegate,UIG
         objectToDraw = cube2
         curObj = 0
     }
-    
+     
     objectToDraw.render(commandQueue: commandQueue, pipelineState: pipelineState, drawable: drawable, parentModelViewMatrix: worldModelMatrix, projectionMatrix: projectionMatrix, clearColor: nil)
+    
   }
   
   func updateLogic(timeSinceLastUpdate: CFTimeInterval) {
@@ -75,8 +76,8 @@ class MySceneViewController: MetalViewController,MetalViewControllerDelegate,UIG
         let xDelta = Float((lastPanLocation.x - pointInView.x)/self.view.bounds.width) * panSensivity
         let yDelta = Float((lastPanLocation.y - pointInView.y)/self.view.bounds.height) * panSensivity
         // 4
-        objectToDraw.rotationY -= xDelta
-        objectToDraw.rotationX -= yDelta
+        cube1.rotationY -= xDelta
+        cube1.rotationX -= yDelta
         lastPanLocation = pointInView
       } else if panGesture.state == UIGestureRecognizer.State.began {
         lastPanLocation = panGesture.location(in: self.view)

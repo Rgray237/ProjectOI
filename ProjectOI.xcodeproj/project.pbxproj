@@ -40,6 +40,8 @@
 		D477F6D023A1B8FC00B8BB56 /* LevelManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F6CF23A1B8FC00B8BB56 /* LevelManagerTests.swift */; };
 		D477F6D423A55C5B00B8BB56 /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F6D323A55C5B00B8BB56 /* Vertex.swift */; };
 		D477F6DC23A586E500B8BB56 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D477F6DB23A586E500B8BB56 /* Metal.framework */; };
+		D49B2D3A23C4D72B00C1E1C6 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B2D3923C4D72B00C1E1C6 /* GameScene.swift */; };
+		D49B2D4023C4D8D700C1E1C6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B2D3F23C4D8D700C1E1C6 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +96,8 @@
 		D477F6CF23A1B8FC00B8BB56 /* LevelManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelManagerTests.swift; sourceTree = "<group>"; };
 		D477F6D323A55C5B00B8BB56 /* Vertex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vertex.swift; sourceTree = "<group>"; };
 		D477F6DB23A586E500B8BB56 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		D49B2D3923C4D72B00C1E1C6 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		D49B2D3F23C4D8D700C1E1C6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,7 @@
 		D477F682239DA3FA00B8BB56 = {
 			isa = PBXGroup;
 			children = (
+				D49B2D3423C4CB1300C1E1C6 /* Metal Stuff */,
 				D477F68D239DA3FA00B8BB56 /* ProjectOI */,
 				D477F6A2239DA3FA00B8BB56 /* ProjectOITests */,
 				D477F68C239DA3FA00B8BB56 /* Products */,
@@ -141,8 +146,6 @@
 				D4713E6223ABC3DF00259583 /* GameWorld.swift */,
 				D4713E6423ABC3DF00259583 /* LevelManager.swift */,
 				D4713E6023A87A8D00259583 /* cube.png */,
-				D4713E5823A8619800259583 /* MetalViewController.swift */,
-				D4713E5923A8619800259583 /* MySceneViewController.swift */,
 				D477F68E239DA3FA00B8BB56 /* AppDelegate.swift */,
 				D477F692239DA3FA00B8BB56 /* Main.storyboard */,
 				D477F695239DA3FA00B8BB56 /* Assets.xcassets */,
@@ -157,13 +160,11 @@
 				D477F6D323A55C5B00B8BB56 /* Vertex.swift */,
 				D4713E4F23A6BCD200259583 /* Matrix4.h */,
 				D4713E5023A6BCD300259583 /* Matrix4.m */,
-				D4713E5E23A875F300259583 /* MetalTexture.swift */,
-				D4713E4823A6B31200259583 /* Shaders.metal */,
-				D4713E5223A6BD6B00259583 /* Node.swift */,
-				D4713E5623A6C70500259583 /* Cube.swift */,
 				D477F6C3239DCFD400B8BB56 /* ProjectOI-Bridging-Header.h */,
 				D4713E5C23A868C000259583 /* BufferProvider.swift */,
 				D4713E6E23ABC73400259583 /* Vector3.swift */,
+				D49B2D3923C4D72B00C1E1C6 /* GameScene.swift */,
+				D49B2D3F23C4D8D700C1E1C6 /* MainViewController.swift */,
 			);
 			path = ProjectOI;
 			sourceTree = "<group>";
@@ -193,6 +194,19 @@
 				D477F6AF239DA9FE00B8BB56 /* SpriteKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D49B2D3423C4CB1300C1E1C6 /* Metal Stuff */ = {
+			isa = PBXGroup;
+			children = (
+				D4713E5923A8619800259583 /* MySceneViewController.swift */,
+				D4713E5823A8619800259583 /* MetalViewController.swift */,
+				D4713E5E23A875F300259583 /* MetalTexture.swift */,
+				D4713E5223A6BD6B00259583 /* Node.swift */,
+				D4713E5623A6C70500259583 /* Cube.swift */,
+				D4713E4823A6B31200259583 /* Shaders.metal */,
+			);
+			path = "Metal Stuff";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4713E5F23A875F400259583 /* MetalTexture.swift in Sources */,
+				D49B2D3A23C4D72B00C1E1C6 /* GameScene.swift in Sources */,
 				D4713E5A23A8619900259583 /* MetalViewController.swift in Sources */,
 				D4713E5323A6BD6B00259583 /* Node.swift in Sources */,
 				D4713E4923A6B31200259583 /* Shaders.metal in Sources */,
@@ -321,6 +336,7 @@
 				D4713E6823ABC3E000259583 /* LevelManager.swift in Sources */,
 				D4713E6F23ABC73400259583 /* Vector3.swift in Sources */,
 				D4713E5723A6C70500259583 /* Cube.swift in Sources */,
+				D49B2D4023C4D8D700C1E1C6 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
