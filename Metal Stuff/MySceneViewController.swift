@@ -30,8 +30,8 @@ class MySceneViewController: MetalViewController,MetalViewControllerDelegate,UIG
      cube1 = Cube(device: device, commandQ: commandQueue)
      cube2 = Cube(device: device, commandQ: commandQueue)
     
-    gameWorld.addNodeToObjectAtIndex(index: 0, renderNode: cube1)
-    gameWorld.addNodeToObjectAtIndex(index: 1, renderNode: cube2)
+    //gameWorld.addNodeToObjectAtIndex(index: 0, renderNode: cube1)
+    //gameWorld.addNodeToObjectAtIndex(index: 1, renderNode: cube2)
 
     
     objectToDraw = Cube(device: device, commandQ: commandQueue)

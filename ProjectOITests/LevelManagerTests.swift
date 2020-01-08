@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import SpriteKit
 @testable import ProjectOI
 
 class LevelManagerTests: XCTestCase {
@@ -29,7 +30,9 @@ class LevelManagerTests: XCTestCase {
     
     func testLoadsLevelToGameWorld()
     {
-        let lvlManager = LevelManager(lvl:0)
+        let skScene = SKScene()
+        let skView = SKView()
+        let lvlManager = LevelManager(lvl: 0, scene: skScene, view:skView)
         XCTAssert(lvlManager.gameWorldLoaded())
     }
     

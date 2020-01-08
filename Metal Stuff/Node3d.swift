@@ -10,7 +10,7 @@ import Foundation
 import Metal
 import QuartzCore
 
-class Node {
+class Node3d {
   
   let device: MTLDevice
   let name: String
@@ -28,7 +28,7 @@ class Node {
     var time:CFTimeInterval = 0.0
     var bufferProvider: BufferProvider
     var texture: MTLTexture
-    lazy var samplerState: MTLSamplerState? = Node.defaultSampler(device: self.device)
+    lazy var samplerState: MTLSamplerState? = Node3d.defaultSampler(device: self.device)
 
   
   init(name: String, vertices: Array<Vertex>, device: MTLDevice, texture: MTLTexture) {

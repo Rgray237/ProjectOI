@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		D4713E4923A6B31200259583 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = D4713E4823A6B31200259583 /* Shaders.metal */; };
 		D4713E5123A6BCD300259583 /* Matrix4.m in Sources */ = {isa = PBXBuildFile; fileRef = D4713E5023A6BCD300259583 /* Matrix4.m */; };
-		D4713E5323A6BD6B00259583 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E5223A6BD6B00259583 /* Node.swift */; };
+		D4713E5323A6BD6B00259583 /* Node3d.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E5223A6BD6B00259583 /* Node3d.swift */; };
 		D4713E5723A6C70500259583 /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E5623A6C70500259583 /* Cube.swift */; };
 		D4713E5A23A8619900259583 /* MetalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E5823A8619800259583 /* MetalViewController.swift */; };
 		D4713E5B23A8619900259583 /* MySceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E5923A8619800259583 /* MySceneViewController.swift */; };
@@ -42,6 +42,7 @@
 		D477F6DC23A586E500B8BB56 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D477F6DB23A586E500B8BB56 /* Metal.framework */; };
 		D49B2D3A23C4D72B00C1E1C6 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B2D3923C4D72B00C1E1C6 /* GameScene.swift */; };
 		D49B2D4023C4D8D700C1E1C6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B2D3F23C4D8D700C1E1C6 /* MainViewController.swift */; };
+		D49B2D4223C61EA100C1E1C6 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B2D4123C61EA100C1E1C6 /* Node.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +59,7 @@
 		D4713E4823A6B31200259583 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		D4713E4F23A6BCD200259583 /* Matrix4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix4.h; sourceTree = "<group>"; };
 		D4713E5023A6BCD300259583 /* Matrix4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Matrix4.m; sourceTree = "<group>"; };
-		D4713E5223A6BD6B00259583 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		D4713E5223A6BD6B00259583 /* Node3d.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node3d.swift; sourceTree = "<group>"; };
 		D4713E5623A6C70500259583 /* Cube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
 		D4713E5823A8619800259583 /* MetalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalViewController.swift; sourceTree = "<group>"; };
 		D4713E5923A8619800259583 /* MySceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySceneViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +99,7 @@
 		D477F6DB23A586E500B8BB56 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		D49B2D3923C4D72B00C1E1C6 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		D49B2D3F23C4D8D700C1E1C6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D49B2D4123C61EA100C1E1C6 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				D4713E6E23ABC73400259583 /* Vector3.swift */,
 				D49B2D3923C4D72B00C1E1C6 /* GameScene.swift */,
 				D49B2D3F23C4D8D700C1E1C6 /* MainViewController.swift */,
+				D49B2D4123C61EA100C1E1C6 /* Node.swift */,
 			);
 			path = ProjectOI;
 			sourceTree = "<group>";
@@ -202,7 +205,7 @@
 				D4713E5923A8619800259583 /* MySceneViewController.swift */,
 				D4713E5823A8619800259583 /* MetalViewController.swift */,
 				D4713E5E23A875F300259583 /* MetalTexture.swift */,
-				D4713E5223A6BD6B00259583 /* Node.swift */,
+				D4713E5223A6BD6B00259583 /* Node3d.swift */,
 				D4713E5623A6C70500259583 /* Cube.swift */,
 				D4713E4823A6B31200259583 /* Shaders.metal */,
 			);
@@ -320,9 +323,10 @@
 				D4713E5F23A875F400259583 /* MetalTexture.swift in Sources */,
 				D49B2D3A23C4D72B00C1E1C6 /* GameScene.swift in Sources */,
 				D4713E5A23A8619900259583 /* MetalViewController.swift in Sources */,
-				D4713E5323A6BD6B00259583 /* Node.swift in Sources */,
+				D4713E5323A6BD6B00259583 /* Node3d.swift in Sources */,
 				D4713E4923A6B31200259583 /* Shaders.metal in Sources */,
 				D4713E6723ABC3E000259583 /* Player.swift in Sources */,
+				D49B2D4223C61EA100C1E1C6 /* Node.swift in Sources */,
 				D477F6CC239E934000B8BB56 /* Enemy.swift in Sources */,
 				D4713E5B23A8619900259583 /* MySceneViewController.swift in Sources */,
 				D477F68F239DA3FA00B8BB56 /* AppDelegate.swift in Sources */,

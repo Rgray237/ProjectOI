@@ -1,7 +1,7 @@
 
 
 import Foundation
-
+import SpriteKit
 
 class GameWorld
 {
@@ -18,7 +18,7 @@ class GameWorld
     
     //Guarantee the following two arrays to have same array size.
     internal var renderObjects:[Node] = []
-
+    internal var spriteScene:SKScene = SKScene()
     
     func isLoaded()->Bool
     {
@@ -35,6 +35,7 @@ class GameWorld
         for actor in actors {
             actor.updateWithDelta(delta: delta)
         }
+        
     }
     
     func getNumActors()->Int
@@ -71,6 +72,11 @@ class GameWorld
         
         gameObjects[index].addNode(node: renderNode)
         renderObjects.append(renderNode)
+    }
+    
+    func setScene(scene:SKScene)
+    {
+        spriteScene = scene
     }
     
 }

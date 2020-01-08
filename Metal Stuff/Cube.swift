@@ -9,7 +9,7 @@
 import Foundation
 import Metal
 
-class Cube: Node {
+class Cube: Node3d {
   
   init(device: MTLDevice, commandQ: MTLCommandQueue){
     // 1

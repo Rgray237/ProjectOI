@@ -35,18 +35,6 @@ class LevelManager: NSObject, XMLParserDelegate
 
     private var vbo = GLuint()//Vertex Buffer Object (VBO): Keeps track of the per-vertex data itself, like the data you have in the Vertices array.
     private var vao = GLuint()//Vertex Array Object (VAO): This object can be bound like the vertex buffer object. Any future vertex attribute calls you make — after binding a vertex array object — will be stored inside it. What this means is that you only have to make calls to configure vertex attribute pointers once and then — whenever you want to draw an object — you bind the corresponding VAO. This facilitates and speeds up drawing different vertex data with different configurations.
-
-    
-
-    init(lvl: Int, parentViewController: UIViewController)
-    {
-        super.init()
-        chosenLevel = lvl
-        llParentViewController = parentViewController
-        
-        mainGameView = parentViewController.view as! SKView
-        parseXMLFile()
-    }
     
     init (lvl: Int, scene: SKScene, view:SKView)
     {
@@ -58,16 +46,10 @@ class LevelManager: NSObject, XMLParserDelegate
         dotherest()
     }
     
-    init(lvl: Int)
-    {
-        super.init()
-        chosenLevel = lvl
-        parseXMLFile()
-        loadToGameWorld()
-    }
     
-    private func loadToGameWorld()
+    private func loadEverythingToGameWorld()
     {
+        gameWorld.setScene(scene: mainGameScene)
         gameWorld.load()
     }
     func gameWorldLoaded()->Bool
@@ -87,7 +69,7 @@ class LevelManager: NSObject, XMLParserDelegate
     func dotherest()
     {
         addEnemiesToScene()
-        
+        loadEverythingToGameWorld()
     }
 
     
@@ -99,7 +81,7 @@ class LevelManager: NSObject, XMLParserDelegate
     
     func addEnemiesToScene()
     {
-        for enemy in levels[chosenLevel-1].enemiesInLevel
+        for enemy in levels[chosenLevel].enemiesInLevel
         {
             enemy.printInfo()
             
