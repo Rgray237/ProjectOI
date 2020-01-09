@@ -26,7 +26,7 @@ class MainViewController: UIViewController {
         
         let lvlMngr = LevelManager(lvl:1,scene:gameScene, view:skView)
 
-        
+        lvlMngr.dotherest()
         
         skView.presentScene(gameScene)
         

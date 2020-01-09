@@ -20,28 +20,18 @@ enum EnemyType
 class Enemy: SentientActor
 {
     var type:String = ""
-    var x:Int = 0
-    var y:Int = 0
     var id:Int = 0
     var mEnemyType:EnemyType = .basic
     
-    init (Type:String, X:String, Y:String)
-    {
-        super.init()
-        type = Type
-        x = Int(X) ?? 0
-        y = Int(Y) ?? 0
-    }
     
     init (Type:String, X:String, Y:String, ID:String)
     {
         super.init()
         type = Type
-        x = Int(X) ?? 0
-        y = Int(Y) ?? 0
+        pos = Vector3(x: Double(X) ?? 0, y: Double(Y) ?? 0, z: 0)
         id = Int(ID) ?? 0
     }
-    
+    /*
     init (type:EnemyType, X:String, Y:String, ID:String)
     {
         super.init()
@@ -50,11 +40,11 @@ class Enemy: SentientActor
         y = Int(Y) ?? 0
         id = Int(ID) ?? 0
     }
-    
+    */
     
     func printInfo()
     {
-         print("ID: " + String(id) + " -- Type: " + String(describing: mEnemyType) + " -- X: " + String(x) + " -- Y: " + String(y))
+        print("ID: " + String(id) + " -- Type: " + String(describing: mEnemyType) + " -- X: " + String(pos.x) + " -- Y: " + String(pos.y))
     }
 }
 

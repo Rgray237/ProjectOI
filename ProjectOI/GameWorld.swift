@@ -77,6 +77,13 @@ class GameWorld
     func setScene(scene:SKScene)
     {
         spriteScene = scene
+        
+        for gameObj in gameObjects {
+            
+            spriteScene.addChild(gameObj.renderNode)
+            gameObj.renderNode.positionX = CGFloat(gameObj.pos.x)
+            gameObj.renderNode.positionY = CGFloat(gameObj.pos.y)
+        }
     }
     
 }

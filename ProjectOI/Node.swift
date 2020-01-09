@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class Node : SKNode
+class Node : SKSpriteNode
 {
     
     var positionX: CGFloat = 0.0
@@ -19,13 +19,14 @@ class Node : SKNode
     var rotationY: CGFloat = 0.0
     var scale: Float     = 1.0
     
-    override init() {
-        super.init()
-        positionX = position.x
-        positionY = position.y
+    
+    init(imageNamed: String)
+    {
+        let texture = SKTexture(imageNamed: "Odie.png")
+        super.init(texture: texture, color: UIColor(displayP3Red: 1, green: 1, blue: 1, alpha: 1), size: texture.size())        
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

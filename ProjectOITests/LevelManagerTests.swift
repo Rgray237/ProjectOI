@@ -13,12 +13,16 @@ import SpriteKit
 class LevelManagerTests: XCTestCase {
     
     //var parentView = UIViewController()
+    var skScene:SKScene = SKScene()
+    var skView:SKView = SKView()
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
        // parentView = MySceneViewController()
         //parentView.loadView()
+        skScene = SKScene()
+        skView = SKView()
     }
     
     override func tearDown()
@@ -30,10 +34,34 @@ class LevelManagerTests: XCTestCase {
     
     func testLoadsLevelToGameWorld()
     {
-        let skScene = SKScene()
-        let skView = SKView()
+        
         let lvlManager = LevelManager(lvl: 0, scene: skScene, view:skView)
-        XCTAssert(lvlManager.gameWorldLoaded())
+        
+        XCTAssertEqual(lvlManager.gameWorldLoaded(),false)
+        lvlManager.dotherest()
+        XCTAssertEqual(lvlManager.gameWorldLoaded(), true)
+    }
+    
+    func testLoadsEnemiesToGameWorld()
+    {
+        let lvlManager = LevelManager(lvl: 0, scene: skScene, view:skView)
+        
+        
+        lvlManager.addEnemiesToGameWorld()
+        XCTAssertEqual(lvlManager.gameWorld.actors.count, 3)
+    }
+    
+    func testLoadsSpritesToEnemies()
+    {
+        let lvlManager = LevelManager(lvl: 0, scene: skScene, view:skView)
+        
+        lvlManager.addRenderNodesToEnemies()
+        XCTAssertEqual(skScene.children.count, 0)
+        lvlManager.addEnemiesToGameWorld()
+        lvlManager.addRenderNodesToEnemies()
+        lvlManager.gameWorld.setScene(scene: skScene)
+        XCTAssertEqual(skScene.children.count, 3)
+
     }
     
     func testLoadsGameWorldToParentViewController()

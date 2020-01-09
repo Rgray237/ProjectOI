@@ -20,8 +20,8 @@
 </lvl>
 <lvl id="2">
 <enemies>
-<enemy id="1" type="basic" x="30" y="50"></enemy>
-<enemy id="2" type="blarsic" x="-90" y="50"></enemy>
+<enemy id="4" type="basic" x="30" y="50"></enemy>
+<enemy id="5" type="blarsic" x="-90" y="50"></enemy>
 </enemies>
 </lvl>
 <lvl id="3">

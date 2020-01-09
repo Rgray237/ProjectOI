@@ -60,6 +60,7 @@ class GameWorldTests: XCTestCase {
     }
     
     
+    
     func testProperlyUpdated()
     {
         let player = Player()

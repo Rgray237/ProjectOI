@@ -43,15 +43,18 @@ class LevelManager: NSObject, XMLParserDelegate
         mainGameView = view
         mainGameScene = scene
         parseXMLFile()
-        dotherest()
+        //dotherest()
     }
     
     
     private func loadEverythingToGameWorld()
     {
+        addEnemiesToGameWorld()
+        addRenderNodesToEnemies()
         gameWorld.setScene(scene: mainGameScene)
         gameWorld.load()
     }
+    
     func gameWorldLoaded()->Bool
     {
         return gameWorld.isLoaded()
@@ -68,7 +71,8 @@ class LevelManager: NSObject, XMLParserDelegate
     
     func dotherest()
     {
-        addEnemiesToScene()
+        //addEnemiesToScene()
+        
         loadEverythingToGameWorld()
     }
 
@@ -78,7 +82,26 @@ class LevelManager: NSObject, XMLParserDelegate
         return 3
     }
     
+    func addEnemiesToGameWorld()
+    {
+        for enmy in levels[chosenLevel].enemiesInLevel
+        {
+            enmy.printInfo()
+            gameWorld.addActor(actor: enmy)
+        }
+    }
     
+    func addRenderNodesToEnemies()
+    {
+        for enmy in gameWorld.actors
+        {
+            let myNode = Node(imageNamed: "Odie.png")
+            
+            enmy.addNode(node: myNode)
+        }
+    }
+    
+    /*
     func addEnemiesToScene()
     {
         for enemy in levels[chosenLevel].enemiesInLevel
@@ -95,6 +118,7 @@ class LevelManager: NSObject, XMLParserDelegate
         }
  
     }
+ */
     
     
     
