@@ -35,8 +35,8 @@ class GameWorld
         for actor in actors {
             actor.updateWithDelta(delta: delta)
         }
-        
     }
+
     
     func getNumActors()->Int
     {
@@ -81,8 +81,9 @@ class GameWorld
         for gameObj in gameObjects {
             
             spriteScene.addChild(gameObj.renderNode)
-            gameObj.renderNode.positionX = CGFloat(gameObj.pos.x)
-            gameObj.renderNode.positionY = CGFloat(gameObj.pos.y)
+            gameObj.renderNode.position = CGPoint(x: gameObj.pos.x,y: gameObj.pos.y)
+            
+            
         }
     }
     

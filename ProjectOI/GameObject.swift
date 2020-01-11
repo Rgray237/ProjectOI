@@ -52,6 +52,7 @@ class GameObject
         pos.x += vel.x*delta
         pos.y += vel.y*delta
         pos.z += vel.z*delta
+        
     }
     
     func addNode(node:Node)

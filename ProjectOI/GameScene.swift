@@ -8,6 +8,15 @@
 
 import SpriteKit
 
+
 class GameScene: SKScene {
 
+    var gameWorld:GameWorld = GameWorld()
+    
+
+    
+    override func update(_ currentTime: TimeInterval) {
+        
+    }
+    
 }

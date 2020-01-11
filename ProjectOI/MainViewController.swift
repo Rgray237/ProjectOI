@@ -22,15 +22,14 @@ class MainViewController: UIViewController {
         let gameScene = GameScene(size: view.bounds.size)
         gameScene.scaleMode = .resizeFill
         
-        gameScene.anchorPoint = CGPoint(x: 0.5,y: 0.5)
+        //gameScene.anchorPoint = CGPoint(x: 0.5,y: 0.5)
+        print(gameScene.size)
         
         let lvlMngr = LevelManager(lvl:1,scene:gameScene, view:skView)
 
         lvlMngr.dotherest()
         
         skView.presentScene(gameScene)
-        
-        
         
         
         // Do any additional setup after loading the view.

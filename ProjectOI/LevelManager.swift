@@ -25,19 +25,20 @@ class LevelManager: NSObject, XMLParserDelegate
     internal var enemyID:String = ""
 
     
-    internal var mainGameScene = SKScene()
+    internal var mainGameScene = GameScene()
     internal var mainGameView = SKView()
     internal var chosenLevel = Int()
     internal var llParentViewController = UIViewController()
-    internal var gameWorld = GameWorld()
+    internal var gameWorld:GameWorld
     
     private var ebo = GLuint()//Element Buffer Object (EBO): Keeps track of the indices that define triangles, like the indices you have stored in the Indices array.
 
     private var vbo = GLuint()//Vertex Buffer Object (VBO): Keeps track of the per-vertex data itself, like the data you have in the Vertices array.
     private var vao = GLuint()//Vertex Array Object (VAO): This object can be bound like the vertex buffer object. Any future vertex attribute calls you make — after binding a vertex array object — will be stored inside it. What this means is that you only have to make calls to configure vertex attribute pointers once and then — whenever you want to draw an object — you bind the corresponding VAO. This facilitates and speeds up drawing different vertex data with different configurations.
     
-    init (lvl: Int, scene: SKScene, view:SKView)
+    init (lvl: Int, scene: GameScene, view:SKView)
     {
+        gameWorld = scene.gameWorld
         super.init()
         chosenLevel = lvl
         mainGameView = view
@@ -96,7 +97,7 @@ class LevelManager: NSObject, XMLParserDelegate
         for enmy in gameWorld.actors
         {
             let myNode = Node(imageNamed: "Odie.png")
-            
+            myNode.setScale(0.1)
             enmy.addNode(node: myNode)
         }
     }

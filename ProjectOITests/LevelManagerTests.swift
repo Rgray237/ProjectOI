@@ -13,7 +13,7 @@ import SpriteKit
 class LevelManagerTests: XCTestCase {
     
     //var parentView = UIViewController()
-    var skScene:SKScene = SKScene()
+    var gameScene:GameScene = GameScene()
     var skView:SKView = SKView()
     
     override func setUp() {
@@ -21,7 +21,7 @@ class LevelManagerTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
        // parentView = MySceneViewController()
         //parentView.loadView()
-        skScene = SKScene()
+        gameScene = GameScene()
         skView = SKView()
     }
     
@@ -35,7 +35,7 @@ class LevelManagerTests: XCTestCase {
     func testLoadsLevelToGameWorld()
     {
         
-        let lvlManager = LevelManager(lvl: 0, scene: skScene, view:skView)
+        let lvlManager = LevelManager(lvl: 0, scene: gameScene, view:skView)
         
         XCTAssertEqual(lvlManager.gameWorldLoaded(),false)
         lvlManager.dotherest()
@@ -44,7 +44,7 @@ class LevelManagerTests: XCTestCase {
     
     func testLoadsEnemiesToGameWorld()
     {
-        let lvlManager = LevelManager(lvl: 0, scene: skScene, view:skView)
+        let lvlManager = LevelManager(lvl: 0, scene: gameScene, view:skView)
         
         
         lvlManager.addEnemiesToGameWorld()
@@ -53,14 +53,14 @@ class LevelManagerTests: XCTestCase {
     
     func testLoadsSpritesToEnemies()
     {
-        let lvlManager = LevelManager(lvl: 0, scene: skScene, view:skView)
+        let lvlManager = LevelManager(lvl: 0, scene: gameScene, view:skView)
         
         lvlManager.addRenderNodesToEnemies()
-        XCTAssertEqual(skScene.children.count, 0)
+        XCTAssertEqual(gameScene.children.count, 0)
         lvlManager.addEnemiesToGameWorld()
         lvlManager.addRenderNodesToEnemies()
-        lvlManager.gameWorld.setScene(scene: skScene)
-        XCTAssertEqual(skScene.children.count, 3)
+        lvlManager.gameWorld.setScene(scene: gameScene)
+        XCTAssertEqual(gameScene.children.count, 3)
 
     }
     
