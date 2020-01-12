@@ -11,9 +11,9 @@
     
 <lvl id="1">
 <enemies>
-    <enemy id="1" type="basic" x="30" y="50"></enemy>
-    <enemy id="2" type="basic" x="40" y="30"></enemy>
-    <enemy id="3" type="basic" x="100" y="40"></enemy>
+    <enemy id="1" type="basic" x="100" y="200"></enemy>
+    <enemy id="2" type="basic" x="250" y="400"></enemy>
+    <enemy id="3" type="basic" x="300" y="600"></enemy>
 </enemies>
 <title>To Kill A MockingBird</title>
 <author>Harper Lee</author>

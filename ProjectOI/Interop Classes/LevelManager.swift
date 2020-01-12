@@ -30,6 +30,7 @@ class LevelManager: NSObject, XMLParserDelegate
     internal var chosenLevel = Int()
     internal var llParentViewController = UIViewController()
     internal var gameWorld:GameWorld
+    internal var sceneWorldMngr:SceneWorldManager?
     
     private var ebo = GLuint()//Element Buffer Object (EBO): Keeps track of the indices that define triangles, like the indices you have stored in the Indices array.
 
@@ -44,6 +45,8 @@ class LevelManager: NSObject, XMLParserDelegate
         mainGameView = view
         mainGameScene = scene
         parseXMLFile()
+        sceneWorldMngr = setupSceneWorldManager()
+
         //dotherest()
     }
     
@@ -77,6 +80,11 @@ class LevelManager: NSObject, XMLParserDelegate
         loadEverythingToGameWorld()
     }
 
+    func setupSceneWorldManager()->SceneWorldManager
+    {
+        let mngr = SceneWorldManager(scene: mainGameScene, world: gameWorld)
+        return mngr
+    }
     
     func numberOfEnemiesInScene()->Int
     {
@@ -97,7 +105,7 @@ class LevelManager: NSObject, XMLParserDelegate
         for enmy in gameWorld.actors
         {
             let myNode = Node(imageNamed: "Odie.png")
-            myNode.setScale(0.1)
+            myNode.setScale(0.3)
             enmy.addNode(node: myNode)
         }
     }

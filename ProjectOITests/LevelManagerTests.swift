@@ -64,10 +64,13 @@ class LevelManagerTests: XCTestCase {
 
     }
     
-    func testLoadsGameWorldToParentViewController()
+    func testCreatesProperSceneWorldManager()
     {
-        
+        let lvlManager = LevelManager(lvl: 0,scene: gameScene, view:skView)
+        lvlManager.addRenderNodesToEnemies()
+        lvlManager.addEnemiesToGameWorld()
     }
+    
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
