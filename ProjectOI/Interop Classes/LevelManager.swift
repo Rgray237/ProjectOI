@@ -25,17 +25,14 @@ class LevelManager: NSObject, XMLParserDelegate
     internal var enemyID:String = ""
 
     
-    internal var mainGameScene = GameScene()
+     var mainGameScene = GameScene()
     internal var mainGameView = SKView()
     internal var chosenLevel = Int()
     internal var llParentViewController = UIViewController()
-    internal var gameWorld:GameWorld
-    internal var sceneWorldMngr:SceneWorldManager?
-    
-    private var ebo = GLuint()//Element Buffer Object (EBO): Keeps track of the indices that define triangles, like the indices you have stored in the Indices array.
+     var gameWorld:GameWorld
 
-    private var vbo = GLuint()//Vertex Buffer Object (VBO): Keeps track of the per-vertex data itself, like the data you have in the Vertices array.
-    private var vao = GLuint()//Vertex Array Object (VAO): This object can be bound like the vertex buffer object. Any future vertex attribute calls you make — after binding a vertex array object — will be stored inside it. What this means is that you only have to make calls to configure vertex attribute pointers once and then — whenever you want to draw an object — you bind the corresponding VAO. This facilitates and speeds up drawing different vertex data with different configurations.
+    
+    
     
     init (lvl: Int, scene: GameScene, view:SKView)
     {
@@ -45,23 +42,23 @@ class LevelManager: NSObject, XMLParserDelegate
         mainGameView = view
         mainGameScene = scene
         parseXMLFile()
-        sceneWorldMngr = setupSceneWorldManager()
 
         //dotherest()
     }
     
     
+    
+    
     private func loadEverythingToGameWorld()
     {
+        addPlayerCharacterToGameWorld()
         addEnemiesToGameWorld()
-        addRenderNodesToEnemies()
-        gameWorld.setScene(scene: mainGameScene)
-        gameWorld.load()
     }
     
-    func gameWorldLoaded()->Bool
+    private func loadRenderObjects()
     {
-        return gameWorld.isLoaded()
+        addRenderNodesToPlayer()
+        addRenderNodesToEnemies()
     }
     
     private func parseXMLFile() {
@@ -76,19 +73,13 @@ class LevelManager: NSObject, XMLParserDelegate
     func dotherest()
     {
         //addEnemiesToScene()
-        
         loadEverythingToGameWorld()
+        loadRenderObjects()
     }
 
-    func setupSceneWorldManager()->SceneWorldManager
+    func addPlayerCharacterToGameWorld()
     {
-        let mngr = SceneWorldManager(scene: mainGameScene, world: gameWorld)
-        return mngr
-    }
-    
-    func numberOfEnemiesInScene()->Int
-    {
-        return 3
+        gameWorld.addActor(actor: Player())
     }
     
     func addEnemiesToGameWorld()
@@ -100,37 +91,19 @@ class LevelManager: NSObject, XMLParserDelegate
         }
     }
     
+    private func addRenderNodesToPlayer()
+    {
+        mainGameScene.addNodeToObject(renderNode: Node(imageNamed: "Player.png"), obj: gameWorld.getPlayer())
+    }
+    
     func addRenderNodesToEnemies()
     {
-        for enmy in gameWorld.actors
+        for enmy in gameWorld.enemies
         {
-            let myNode = Node(imageNamed: "Odie.png")
-            myNode.setScale(0.3)
-            enmy.addNode(node: myNode)
+            mainGameScene.addNodeToObject(renderNode: Node(imageNamed:"Odie.png"), obj: enmy)
+            enmy.renderNode.setScale(0.2)
         }
     }
-    
-    /*
-    func addEnemiesToScene()
-    {
-        for enemy in levels[chosenLevel].enemiesInLevel
-        {
-            enemy.printInfo()
-            
-            let image = SKSpriteNode(imageNamed: "Odie.png")
-            image.scale(to: CGSize(width: 50, height: 50))
-            image.position = CGPoint (x: enemy.x, y: enemy.y)
-            
-            // Add the image to the scene.
-            mainGameScene.addChild(image)
-            
-        }
- 
-    }
- */
-    
-    
-    
     
     
     internal func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {

@@ -12,19 +12,27 @@ import SpriteKit
 class GameScene: SKScene {
 
     var gameWorld:GameWorld = GameWorld()
-    
+    var previousTime:CFTimeInterval = 0
     
     override func update(_ currentTime: TimeInterval) {
-        gameWorld.updateWithDelta(delta: currentTime)
         
+        gameWorld.updateWithDelta(delta: currentTime)
         for obj in gameWorld.gameObjects {
-            
-            guard (obj.renderNode != nil)  else {
-                return
+            if obj.renderNode != nil
+            {
+            obj.renderNode!.position = CGPoint(x: obj.pos.x,y: obj.pos.y)
             }
-            obj.renderNode.position = CGPoint(x: obj.pos.x,y: obj.pos.y)
-            
         }
+        previousTime = currentTime
+    }
+    
+
+    func addNodeToObject(renderNode:Node,obj:GameObject)
+    {
+        obj.renderNode = renderNode
+        obj.renderNode.position = CGPoint(x: obj.pos.x,y: obj.pos.y)
+        
+        self.addChild(renderNode)
     }
     
 }

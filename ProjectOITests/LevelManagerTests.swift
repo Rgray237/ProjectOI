@@ -15,13 +15,14 @@ class LevelManagerTests: XCTestCase {
     //var parentView = UIViewController()
     var gameScene:GameScene = GameScene()
     var skView:SKView = SKView()
+
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
        // parentView = MySceneViewController()
         //parentView.loadView()
-        gameScene = GameScene()
+        gameScene = GameScene(size: CGSize(width: 500, height: 500))
         skView = SKView()
     }
     
@@ -32,15 +33,7 @@ class LevelManagerTests: XCTestCase {
 
     }
     
-    func testLoadsLevelToGameWorld()
-    {
-        
-        let lvlManager = LevelManager(lvl: 0, scene: gameScene, view:skView)
-        
-        XCTAssertEqual(lvlManager.gameWorldLoaded(),false)
-        lvlManager.dotherest()
-        XCTAssertEqual(lvlManager.gameWorldLoaded(), true)
-    }
+    
     
     func testLoadsEnemiesToGameWorld()
     {
@@ -51,6 +44,7 @@ class LevelManagerTests: XCTestCase {
         XCTAssertEqual(lvlManager.gameWorld.actors.count, 3)
     }
     
+    
     func testLoadsSpritesToEnemies()
     {
         let lvlManager = LevelManager(lvl: 0, scene: gameScene, view:skView)
@@ -59,17 +53,10 @@ class LevelManagerTests: XCTestCase {
         XCTAssertEqual(gameScene.children.count, 0)
         lvlManager.addEnemiesToGameWorld()
         lvlManager.addRenderNodesToEnemies()
-        lvlManager.gameWorld.setScene(scene: gameScene)
         XCTAssertEqual(gameScene.children.count, 3)
 
     }
-    
-    func testCreatesProperSceneWorldManager()
-    {
-        let lvlManager = LevelManager(lvl: 0,scene: gameScene, view:skView)
-        lvlManager.addRenderNodesToEnemies()
-        lvlManager.addEnemiesToGameWorld()
-    }
+
     
     
     func testPerformanceExample() {

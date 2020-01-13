@@ -32,7 +32,7 @@ class GameSceneTests: XCTestCase {
 
     func testUpdatesGameWorld()
     {
-scene.gameWorld.addActor(actor: Enemy(Type: "basic", X: "4", Y: "6", ID: "1"))
+        scene.gameWorld.addActor(actor: Enemy(Type: "basic", X: "4", Y: "6", ID: "1"))
         scene.gameWorld.getActorAtIndex(index: 0)?.setVelocity(velocity: Vector3(x: 3, y: 3, z: 3))
         
         scene.update(3)
@@ -40,6 +40,21 @@ scene.gameWorld.addActor(actor: Enemy(Type: "basic", X: "4", Y: "6", ID: "1"))
         
     }
     
+    func testNodesStayTiedToWorldObjects()
+    {
+        
+        scene.gameWorld.addActor(actor: Enemy(Type: "basic", X: "4", Y: "6", ID: "1"))
+        scene.gameWorld.getActorAtIndex(index: 0)?.setVelocity(velocity: Vector3(x: 3, y: 3, z: 3))
+        let myNode = Node(imageNamed:"Odie.png")
+    scene.addNodeToObject(renderNode:myNode,obj:scene.gameWorld.getActorAtIndex(index: 0)!)
+
+        scene.update(3)
+        
+        XCTAssertEqual(scene.gameWorld.getActorAtIndex(index: 0)?.pos,Vector3(x: 13, y: 15, z: 9))
+        XCTAssertEqual(scene.gameWorld.getActorAtIndex(index: 0)?.renderNode.position, CGPoint(x: 13, y: 15))
+        
+        XCTAssertEqual(scene.children.count, 1 )
+    }
     
     func testPerformanceExample() {
         // This is an example of a performance test case.

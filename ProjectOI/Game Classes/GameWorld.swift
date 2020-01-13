@@ -15,20 +15,12 @@ class GameWorld
     internal var loaded:Bool = false
     internal var actors:[SentientActor] = []
     internal var gameObjects:[GameObject] = []
+    internal var enemies:[Enemy] = []
     
     //Guarantee the following two arrays to have same array size.
     internal var renderObjects:[Node] = []
     internal var spriteScene:SKScene = SKScene()
-    
-    func isLoaded()->Bool
-    {
-        return loaded
-    }
-    
-    func load()
-    {
-        loaded = true
-    }
+    internal var player:Player = Player()
     
     func updateWithDelta(delta:CFTimeInterval)
     {
@@ -45,6 +37,15 @@ class GameWorld
     
     func addActor(actor: SentientActor)
     {
+        if actor is Enemy
+        {
+            enemies.append(actor as! Enemy)
+        }
+        if actor is Player
+        {
+            player = actor as! Player
+        }
+        
         actors.append(actor)
         gameObjects.append(actor)
     }
@@ -74,17 +75,9 @@ class GameWorld
         renderObjects.append(renderNode)
     }
     
-    func setScene(scene:SKScene)
+    func getPlayer()->Player
     {
-        spriteScene = scene
-        
-        for gameObj in gameObjects {
-            
-            spriteScene.addChild(gameObj.renderNode)
-            gameObj.renderNode.position = CGPoint(x: gameObj.pos.x,y: gameObj.pos.y)
-            
-            
-        }
+        return player
     }
     
 }

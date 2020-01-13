@@ -58,6 +58,7 @@ class GameObject
     func addNode(node:Node)
     {
         renderNode = node
+        node.position = CGPoint(x: pos.x,y: pos.y)
     }
     
 }

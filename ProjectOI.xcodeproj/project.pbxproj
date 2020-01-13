@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D4233D6B23CB902E00152411 /* GameSceneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4233D6A23CB902E00152411 /* GameSceneTests.swift */; };
-		D4233D6D23CB9AE500152411 /* SceneWorldManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4233D6C23CB9AE500152411 /* SceneWorldManager.swift */; };
-		D4233D6F23CB9AF800152411 /* SceneWorldManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4233D6E23CB9AF800152411 /* SceneWorldManagerTests.swift */; };
 		D4713E4923A6B31200259583 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = D4713E4823A6B31200259583 /* Shaders.metal */; };
 		D4713E5123A6BCD300259583 /* Matrix4.m in Sources */ = {isa = PBXBuildFile; fileRef = D4713E5023A6BCD300259583 /* Matrix4.m */; };
 		D4713E5323A6BD6B00259583 /* Node3d.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E5223A6BD6B00259583 /* Node3d.swift */; };
@@ -23,7 +21,6 @@
 		D4713E6723ABC3E000259583 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E6323ABC3DF00259583 /* Player.swift */; };
 		D4713E6823ABC3E000259583 /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E6423ABC3DF00259583 /* LevelManager.swift */; };
 		D4713E6C23ABC58C00259583 /* GameWorldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E6A23ABC58C00259583 /* GameWorldTests.swift */; };
-		D4713E6D23ABC58C00259583 /* WorldAndRenderManagerTests in Resources */ = {isa = PBXBuildFile; fileRef = D4713E6B23ABC58C00259583 /* WorldAndRenderManagerTests */; };
 		D4713E6F23ABC73400259583 /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E6E23ABC73400259583 /* Vector3.swift */; };
 		D4713E7423ABC8B300259583 /* PlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E7323ABC8B300259583 /* PlayerTests.swift */; };
 		D4713E7623ABCBA000259583 /* GameObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E7523ABCBA000259583 /* GameObjectTests.swift */; };
@@ -60,8 +57,6 @@
 
 /* Begin PBXFileReference section */
 		D4233D6A23CB902E00152411 /* GameSceneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneTests.swift; sourceTree = "<group>"; };
-		D4233D6C23CB9AE500152411 /* SceneWorldManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneWorldManager.swift; sourceTree = "<group>"; };
-		D4233D6E23CB9AF800152411 /* SceneWorldManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneWorldManagerTests.swift; sourceTree = "<group>"; };
 		D4713E4823A6B31200259583 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		D4713E4F23A6BCD200259583 /* Matrix4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix4.h; sourceTree = "<group>"; };
 		D4713E5023A6BCD300259583 /* Matrix4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Matrix4.m; sourceTree = "<group>"; };
@@ -76,7 +71,6 @@
 		D4713E6323ABC3DF00259583 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		D4713E6423ABC3DF00259583 /* LevelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelManager.swift; sourceTree = "<group>"; };
 		D4713E6A23ABC58C00259583 /* GameWorldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameWorldTests.swift; sourceTree = "<group>"; };
-		D4713E6B23ABC58C00259583 /* WorldAndRenderManagerTests */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WorldAndRenderManagerTests; sourceTree = "<group>"; };
 		D4713E6E23ABC73400259583 /* Vector3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector3.swift; sourceTree = "<group>"; };
 		D4713E7323ABC8B300259583 /* PlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTests.swift; sourceTree = "<group>"; };
 		D4713E7523ABCBA000259583 /* GameObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObjectTests.swift; sourceTree = "<group>"; };
@@ -157,7 +151,6 @@
 		D4233D7323CBAC6B00152411 /* Interop Classes */ = {
 			isa = PBXGroup;
 			children = (
-				D4233D6C23CB9AE500152411 /* SceneWorldManager.swift */,
 				D4713E6423ABC3DF00259583 /* LevelManager.swift */,
 			);
 			path = "Interop Classes";
@@ -171,10 +164,18 @@
 			path = "XML Configs";
 			sourceTree = "<group>";
 		};
-		D477F682239DA3FA00B8BB56 = {
+		D4233D7723CBCB3300152411 /* Obsolete */ = {
 			isa = PBXGroup;
 			children = (
 				D49B2D3423C4CB1300C1E1C6 /* Metal Stuff */,
+			);
+			path = Obsolete;
+			sourceTree = "<group>";
+		};
+		D477F682239DA3FA00B8BB56 = {
+			isa = PBXGroup;
+			children = (
+				D4233D7723CBCB3300152411 /* Obsolete */,
 				D477F68D239DA3FA00B8BB56 /* ProjectOI */,
 				D477F6A2239DA3FA00B8BB56 /* ProjectOITests */,
 				D477F68C239DA3FA00B8BB56 /* Products */,
@@ -210,7 +211,6 @@
 			isa = PBXGroup;
 			children = (
 				D4713E6A23ABC58C00259583 /* GameWorldTests.swift */,
-				D4713E6B23ABC58C00259583 /* WorldAndRenderManagerTests */,
 				D477F6A3239DA3FA00B8BB56 /* ProjectOITests.swift */,
 				D477F6A5239DA3FA00B8BB56 /* Info.plist */,
 				D477F6CF23A1B8FC00B8BB56 /* LevelManagerTests.swift */,
@@ -219,7 +219,6 @@
 				D4713E7B23B4F9FB00259583 /* EnemyTests.swift */,
 				D4713E7D23B4FA1000259583 /* SentientActorTests.swift */,
 				D4233D6A23CB902E00152411 /* GameSceneTests.swift */,
-				D4233D6E23CB9AF800152411 /* SceneWorldManagerTests.swift */,
 			);
 			path = ProjectOITests;
 			sourceTree = "<group>";
@@ -350,7 +349,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4713E6D23ABC58C00259583 /* WorldAndRenderManagerTests in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,7 +380,6 @@
 				D4713E6F23ABC73400259583 /* Vector3.swift in Sources */,
 				D4713E5723A6C70500259583 /* Cube.swift in Sources */,
 				D49B2D4023C4D8D700C1E1C6 /* MainViewController.swift in Sources */,
-				D4233D6D23CB9AE500152411 /* SceneWorldManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,7 +389,6 @@
 			files = (
 				D4713E7423ABC8B300259583 /* PlayerTests.swift in Sources */,
 				D477F6A4239DA3FA00B8BB56 /* ProjectOITests.swift in Sources */,
-				D4233D6F23CB9AF800152411 /* SceneWorldManagerTests.swift in Sources */,
 				D4233D6B23CB902E00152411 /* GameSceneTests.swift in Sources */,
 				D477F6D023A1B8FC00B8BB56 /* LevelManagerTests.swift in Sources */,
 				D4713E7E23B4FA1000259583 /* SentientActorTests.swift in Sources */,
