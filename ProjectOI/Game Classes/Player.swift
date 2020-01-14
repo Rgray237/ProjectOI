@@ -3,46 +3,46 @@ import Foundation
 
 import Foundation
 
-class Input
-{
-
-}
 
 protocol  PlayerState
 {
-    static func handleInput(plyr:Player,in:Input)
-    static func update(plyr:Player)
+     func handleInput(plyr:Player,in:Input)->PlayerState
+     func update(plyr:Player)
 }
 
 class IdleState : PlayerState
 {
-   static func handleInput(plyr:Player,in:Input)
+   func handleInput(plyr:Player,in:Input)->PlayerState
     {
+        return DashingState()
     }
 
-   static func update(plyr:Player)
+   func update(plyr:Player)
     {
     }
 }
 
 class DashingState : PlayerState
 {
-    static func handleInput(plyr:Player,in:Input)
+     func handleInput(plyr:Player,in:Input)->PlayerState
     {
+        return DashingState()
     }
 
-    static func update(plyr:Player)
+     func update(plyr:Player)
     {
+        plyr.setVelocity(velocity: plyr.vel*2)
     }
 }
 
 class CooldownState : PlayerState
 {
-    static func handleInput(plyr:Player,in:Input)
+     func handleInput(plyr:Player,in:Input)->PlayerState
     {
+        return DashingState()
     }
 
-    static func update(plyr:Player)
+     func update(plyr:Player)
     {
     }
 }
@@ -52,34 +52,35 @@ class CooldownState : PlayerState
 class Player : SentientActor
 {
 
-    internal var state:PlayerState
+    internal var state:PlayerState = IdleState()
 
-    init() {
-        state = IdleState()
+    override init() {
+        super.init()
     }
 
-    func changeState()
+    
+    
+    func handleInput(inp:Input)
     {
-        state = DashingState()
+        state = state.handleInput(plyr: self, in: inp)
     }
 
-    func getState()
+    override func update() {
+        state.update(plyr: self)
+    }
+    
+    func getState()->String
     {
         if state is IdleState
         {
-            print("idle")
+            return "idle"
         }
 
         if state is DashingState
         {
-            print("dashing")
+            return "dashing"
         }
-
+        return "none"
     }
     
 }
-
-let plr = Player()
-plr.getState()
-plr.changeState()
-plr.getState()

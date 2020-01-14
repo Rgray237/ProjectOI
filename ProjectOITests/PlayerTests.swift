@@ -30,6 +30,14 @@ class PlayerTests: XCTestCase {
     {
         
     }
+    
+    func testStateChangesToDash()
+    {
+        XCTAssertEqual(player.getState(),"idle")
+        let inp = Tap()
+        player.handleInput(inp: inp)
+        XCTAssertEqual(player.getState(), "dashing")
+    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.

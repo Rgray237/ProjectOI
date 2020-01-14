@@ -43,6 +43,7 @@
 		D49B2D3A23C4D72B00C1E1C6 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B2D3923C4D72B00C1E1C6 /* GameScene.swift */; };
 		D49B2D4023C4D8D700C1E1C6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B2D3F23C4D8D700C1E1C6 /* MainViewController.swift */; };
 		D49B2D4223C61EA100C1E1C6 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B2D4123C61EA100C1E1C6 /* Node.swift */; };
+		D4CB89FD23CD603400A76D64 /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CB89FC23CD603400A76D64 /* Input.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		D49B2D3923C4D72B00C1E1C6 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		D49B2D3F23C4D8D700C1E1C6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D49B2D4123C61EA100C1E1C6 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		D4CB89FC23CD603400A76D64 /* Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				D4713E7923B4F9CF00259583 /* SentientActor.swift */,
 				D4713E7723ABCBB500259583 /* GameObject.swift */,
 				D4713E6223ABC3DF00259583 /* GameWorld.swift */,
+				D4CB89FC23CD603400A76D64 /* Input.swift */,
 			);
 			path = "Game Classes";
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				D4713E7A23B4F9CF00259583 /* SentientActor.swift in Sources */,
 				D4713E5D23A868C000259583 /* BufferProvider.swift in Sources */,
 				D4713E6623ABC3E000259583 /* GameWorld.swift in Sources */,
+				D4CB89FD23CD603400A76D64 /* Input.swift in Sources */,
 				D477F6D423A55C5B00B8BB56 /* Vertex.swift in Sources */,
 				D477F6C1239DC86D00B8BB56 /* Level.swift in Sources */,
 				D4713E5123A6BCD300259583 /* Matrix4.m in Sources */,
