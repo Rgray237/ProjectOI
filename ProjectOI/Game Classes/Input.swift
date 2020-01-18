@@ -8,10 +8,18 @@
 
 import Foundation
 
-class Input
+
+class Input 
 {
+    var lastTouchedPos:CGPoint = CGPoint(x: 0, y: 0)
+    
     init() {
         
+    }
+    
+    func handleTouch(pos:CGPoint)
+    {
+        lastTouchedPos = pos
     }
 }
 

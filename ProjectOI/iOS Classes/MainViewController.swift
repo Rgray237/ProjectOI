@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let skView = view as! SKView
+        
         skView.showsFPS = true
         skView.showsNodeCount = true
         skView.ignoresSiblingOrder = true
@@ -28,7 +29,7 @@ class MainViewController: UIViewController {
         let lvlMngr = LevelManager(lvl:1,scene:gameScene, view:skView)
 
         lvlMngr.dotherest()
-        lvlMngr.gameWorld.getActorAtIndex(index: 0)?.setVelocity(velocity: Vector3(x: 0.000001, y: 0.000001, z: 0))
+        lvlMngr.gameWorld.getActorAtIndex(index: 0)?.setVelocity(velocity: Vector3(x: 0.000005, y: 0.000005, z: 0))
 
         skView.presentScene(gameScene)
         

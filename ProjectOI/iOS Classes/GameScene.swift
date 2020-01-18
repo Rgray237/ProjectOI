@@ -13,6 +13,62 @@ class GameScene: SKScene {
 
     var gameWorld:GameWorld = GameWorld()
     var previousTime:CFTimeInterval = 0
+    var inputWatcher:Input = Input()
+    
+    
+    
+    
+    override var isUserInteractionEnabled: Bool {
+        get {
+            return true
+        }
+        set {
+            // ignore
+        }
+    }
+    
+    func setupCamera()
+    {
+        let cameraNode = SKCameraNode()
+        cameraNode.position = CGPoint(x: self.size.width / 2,
+                                      y: self.size.height / 2)
+            
+        self.addChild(cameraNode)
+        self.camera = cameraNode
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else {
+            return
+        }
+        
+        let location = touch.location(in: self)
+        
+        gameWorld.moveWorldBy(vec: Vector3(x:Double(location.x)-Double(self.size.width/2), y:Double(location.y)-Double(self.size.height/2), z: 1))
+        //gameWorld.getPlayer().moveTo(pos: Vector3(x: Double(location.x), y: Double(location.y), z: 0))
+        
+    }
+    
+    
+    
+    func rectOfGameWorldInScene()->CGRect
+    {
+        return CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
+    }
+    
+    func worldPosToScenePos(pos:Vector3)->Vector3
+    {
+        
+        return pos+gameWorld.pos
+    }
+    
+    func scenePosToWorldPos(pos:Vector3)->Vector3
+    {
+        return pos-gameWorld.pos
+    }
+    
+    
     
     override func update(_ currentTime: TimeInterval) {
         
@@ -20,7 +76,9 @@ class GameScene: SKScene {
         for obj in gameWorld.gameObjects {
             if obj.renderNode != nil
             {
-            obj.renderNode!.position = CGPoint(x: obj.pos.x,y: obj.pos.y)
+                let vec = worldPosToScenePos(pos: obj.pos) 
+                obj.renderNode!.position = CGPoint(x:vec.x,y:vec.y)
+
             }
         }
         previousTime = currentTime
@@ -30,7 +88,8 @@ class GameScene: SKScene {
     func addNodeToObject(renderNode:Node,obj:GameObject)
     {
         obj.renderNode = renderNode
-        obj.renderNode.position = CGPoint(x: obj.pos.x,y: obj.pos.y)
+        let vec = worldPosToScenePos(pos: obj.pos)
+        obj.renderNode.position = CGPoint(x: vec.x,y: vec.y)
         
         self.addChild(renderNode)
     }

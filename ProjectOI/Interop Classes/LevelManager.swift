@@ -57,8 +57,10 @@ class LevelManager: NSObject, XMLParserDelegate
     
     private func loadRenderObjects()
     {
+        addGameWorldOrigin()
         addRenderNodesToPlayer()
         addRenderNodesToEnemies()
+
     }
     
     private func parseXMLFile() {
@@ -75,6 +77,12 @@ class LevelManager: NSObject, XMLParserDelegate
         //addEnemiesToScene()
         loadEverythingToGameWorld()
         loadRenderObjects()
+        setupCamera()
+    }
+    
+    func setupCamera()
+    {
+        mainGameScene.setupCamera()
     }
 
     func addPlayerCharacterToGameWorld()
@@ -89,6 +97,13 @@ class LevelManager: NSObject, XMLParserDelegate
             enmy.printInfo()
             gameWorld.addActor(actor: enmy)
         }
+    }
+    
+    func addGameWorldOrigin()
+    {
+        gameWorld.addObject(obj: gameWorld.origin)
+        
+        mainGameScene.addNodeToObject(renderNode: Node(imageNamed:"Origin.png"), obj: gameWorld.origin)
     }
     
     private func addRenderNodesToPlayer()

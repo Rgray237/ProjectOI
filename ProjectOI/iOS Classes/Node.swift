@@ -22,8 +22,11 @@ class Node : SKSpriteNode
     
     init(imageNamed: String)
     {
-        let texture = SKTexture(imageNamed: "Odie.png")
-        super.init(texture: texture, color: UIColor(displayP3Red: 1, green: 1, blue: 1, alpha: 1), size: texture.size())        
+        let texture = SKTexture(imageNamed: imageNamed)
+        
+        super.init(texture: texture, color: UIColor(displayP3Red: 1, green: 1, blue: 1, alpha: 0), size: texture.size())
+        
+
     }
     
     required init(coder aDecoder: NSCoder) {

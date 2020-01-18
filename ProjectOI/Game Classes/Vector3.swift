@@ -28,6 +28,8 @@ struct Vector3 : Equatable
             lhs.z == rhs.z
     }
     
+    
+    
     static func * (lhs: Vector3,rhs: Double)->Vector3
     {
         return Vector3(x: lhs.x*rhs, y: lhs.y*rhs, z: lhs.z*rhs)
@@ -39,5 +41,14 @@ struct Vector3 : Equatable
     }
     
     
+    static func + (lhs: Vector3, rhs: Vector3) ->Vector3
+    {
+        return Vector3(x: lhs.x+rhs.x, y: lhs.y+rhs.y, z: lhs.z+rhs.z)
+    }
+    
+    static func - (lhs: Vector3, rhs: Vector3) ->Vector3
+    {
+        return Vector3(x: lhs.x-rhs.x, y: lhs.y-rhs.y, z: lhs.z-rhs.z)
+    }
     
 }

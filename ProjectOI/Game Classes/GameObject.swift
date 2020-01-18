@@ -47,6 +47,12 @@ class GameObject
         pos.z += vel.z
     }
     
+    func moveTo(pos:Vector3)
+    {
+        self.pos = pos
+    }
+    
+    
     func updateWithDelta(delta:CFTimeInterval)
     {
         pos.x += vel.x*delta

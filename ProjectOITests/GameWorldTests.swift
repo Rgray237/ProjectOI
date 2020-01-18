@@ -75,6 +75,18 @@ class GameWorldTests: XCTestCase {
         
     }
   
+    
+    func testMoveTo()
+    {
+        let player = Player()
+        XCTAssertEqual(player.pos, Vector3(x: 0, y: 0, z: 0))
+        player.moveTo(pos: Vector3(x: 10, y: 30, z: -1))
+        XCTAssertEqual(player.pos, Vector3(x: 10, y: 30, z: -1))
+        
+    }
+    
+    
+    
   func testProperNumberOfEnemies()
   {
     

@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import SpriteKit
 @testable import ProjectOI
 
 class GameSceneTests: XCTestCase {
@@ -54,6 +55,22 @@ class GameSceneTests: XCTestCase {
         XCTAssertEqual(scene.gameWorld.getActorAtIndex(index: 0)?.renderNode.position, CGPoint(x: 13, y: 15))
         
         XCTAssertEqual(scene.children.count, 1 )
+    }
+    
+    
+    func testRectOfGameWorldInScene()
+    {
+        XCTAssertEqual(scene.rectOfGameWorldInScene(), CGRect(x: 0, y: 0, width: 500, height: 500))
+        
+    }
+    
+    func testCameraPos()
+    {
+        XCTAssertEqual(scene.camera, nil)
+        scene.setupCamera()
+        XCTAssert(scene.camera != nil)
+        XCTAssertEqual(scene.camera?.position, CGPoint(x: 250, y: 250))
+        
     }
     
     func testPerformanceExample() {
