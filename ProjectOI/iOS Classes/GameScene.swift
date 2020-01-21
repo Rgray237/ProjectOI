@@ -15,7 +15,15 @@ class GameScene: SKScene {
     var previousTime:CFTimeInterval = 0
     var inputWatcher:Input = Input()
     
-    
+    override var anchorPoint: CGPoint
+    {
+        get{
+            return CGPoint(x: 0.5, y: 0.5)
+        }
+        set{
+            //ignore
+        }
+    }
     
     
     override var isUserInteractionEnabled: Bool {
@@ -45,8 +53,13 @@ class GameScene: SKScene {
         
         let location = touch.location(in: self)
         
-        gameWorld.moveWorldBy(vec: Vector3(x:Double(location.x)-Double(self.size.width/2), y:Double(location.y)-Double(self.size.height/2), z: 1))
-        //gameWorld.getPlayer().moveTo(pos: Vector3(x: Double(location.x), y: Double(location.y), z: 0))
+        
+        print(location)
+        //gameWorld.moveWorldBy(vec: Vector3(x:Double(location.x)-Double(self.size.width/2), y:Double(location.y)-Double(self.size.height/2), z: 1))
+        gameWorld.getPlayer().moveTo(pos:scenePosToWorldPos(pos: Vector3(x: Double(location.x), y: Double(location.y), z: 0)))
+        gameWorld.getPlayer().pos.vecPrint()
+        gameWorld.pos.vecPrint()
+
         
     }
     
@@ -65,14 +78,15 @@ class GameScene: SKScene {
     
     func scenePosToWorldPos(pos:Vector3)->Vector3
     {
-        return pos-gameWorld.pos
+        
+        return pos - gameWorld.pos
     }
     
     
     
     override func update(_ currentTime: TimeInterval) {
         
-        gameWorld.updateWithDelta(delta: currentTime)
+        gameWorld.moveWorldTo(vec: gameWorld.getPlayer().pos)
         for obj in gameWorld.gameObjects {
             if obj.renderNode != nil
             {

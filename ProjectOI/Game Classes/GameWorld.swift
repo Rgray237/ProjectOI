@@ -80,6 +80,11 @@ class GameWorld
         //print("world pos: "+String(pos.x)+","+String(pos.y)+","+String(pos.z))
     }
     
+    func moveWorldTo(vec:Vector3)
+    {
+        pos = vec
+    }
+    
     func addNodeToObjectAtIndex(index:Int, renderNode:Node)
     {
         if (index > gameObjects.count-1)

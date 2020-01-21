@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Vector3 : Equatable
+struct Vector3
 {
     var x,y,z: Double
     
@@ -19,6 +19,11 @@ struct Vector3 : Equatable
             return false
         }
         return true
+    }
+    
+    func vecPrint()
+    {
+        print("X:" + String(x) + ", Y:" + String(y) + ", Z:" + String(z))
     }
     
     static func == (lhs: Vector3, rhs: Vector3) -> Bool {
@@ -52,3 +57,5 @@ struct Vector3 : Equatable
     }
     
 }
+
+
