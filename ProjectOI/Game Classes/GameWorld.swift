@@ -13,6 +13,7 @@ class GameWorld
   //var portals: [Portal]
   //var planes: [Plane]
     var pos:Vector3 = Vector3(x: 0, y: 0, z: 0)
+    var vel:Vector3 = Vector3(x: 0, y: 0, z: 0)
     var origin:GameObject = GameObject(position: Vector3(x: 0, y: 0, z: 0), velocity: Vector3(x: 0, y: 0, z: 0), dynamic: false)
     
     internal var loaded:Bool = false
@@ -29,9 +30,13 @@ class GameWorld
     
     func updateWithDelta(delta:CFTimeInterval)
     {
+        pos = pos + vel * delta
+        
         for actor in actors {
             actor.updateWithDelta(delta: delta)
         }
+        
+        
     }
 
     
@@ -83,6 +88,7 @@ class GameWorld
     func moveWorldTo(vec:Vector3)
     {
         pos = vec
+        
     }
     
     func addNodeToObjectAtIndex(index:Int, renderNode:Node)

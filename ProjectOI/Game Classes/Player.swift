@@ -6,43 +6,63 @@ import Foundation
 
 protocol  PlayerState
 {
-     func handleInput(plyr:Player,in:Input)->PlayerState
-     func update(plyr:Player)
+     func handleInput(plyr:Player,inp:Input)->PlayerState
+    func updateWithDelta(plyr:Player, delta:CFTimeInterval)
 }
+
+
+
 
 class IdleState : PlayerState
 {
-   func handleInput(plyr:Player,in:Input)->PlayerState
+   func handleInput(plyr:Player,inp:Input)->PlayerState
     {
+        if inp is Tap
+        {
+            print ("Dashing")
+            plyr.setVelocity(velocity: plyr.vel*5)
         return DashingState()
+        }
+        return IdleState()
     }
 
-   func update(plyr:Player)
+   func updateWithDelta(plyr:Player, delta:CFTimeInterval)
     {
+       plyr.pos.x += plyr.vel.x*delta
+       plyr.pos.y += plyr.vel.y*delta
+       plyr.pos.z += plyr.vel.z*delta
     }
 }
 
 class DashingState : PlayerState
 {
-     func handleInput(plyr:Player,in:Input)->PlayerState
+     func handleInput(plyr:Player,inp:Input)->PlayerState
     {
+        if inp is Untap
+        {
+            print("Idling")
+            plyr.setVelocity(velocity: plyr.vel * 0.2)
+            return IdleState()
+        }
         return DashingState()
     }
 
-     func update(plyr:Player)
+     func updateWithDelta(plyr:Player, delta:CFTimeInterval)
     {
-        plyr.setVelocity(velocity: plyr.vel*2)
+        plyr.pos.x += plyr.vel.x*delta
+        plyr.pos.y += plyr.vel.y*delta
+        plyr.pos.z += plyr.vel.z*delta
     }
 }
 
 class CooldownState : PlayerState
 {
-     func handleInput(plyr:Player,in:Input)->PlayerState
+     func handleInput(plyr:Player,inp:Input)->PlayerState
     {
         return DashingState()
     }
 
-     func update(plyr:Player)
+     func updateWithDelta(plyr:Player, delta:CFTimeInterval)
     {
     }
 }
@@ -62,11 +82,13 @@ class Player : SentientActor
     
     func handleInput(inp:Input)
     {
-        state = state.handleInput(plyr: self, in: inp)
+        state = state.handleInput(plyr: self, inp: inp)
     }
 
-    override func update() {
-        state.update(plyr: self)
+    
+    
+    override func updateWithDelta(delta: CFTimeInterval) {
+        state.updateWithDelta(plyr: self, delta: delta)
     }
     
     func getState()->String

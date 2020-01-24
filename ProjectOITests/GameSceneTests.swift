@@ -64,14 +64,7 @@ class GameSceneTests: XCTestCase {
         
     }
     
-    func testCameraPos()
-    {
-        XCTAssertEqual(scene.camera, nil)
-        scene.setupCamera()
-        XCTAssert(scene.camera != nil)
-        XCTAssertEqual(scene.camera?.position, CGPoint(x: 250, y: 250))
-        
-    }
+    
     
     func testPerformanceExample() {
         // This is an example of a performance test case.

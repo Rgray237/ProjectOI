@@ -29,9 +29,11 @@ class MainViewController: UIViewController {
         let lvlMngr = LevelManager(lvl:1,scene:gameScene, view:skView)
 
         lvlMngr.dotherest()
-        //lvlMngr.gameWorld.getActorAtIndex(index: 0)?.setVelocity(velocity: Vector3(x: 0.000005, y: 0.000005, z: 0))
+        
 
         skView.presentScene(gameScene)
+       
+        
         
         
         // Do any additional setup after loading the view.

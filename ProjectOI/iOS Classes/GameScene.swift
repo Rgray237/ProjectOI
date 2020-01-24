@@ -38,31 +38,34 @@ class GameScene: SKScene {
     func setupCamera()
     {
         let cameraNode = SKCameraNode()
-        cameraNode.position = CGPoint(x: self.size.width / 2,
-                                      y: self.size.height / 2)
+        cameraNode.position = CGPoint(x: -0.5,
+                                      y: -0.5)
             
-        self.addChild(cameraNode)
-        self.camera = cameraNode
-        
+      // self.addChild(cameraNode)
+       //self.camera = cameraNode
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else {
             return
         }
-        
+
         let location = touch.location(in: self)
         
+        gameWorld.player.setVelocity(velocity: Vector3(x: Double(location.x), y: Double(location.y), z: 0))
         
-        print(location)
-        //gameWorld.moveWorldBy(vec: Vector3(x:Double(location.x)-Double(self.size.width/2), y:Double(location.y)-Double(self.size.height/2), z: 1))
-        gameWorld.getPlayer().moveTo(pos:scenePosToWorldPos(pos: Vector3(x: Double(location.x), y: Double(location.y), z: 0)))
-        gameWorld.getPlayer().pos.vecPrint()
-        gameWorld.pos.vecPrint()
 
+        let tap = Tap()
         
+        gameWorld.player.handleInput(inp: tap)
+        
+
     }
     
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let untap = Untap()
+        gameWorld.player.handleInput(inp: untap)
+    }
     
     
     func rectOfGameWorldInScene()->CGRect
@@ -86,7 +89,14 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         
-        gameWorld.moveWorldTo(vec: gameWorld.getPlayer().pos)
+        let diff = currentTime - previousTime
+        
+        gameWorld.vel = gameWorld.player.vel * -1.0
+        //gameWorld.moveWorldTo(vec: gameWorld.getPlayer().pos)
+        //self.camera?.position = gameWorld.getPlayer().pos.toCGPoint2D()
+
+        gameWorld.updateWithDelta(delta: diff)
+        //worldPosToScenePos(pos: gameWorld.getPlayer().pos).toCGPoint2D()
         for obj in gameWorld.gameObjects {
             if obj.renderNode != nil
             {

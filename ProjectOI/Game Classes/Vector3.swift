@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Vector3
+struct Vector3 : Equatable
 {
     var x,y,z: Double
     
@@ -24,6 +24,11 @@ struct Vector3
     func vecPrint()
     {
         print("X:" + String(x) + ", Y:" + String(y) + ", Z:" + String(z))
+    }
+    
+    func toCGPoint2D()->CGPoint
+    {
+        return CGPoint(x: x, y: y)
     }
     
     static func == (lhs: Vector3, rhs: Vector3) -> Bool {
@@ -55,6 +60,7 @@ struct Vector3
     {
         return Vector3(x: lhs.x-rhs.x, y: lhs.y-rhs.y, z: lhs.z-rhs.z)
     }
+    
     
 }
 

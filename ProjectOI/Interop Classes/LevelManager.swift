@@ -104,11 +104,13 @@ class LevelManager: NSObject, XMLParserDelegate
         gameWorld.addObject(obj: gameWorld.origin)
         
         mainGameScene.addNodeToObject(renderNode: Node(imageNamed:"Origin.png"), obj: gameWorld.origin)
+        gameWorld.origin.renderNode.setScale(0.05)
     }
     
     private func addRenderNodesToPlayer()
     {
         mainGameScene.addNodeToObject(renderNode: Node(imageNamed: "Player.png"), obj: gameWorld.getPlayer())
+        gameWorld.player.renderNode.setScale(0.2)
     }
     
     func addRenderNodesToEnemies()

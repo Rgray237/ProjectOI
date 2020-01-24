@@ -65,13 +65,14 @@ class GameWorldTests: XCTestCase {
     {
         let player = Player()
         gw.addActor(actor: player)
-        let gottenPlayer:SentientActor! = gw.getActorAtIndex(index: 0)
+        let gottenPlayer:SentientActor! = gw.getPlayer()
+        XCTAssertEqual(gottenPlayer.pos, Vector3(x: 0, y: 0, z: 0))
         gottenPlayer.setVelocity(velocity: Vector3(x: 1, y: 2, z: 3))
         
         let timeSinceLastUpdate:CFTimeInterval = 3
         gw.updateWithDelta(delta: timeSinceLastUpdate)
         
-        XCTAssert(gottenPlayer.pos.equals(vec:Vector3(x: 3, y: 6, z: 9)))
+        XCTAssertEqual(gottenPlayer.pos,Vector3(x: 3, y: 6, z: 9))
         
     }
   
