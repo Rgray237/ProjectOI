@@ -17,10 +17,11 @@ class IdleState : PlayerState
 {
    func handleInput(plyr:Player,inp:Input)->PlayerState
     {
-        if inp is Tap
+        if let tap = inp as? Tap
         {
             print ("Dashing")
-            plyr.setVelocity(velocity: plyr.vel*5)
+            plyr.setVelocity(velocity: Vector3(x: Double(tap.tapPos.x)*plyr.dashSpeed, y: Double(tap.tapPos.y)*plyr.dashSpeed, z: 0))
+            plyr.timer = GameTimer(duration:0.25, descrip:"dashing timer")
         return DashingState()
         }
         return IdleState()
@@ -34,16 +35,39 @@ class IdleState : PlayerState
     }
 }
 
+class DashingState1 : PlayerState
+{
+    func handleInput(plyr:Player,inp:Input)->PlayerState
+    {
+        
+        return DashingState1()
+    }
+
+     func updateWithDelta(plyr:Player, delta:CFTimeInterval)
+    {
+        plyr.pos.x += plyr.vel.x*delta
+        plyr.pos.y += plyr.vel.y*delta
+        plyr.pos.z += plyr.vel.z*delta
+        if let tmr = plyr.timer
+        {
+            tmr.poll(currTime: CFAbsoluteTimeGetCurrent())
+
+            if tmr.timesUp()
+            {
+            print("Idling")
+            plyr.setVelocity(velocity: plyr.vel * 0)
+            plyr.state = IdleState()
+            }
+        }
+    }
+}
+
 class DashingState : PlayerState
 {
+    
      func handleInput(plyr:Player,inp:Input)->PlayerState
     {
-        if inp is Untap
-        {
-            print("Idling")
-            plyr.setVelocity(velocity: plyr.vel * 0.2)
-            return IdleState()
-        }
+        
         return DashingState()
     }
 
@@ -52,6 +76,17 @@ class DashingState : PlayerState
         plyr.pos.x += plyr.vel.x*delta
         plyr.pos.y += plyr.vel.y*delta
         plyr.pos.z += plyr.vel.z*delta
+        if let tmr = plyr.timer
+        {
+            tmr.poll(currTime: CFAbsoluteTimeGetCurrent())
+
+            if tmr.timesUp()
+            {
+                plyr.timer = GameTimer(duration: 0.25, descrip: "Dashing1")
+                plyr.setVelocity(velocity: plyr.vel * 0.5)
+            plyr.state = DashingState1()
+            }
+        }
     }
 }
 
@@ -73,9 +108,12 @@ class Player : SentientActor
 {
 
     internal var state:PlayerState = IdleState()
-
+    internal var timer:GameTimer?
+    internal var dashSpeed:Double = 5
+    
     override init() {
         super.init()
+        
     }
 
     

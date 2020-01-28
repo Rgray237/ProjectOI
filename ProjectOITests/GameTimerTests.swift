@@ -1,17 +1,17 @@
 //
-//  EnemyTests.swift
+//  GameTimeTests.swift
 //  ProjectOITests
 //
-//  Created by Robert Gray on 12/26/19.
-//  Copyright © 2019 Robert Gray. All rights reserved.
+//  Created by Robert Gray on 1/26/20.
+//  Copyright © 2020 Robert Gray. All rights reserved.
 //
 
 import XCTest
 @testable import ProjectOI
 
-class EnemyTests: XCTestCase {
+class TimerTests: XCTestCase {
 
-    var enmy  = Enemy(Type: "basic", X: "3", Y: "4", ID: "2")
+    var time:GameTimer!
     
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -21,9 +21,16 @@ class EnemyTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testEnemyType()
+    func testTimeElapsed()
     {
-        XCTAssertEqual(enmy.mEnemyType, EnemyType.basic)
+        time = GameTimer(duration:5, descrip:"Testing time")
+        XCTAssertEqual(time.timeRemaining, 5 )
+        XCTAssertEqual(time.timesUp(), false)
+        sleep(5)
+        time.poll(currTime: CFAbsoluteTimeGetCurrent())
+        XCTAssert(time.timeRemaining <= 0)
+        XCTAssertEqual(time.timesUp(), true)
+        
     }
 
     func testPerformanceExample() {

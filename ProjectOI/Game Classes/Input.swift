@@ -25,10 +25,24 @@ class Input
 
 class Tap : Input
 {
-    
+    var tapPos:CGPoint = CGPoint(x: 0,y: 0)
+    init(pos:CGPoint)
+    {
+        tapPos = pos
+    }
 }
 
 class Untap : Input
 {
     
+}
+
+class Drag : Input
+{
+    var locationStartedDrag : CGPoint
+    
+    init(dragStartPoint:CGPoint)
+    {
+        locationStartedDrag = dragStartPoint
+    }
 }

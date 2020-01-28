@@ -14,6 +14,7 @@ class GameScene: SKScene {
     var gameWorld:GameWorld = GameWorld()
     var previousTime:CFTimeInterval = 0
     var inputWatcher:Input = Input()
+    var gameTimer:GameTimer!
     
     override var anchorPoint: CGPoint
     {
@@ -52,14 +53,14 @@ class GameScene: SKScene {
 
         let location = touch.location(in: self)
         
-        gameWorld.player.setVelocity(velocity: Vector3(x: Double(location.x), y: Double(location.y), z: 0))
+                
+        gameWorld.player.handleInput(inp: Tap(pos: location))
         
 
-        let tap = Tap()
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        gameWorld.player.handleInput(inp: tap)
-        
-
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

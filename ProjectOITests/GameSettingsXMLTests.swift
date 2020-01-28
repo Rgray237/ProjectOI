@@ -1,18 +1,16 @@
 //
-//  EnemyTests.swift
+//  GameSettingsXMLTests.swift
 //  ProjectOITests
 //
-//  Created by Robert Gray on 12/26/19.
-//  Copyright © 2019 Robert Gray. All rights reserved.
+//  Created by Robert Gray on 1/28/20.
+//  Copyright © 2020 Robert Gray. All rights reserved.
 //
 
 import XCTest
 @testable import ProjectOI
 
-class EnemyTests: XCTestCase {
+class GameSettingsXMLTests: XCTestCase {
 
-    var enmy  = Enemy(Type: "basic", X: "3", Y: "4", ID: "2")
-    
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -20,11 +18,21 @@ class EnemyTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testEnemyType()
+    
+    func testCanLoadPlayerSpeed()
     {
-        XCTAssertEqual(enmy.mEnemyType, EnemyType.basic)
+        let gs = GameSettings()
+        XCTAssert(gs.getPlayerSpeed() > 0)
+        XCTAssertNotNil(gs.getPlayerSpeed())
     }
+    
+    func testShouldShowFPS()
+    {
+        let gs = GameSettings()
+        
+        XCTAssertEqual(gs.getShowFPS(), true)
+    }
+    
 
     func testPerformanceExample() {
         // This is an example of a performance test case.

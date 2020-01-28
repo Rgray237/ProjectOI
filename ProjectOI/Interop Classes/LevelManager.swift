@@ -78,6 +78,7 @@ class LevelManager: NSObject, XMLParserDelegate
         loadEverythingToGameWorld()
         loadRenderObjects()
         setupCamera()
+        
     }
     
     func setupCamera()
@@ -111,6 +112,7 @@ class LevelManager: NSObject, XMLParserDelegate
     {
         mainGameScene.addNodeToObject(renderNode: Node(imageNamed: "Player.png"), obj: gameWorld.getPlayer())
         gameWorld.player.renderNode.setScale(0.2)
+        gameWorld.player.renderNode.blendMode = .alpha
     }
     
     func addRenderNodesToEnemies()
@@ -119,6 +121,7 @@ class LevelManager: NSObject, XMLParserDelegate
         {
             mainGameScene.addNodeToObject(renderNode: Node(imageNamed:"Odie.png"), obj: enmy)
             enmy.renderNode.setScale(0.2)
+            enmy.renderNode.blendMode = .replace
         }
     }
     

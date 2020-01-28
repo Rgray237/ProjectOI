@@ -23,7 +23,7 @@ class GameObjectTests: XCTestCase {
     func testObjectDefaultPosition()
     {
         let gameObj = GameObject()
-        XCTAssert(gameObj.pos.x == 0)
+        XCTAssertEqual(gameObj.pos,Vector3(x: 0, y: 0, z: 0))
         
     }
     

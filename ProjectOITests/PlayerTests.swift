@@ -34,9 +34,18 @@ class PlayerTests: XCTestCase {
     func testStateChangesToDash()
     {
         XCTAssertEqual(player.getState(),"idle")
-        let inp = Tap()
+        let inp = Tap(pos: CGPoint(x: 3, y: 4))
         player.handleInput(inp: inp)
         XCTAssertEqual(player.getState(), "dashing")
+    }
+    
+    func testStateChangesToIdle()
+    {
+        player.handleInput(inp: Tap(pos: CGPoint(x: 3, y: 4)))
+        XCTAssertEqual(player.getState(), "dashing")
+        player.handleInput(inp: Untap())
+        XCTAssertEqual(player.getState(), "dashing") //Still dashing after untap for some time. 
+
     }
 
     func testPerformanceExample() {

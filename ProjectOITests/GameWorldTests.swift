@@ -86,6 +86,15 @@ class GameWorldTests: XCTestCase {
         
     }
     
+    func testMoveWorld()
+    {
+        XCTAssertEqual(gw.pos, Vector3(x: 0, y: 0, z: 0))
+        gw.moveWorldTo(vec: Vector3(x: 10, y: 0, z: 0))
+        XCTAssertEqual(gw.pos, Vector3(x: 10, y: 0, z: 0))
+        gw.moveWorldBy(vec: Vector3(x: -7, y: 32, z: -5))
+        XCTAssertEqual(gw.pos, Vector3(x: 3, y: 32, z: -5))
+    }
+    
     
     
   func testProperNumberOfEnemies()

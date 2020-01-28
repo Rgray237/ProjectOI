@@ -26,6 +26,11 @@ class Level
         }
     }
     
+    func getNumEnemies()->Int
+    {
+        return enemiesInLevel.count
+    }
+    
     init ()
     {
         
