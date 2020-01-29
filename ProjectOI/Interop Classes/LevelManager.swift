@@ -95,7 +95,7 @@ class LevelManager: NSObject, XMLParserDelegate
     {
         for enmy in levels[chosenLevel].enemiesInLevel
         {
-            enmy.printInfo()
+            //enmy.printInfo()
             gameWorld.addActor(actor: enmy)
         }
     }

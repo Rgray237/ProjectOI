@@ -47,6 +47,9 @@
 		D47F71D423E084CB00C90BA4 /* GameSettings.xml in Resources */ = {isa = PBXBuildFile; fileRef = D47F71D323E084CB00C90BA4 /* GameSettings.xml */; };
 		D47F71D623E0856E00C90BA4 /* GameSettingsXML.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47F71D523E0856E00C90BA4 /* GameSettingsXML.swift */; };
 		D47F71D823E0857E00C90BA4 /* GameSettingsXMLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47F71D723E0857E00C90BA4 /* GameSettingsXMLTests.swift */; };
+		D47F71DC23E1CDE700C90BA4 /* TestGameSettings.xml in Resources */ = {isa = PBXBuildFile; fileRef = D47F71DB23E1CDE700C90BA4 /* TestGameSettings.xml */; };
+		D47F71DE23E1D86900C90BA4 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47F71DD23E1D86900C90BA4 /* Math.swift */; };
+		D47F71E223E1D88100C90BA4 /* MathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47F71E123E1D88100C90BA4 /* MathTests.swift */; };
 		D49B2D3A23C4D72B00C1E1C6 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B2D3923C4D72B00C1E1C6 /* GameScene.swift */; };
 		D49B2D4023C4D8D700C1E1C6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B2D3F23C4D8D700C1E1C6 /* MainViewController.swift */; };
 		D49B2D4223C61EA100C1E1C6 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B2D4123C61EA100C1E1C6 /* Node.swift */; };
@@ -112,6 +115,9 @@
 		D47F71D323E084CB00C90BA4 /* GameSettings.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = GameSettings.xml; sourceTree = "<group>"; };
 		D47F71D523E0856E00C90BA4 /* GameSettingsXML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsXML.swift; sourceTree = "<group>"; };
 		D47F71D723E0857E00C90BA4 /* GameSettingsXMLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsXMLTests.swift; sourceTree = "<group>"; };
+		D47F71DB23E1CDE700C90BA4 /* TestGameSettings.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TestGameSettings.xml; sourceTree = "<group>"; };
+		D47F71DD23E1D86900C90BA4 /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
+		D47F71E123E1D88100C90BA4 /* MathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathTests.swift; sourceTree = "<group>"; };
 		D49B2D3923C4D72B00C1E1C6 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		D49B2D3F23C4D8D700C1E1C6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D49B2D4123C61EA100C1E1C6 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
@@ -151,6 +157,7 @@
 				D4CB89FC23CD603400A76D64 /* Input.swift */,
 				D417057323DE447F002425B1 /* GameTimer.swift */,
 				D47F71D523E0856E00C90BA4 /* GameSettingsXML.swift */,
+				D47F71DD23E1D86900C90BA4 /* Math.swift */,
 			);
 			path = "Game Classes";
 			sourceTree = "<group>";
@@ -180,6 +187,7 @@
 			children = (
 				D477F6C9239E882600B8BB56 /* LEVELS.xml */,
 				D47F71D323E084CB00C90BA4 /* GameSettings.xml */,
+				D47F71DB23E1CDE700C90BA4 /* TestGameSettings.xml */,
 			);
 			path = "XML Configs";
 			sourceTree = "<group>";
@@ -243,6 +251,7 @@
 				D417057123DE20DA002425B1 /* LevelTests.swift */,
 				D417057523DE4495002425B1 /* GameTimerTests.swift */,
 				D47F71D723E0857E00C90BA4 /* GameSettingsXMLTests.swift */,
+				D47F71E123E1D88100C90BA4 /* MathTests.swift */,
 			);
 			path = ProjectOITests;
 			sourceTree = "<group>";
@@ -367,6 +376,7 @@
 				D47F71D423E084CB00C90BA4 /* GameSettings.xml in Resources */,
 				D477F694239DA3FA00B8BB56 /* Main.storyboard in Resources */,
 				D477F6CA239E882600B8BB56 /* LEVELS.xml in Resources */,
+				D47F71DC23E1CDE700C90BA4 /* TestGameSettings.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +398,7 @@
 				D49B2D3A23C4D72B00C1E1C6 /* GameScene.swift in Sources */,
 				D4713E5A23A8619900259583 /* MetalViewController.swift in Sources */,
 				D4713E5323A6BD6B00259583 /* Node3d.swift in Sources */,
+				D47F71DE23E1D86900C90BA4 /* Math.swift in Sources */,
 				D47F71D623E0856E00C90BA4 /* GameSettingsXML.swift in Sources */,
 				D4713E4923A6B31200259583 /* Shaders.metal in Sources */,
 				D4713E6723ABC3E000259583 /* Player.swift in Sources */,
@@ -417,6 +428,7 @@
 			files = (
 				D4713E7423ABC8B300259583 /* PlayerTests.swift in Sources */,
 				D477F6A4239DA3FA00B8BB56 /* ProjectOITests.swift in Sources */,
+				D47F71E223E1D88100C90BA4 /* MathTests.swift in Sources */,
 				D4233D6B23CB902E00152411 /* GameSceneTests.swift in Sources */,
 				D417056A23D39476002425B1 /* InputTests.swift in Sources */,
 				D47F71D823E0857E00C90BA4 /* GameSettingsXMLTests.swift in Sources */,

@@ -19,7 +19,7 @@ class IdleState : PlayerState
     {
         if let tap = inp as? Tap
         {
-            print ("Dashing")
+            //print ("Dashing")
             plyr.setVelocity(velocity: Vector3(x: Double(tap.tapPos.x)*plyr.dashSpeed, y: Double(tap.tapPos.y)*plyr.dashSpeed, z: 0))
             plyr.timer = GameTimer(duration:0.25, descrip:"dashing timer")
         return DashingState()
@@ -54,7 +54,7 @@ class DashingState1 : PlayerState
 
             if tmr.timesUp()
             {
-            print("Idling")
+            //print("Idling")
             plyr.setVelocity(velocity: plyr.vel * 0)
             plyr.state = IdleState()
             }
@@ -113,7 +113,7 @@ class Player : SentientActor
     
     override init() {
         super.init()
-        
+        dashSpeed = GameSettings().getPlayerSpeed()
     }
 
     

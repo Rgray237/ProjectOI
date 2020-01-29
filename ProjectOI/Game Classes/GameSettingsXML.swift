@@ -20,7 +20,13 @@ class GameSettings : NSObject, XMLParserDelegate
     override init()
     {
         super.init()
-        parseXMLFile()
+        parseXMLFile(fileName: "GameSettings")
+    }
+    
+    init(fileName:String)
+    {
+        super.init()
+        parseXMLFile(fileName:fileName)
     }
     
     
@@ -34,8 +40,8 @@ class GameSettings : NSObject, XMLParserDelegate
         return ShowFPS
     }
     
-    private func parseXMLFile() {
-        if let path = Bundle.main.url(forResource: "GameSettings", withExtension: "xml") {
+    private func parseXMLFile(fileName:String) {
+        if let path = Bundle.main.url(forResource: fileName, withExtension: "xml") {
             if let parser = XMLParser(contentsOf: path) {
                 parser.delegate = self
                 parser.parse()

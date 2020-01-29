@@ -17,12 +17,31 @@ enum EnemyType
  case bigdum
 }
 
+protocol  EnemyState
+{
+
+    func updateWithDelta(enemy:Enemy,plyr:Player, delta:CFTimeInterval)
+}
+
+class nmeIdleState : EnemyState
+{
+    
+    
+    func updateWithDelta(enemy: Enemy,plyr:Player, delta: CFTimeInterval) {
+        let diff = CGPoint(x: plyr.pos.x - enemy.pos.x , y: plyr.pos.y - enemy.pos.y)
+        let direction =
+        enemy.setVelocity(velocity: Vector3(x: Double(diff.x) * enemy.speed, y: Double(diff.y)*enemy.speed, z: 0))
+    }
+}
+
+
 class Enemy: SentientActor
 {
     var type:String = ""
     var id:Int = 0
     var mEnemyType:EnemyType = .basic
-    
+    var state:EnemyState = nmeIdleState()
+    var speed:Double = 0.5
     
     init (Type:String, X:String, Y:String, ID:String)
     {
@@ -41,6 +60,10 @@ class Enemy: SentientActor
         id = Int(ID) ?? 0
     }
     */
+    
+    func updateWithDelta(delta: CFTimeInterval, player:Player) {
+        state.updateWithDelta(enemy: self,plyr: player, delta: delta)
+    }
     
     func printInfo()
     {
