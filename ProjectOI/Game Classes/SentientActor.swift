@@ -55,7 +55,7 @@ class SentientActor : GameObject
     
     func moveBy(x:Double, y:Double, z:Double)
     {
-        moveBy(vec: Vector3(x: x, y: y, z: z))
+        moveBy(vec: Vector3(x, y, z))
     }
     
     func getHealth() -> Int

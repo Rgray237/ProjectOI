@@ -59,11 +59,11 @@ class SentientActorTests: XCTestCase {
     
     func testMoveBy()
     {
-        XCTAssert(actor.pos.equals(vec: Vector3(x: 0, y: 0, z: 0)))
-        actor.moveBy(vec: Vector3(x: 3, y: -4, z: 0))
-        XCTAssert(actor.pos.equals(vec: Vector3(x: 3, y: -4, z: 0)))
-        actor.moveBy(vec: Vector3(x: 3, y: 6, z: 1))
-        XCTAssert(actor.pos.equals(vec: Vector3(x: 6, y: 2, z: 1)))
+        XCTAssert(actor.pos.equals(vec: Vector3(0, 0, 0)))
+        actor.moveBy(vec: Vector3(3, -4, 0))
+        XCTAssert(actor.pos.equals(vec: Vector3(3, -4, 0)))
+        actor.moveBy(vec: Vector3(3, 6, 1))
+        XCTAssert(actor.pos.equals(vec: Vector3(6, 2, 1)))
     }
 
     func testPerformanceExample() {

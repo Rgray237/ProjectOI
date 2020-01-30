@@ -25,7 +25,7 @@ class MySceneViewController: MetalViewController,MetalViewControllerDelegate,UIG
     gameWorld.addActor(actor: Player())
     //gameWorld.addActor(actor: Enemy(Type: "basic", X: "3", Y: "4", ID: "1"))
     gameWorld.addActor(actor: Player())
-    gameWorld.getActorAtIndex(index: 1)?.moveBy(vec: Vector3(x: 5, y: 10, z: 0))
+    gameWorld.getActorAtIndex(index: 1)?.moveBy(vec: Vector3(5, 10, 0))
     
      cube1 = Cube(device: device, commandQ: commandQueue)
      cube2 = Cube(device: device, commandQ: commandQueue)

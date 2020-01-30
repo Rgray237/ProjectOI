@@ -28,9 +28,10 @@ class nmeIdleState : EnemyState
     
     
     func updateWithDelta(enemy: Enemy,plyr:Player, delta: CFTimeInterval) {
-        let diff = CGPoint(x: plyr.pos.x - enemy.pos.x , y: plyr.pos.y - enemy.pos.y)
-        let direction =
-        enemy.setVelocity(velocity: Vector3(x: Double(diff.x) * enemy.speed, y: Double(diff.y)*enemy.speed, z: 0))
+        
+    let direction = CommonMath().getAngleBtwnPoints(enemy.pos,plyr.pos)
+        
+    enemy.setVelocity(velocity: Vector3(cos(direction) * enemy.speed, sin(direction)*enemy.speed, 0))
     }
 }
 
@@ -41,13 +42,13 @@ class Enemy: SentientActor
     var id:Int = 0
     var mEnemyType:EnemyType = .basic
     var state:EnemyState = nmeIdleState()
-    var speed:Double = 0.5
+    var speed:Double = 20
     
     init (Type:String, X:String, Y:String, ID:String)
     {
         super.init()
         type = Type
-        pos = Vector3(x: Double(X) ?? 0, y: Double(Y) ?? 0, z: 0)
+        pos = Vector3(Double(X) ?? 0, Double(Y) ?? 0, 0)
         id = Int(ID) ?? 0
     }
     /*

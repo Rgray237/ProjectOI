@@ -10,8 +10,8 @@ import Foundation
 
 class GameObject
 {
-    var pos:Vector3 = Vector3(x: 0, y: 0, z: 0)
-    var vel:Vector3 = Vector3(x: 0, y: 0, z: 0)
+    var pos:Vector3 = Vector3(0, 0, 0)
+    var vel:Vector3 = Vector3(0, 0, 0)
     var dynamic:Bool = false
     var renderNode:Node!
     
@@ -23,7 +23,7 @@ class GameObject
     init(position:Vector3, dynamic:Bool)
     {
         self.pos = position
-        self.vel = Vector3(x:0,y:0,z:0)
+        self.vel = Vector3(0,0,0)
         self.dynamic = dynamic
     }
     

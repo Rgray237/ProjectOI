@@ -20,7 +20,7 @@ class IdleState : PlayerState
         if let tap = inp as? Tap
         {
             //print ("Dashing")
-            plyr.setVelocity(velocity: Vector3(x: Double(tap.tapPos.x)*plyr.dashSpeed, y: Double(tap.tapPos.y)*plyr.dashSpeed, z: 0))
+            plyr.setVelocity(velocity: Vector3(Double(tap.tapPos.x)*plyr.dashSpeed, Double(tap.tapPos.y)*plyr.dashSpeed, 0))
             plyr.timer = GameTimer(duration:0.25, descrip:"dashing timer")
         return DashingState()
         }

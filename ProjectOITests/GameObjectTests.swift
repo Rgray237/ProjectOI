@@ -23,20 +23,20 @@ class GameObjectTests: XCTestCase {
     func testObjectDefaultPosition()
     {
         let gameObj = GameObject()
-        XCTAssertEqual(gameObj.pos,Vector3(x: 0, y: 0, z: 0))
+        XCTAssertEqual(gameObj.pos,Vector3(0, 0, 0))
         
     }
     
     func testObjDynamic()
     {
-        let pos = Vector3(x: 3,y: 5,z: 6)
+        let pos = Vector3(3,5,6)
         let gameObj = GameObject(position: pos,dynamic: true)
         XCTAssert(gameObj.dynamic == true)
     }
     
     func testDynamics()
     {
-        let gameObj = GameObject(position: Vector3(x: 0,y: 0,z: 0),velocity: Vector3(x: 4,y: 2,z: 5),dynamic: false)
+        let gameObj = GameObject(position: Vector3(0,0,0),velocity: Vector3(4,2,5),dynamic: false)
         //gameObj.update()
         XCTAssert(gameObj.pos.x == 0)
         gameObj.dynamic = true

@@ -8,9 +8,16 @@
 
 import Foundation
 
-struct Vector3 : Equatable
+class Vector3 : Equatable
 {
     var x,y,z: Double
+    
+    init(_ x:Double,_ y:Double, _ z:Double)
+    {
+        self.x = x
+        self.y = y
+        self.z = z
+    }
     
     func equals(vec:Vector3)->Bool
     {
@@ -42,23 +49,23 @@ struct Vector3 : Equatable
     
     static func * (lhs: Vector3,rhs: Double)->Vector3
     {
-        return Vector3(x: lhs.x*rhs, y: lhs.y*rhs, z: lhs.z*rhs)
+        return Vector3(lhs.x*rhs, lhs.y*rhs, lhs.z*rhs)
     }
     
     static func * (lhs: Vector3,rhs: Vector3)->Vector3
     {
-        return Vector3(x: lhs.x*rhs.x, y: lhs.y*rhs.y, z: lhs.z*rhs.z)
+        return Vector3(lhs.x*rhs.x, lhs.y*rhs.y, lhs.z*rhs.z)
     }
     
     
     static func + (lhs: Vector3, rhs: Vector3) ->Vector3
     {
-        return Vector3(x: lhs.x+rhs.x, y: lhs.y+rhs.y, z: lhs.z+rhs.z)
+        return Vector3(lhs.x+rhs.x, lhs.y+rhs.y, lhs.z+rhs.z)
     }
     
     static func - (lhs: Vector3, rhs: Vector3) ->Vector3
     {
-        return Vector3(x: lhs.x-rhs.x, y: lhs.y-rhs.y, z: lhs.z-rhs.z)
+        return Vector3(lhs.x-rhs.x, lhs.y-rhs.y, lhs.z-rhs.z)
     }
     
     

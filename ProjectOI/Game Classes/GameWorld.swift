@@ -12,9 +12,9 @@ class GameWorld
   //var neurons: [Neuron]
   //var portals: [Portal]
   //var planes: [Plane]
-    var pos:Vector3 = Vector3(x: 0, y: 0, z: 0)
-    var vel:Vector3 = Vector3(x: 0, y: 0, z: 0)
-    var origin:GameObject = GameObject(position: Vector3(x: 0, y: 0, z: 0), velocity: Vector3(x: 0, y: 0, z: 0), dynamic: false)
+    var pos:Vector3 = Vector3(0, 0, 0)
+    var vel:Vector3 = Vector3(0, 0, 0)
+    var origin:GameObject = GameObject(position: Vector3(0, 0, 0), velocity: Vector3(0, 0, 0), dynamic: false)
     
     internal var loaded:Bool = false
     internal var actors:[SentientActor] = []
