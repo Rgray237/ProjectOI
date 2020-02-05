@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CommonMath
+class Math2d
 {
     //Radians
     func getAngleBtwnPoints(_ pnt1:Vector3,_ pnt2:Vector3)->Double
@@ -37,4 +37,12 @@ class CommonMath
         {angle += Double.pi*2}
         return angle
     }
+    
+    func getSqDist(_ pnt1:Vector3,_ pnt2:Vector3)->Double
+    {
+        
+        return pow(pnt2.x-pnt1.x,2) + pow(pnt2.y-pnt1.y,2)
+    }
+    
+    
 }

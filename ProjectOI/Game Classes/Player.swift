@@ -8,20 +8,60 @@ protocol  PlayerState
 {
      func handleInput(plyr:Player,inp:Input)->PlayerState
     func updateWithDelta(plyr:Player, delta:CFTimeInterval)
+    func enter(plyr:Player,inp:Input,prevState:PlayerState)
 }
 
 
 
 
+class DamageState : PlayerState
+{
+    func enter(plyr: Player, inp: Input, prevState: PlayerState) {
+        
+    }
+    
+    
+    func handleInput(plyr: Player, inp: Input) -> PlayerState {
+        return DamageState()
+    }
+    
+    func updateWithDelta(plyr: Player, delta: CFTimeInterval) {
+        plyr.setVelocity(velocity: Vector3(Double.random(in: -5...5),Double.random(in: -5...5),Double.random(in: -5...5)))
+        plyr.pos.x += plyr.vel.x*delta
+        plyr.pos.y += plyr.vel.y*delta
+        plyr.pos.z += plyr.vel.z*delta
+    }
+    
+    
+}
+
+class DyingState : PlayerState
+{
+    func enter(plyr: Player, inp: Input, prevState: PlayerState) {
+        
+    }
+    
+    func handleInput(plyr: Player, inp: Input) -> PlayerState {
+        return DyingState()
+    }
+    
+    func updateWithDelta(plyr: Player, delta: CFTimeInterval) {
+        plyr.setVelocity(velocity: Vector3(0,0,0))
+        plyr.renderNode.setScale(CGFloat(plyr.renderNode.scale*1.1))
+    }
+}
+
+
 class IdleState : PlayerState
 {
+    func enter(plyr: Player, inp: Input, prevState: PlayerState) {
+        plyr.setVelocity(velocity: plyr.vel * 0)
+    }
+    
    func handleInput(plyr:Player,inp:Input)->PlayerState
     {
-        if let tap = inp as? Tap
+        if inp is Tap
         {
-            //print ("Dashing")
-            plyr.setVelocity(velocity: Vector3(Double(tap.tapPos.x)*plyr.dashSpeed, Double(tap.tapPos.y)*plyr.dashSpeed, 0))
-            plyr.timer = GameTimer(duration:0.25, descrip:"dashing timer")
         return DashingState()
         }
         return IdleState()
@@ -37,6 +77,11 @@ class IdleState : PlayerState
 
 class DashingState1 : PlayerState
 {
+    var dashing1Timer = GameTimer(duration:0.25,descrip:"dashing1 timer")
+
+    func enter(plyr: Player, inp: Input, prevState: PlayerState) {
+        plyr.setVelocity(velocity: plyr.vel * 2)
+    }
     func handleInput(plyr:Player,inp:Input)->PlayerState
     {
         
@@ -48,22 +93,29 @@ class DashingState1 : PlayerState
         plyr.pos.x += plyr.vel.x*delta
         plyr.pos.y += plyr.vel.y*delta
         plyr.pos.z += plyr.vel.z*delta
-        if let tmr = plyr.timer
-        {
-            tmr.poll(currTime: CFAbsoluteTimeGetCurrent())
+        
+        dashing1Timer.poll(currTime: CFAbsoluteTimeGetCurrent())
 
-            if tmr.timesUp()
-            {
-            //print("Idling")
-            plyr.setVelocity(velocity: plyr.vel * 0)
+        if dashing1Timer.timesUp()
+        {
             plyr.state = IdleState()
-            }
+            plyr.state.enter(plyr: plyr, inp: NA(), prevState: self)
         }
+        
     }
 }
 
 class DashingState : PlayerState
 {
+    var dashingTimer = GameTimer(duration:0.1,descrip:"dashing timer")
+    
+    func enter(plyr: Player, inp: Input, prevState: PlayerState) {
+        //print ("Dashing")
+        if let tap = inp as? Tap
+        {
+        plyr.setVelocity(velocity: Vector3(Double(tap.tapPos.x)*plyr.dashSpeed, Double(tap.tapPos.y)*plyr.dashSpeed, 0))
+        }
+    }
     
      func handleInput(plyr:Player,inp:Input)->PlayerState
     {
@@ -76,22 +128,29 @@ class DashingState : PlayerState
         plyr.pos.x += plyr.vel.x*delta
         plyr.pos.y += plyr.vel.y*delta
         plyr.pos.z += plyr.vel.z*delta
-        if let tmr = plyr.timer
-        {
-            tmr.poll(currTime: CFAbsoluteTimeGetCurrent())
+        
+        dashingTimer.poll(currTime: CFAbsoluteTimeGetCurrent())
 
-            if tmr.timesUp()
-            {
-                plyr.timer = GameTimer(duration: 0.25, descrip: "Dashing1")
-                plyr.setVelocity(velocity: plyr.vel * 0.5)
+        if dashingTimer.timesUp()
+        {
             plyr.state = DashingState1()
-            }
+            plyr.state.enter(plyr: plyr, inp: NA(), prevState: self)
+                
         }
+        
     }
 }
 
 class CooldownState : PlayerState
 {
+    func enter(plyr: Player, inp: Input, prevState: PlayerState) {
+        
+    }
+    
+    func enter(plyr: Player,inp:Input) {
+        
+    }
+    
      func handleInput(plyr:Player,inp:Input)->PlayerState
     {
         return DashingState()
@@ -120,12 +179,21 @@ class Player : SentientActor
     
     func handleInput(inp:Input)
     {
+        let previousState = state
         state = state.handleInput(plyr: self, inp: inp)
+        if (type(of: state) != type(of: previousState))
+        {
+            state.enter(plyr: self,inp:inp,prevState:previousState)
+        }
     }
 
     
     
     override func updateWithDelta(delta: CFTimeInterval) {
+        if (self.isDead())
+        {
+        self.state = DyingState()
+        }
         state.updateWithDelta(plyr: self, delta: delta)
     }
     

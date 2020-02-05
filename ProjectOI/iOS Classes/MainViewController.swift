@@ -22,6 +22,7 @@ class MainViewController: UIViewController {
         
         let gameScene = GameScene(size: view.bounds.size)
         gameScene.scaleMode = .resizeFill
+        gameScene.backgroundColor = UIColor.lightGray
         
         //gameScene.anchorPoint = CGPoint(x: 0.5,y: 0.5)
         print(gameScene.size)
@@ -30,7 +31,7 @@ class MainViewController: UIViewController {
 
         lvlMngr.dotherest()
         
-
+        
         skView.presentScene(gameScene)
        
         

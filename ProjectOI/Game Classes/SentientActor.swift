@@ -14,6 +14,7 @@ class SentientActor : GameObject
     var health:Int!
     var dead:Bool = false
     
+    
     override init()
     {
         super.init()
@@ -23,6 +24,7 @@ class SentientActor : GameObject
     
     func takeDamage(dmg:Int)
     {
+        print(health)
         health -= dmg
         if (health <= 0)
         {

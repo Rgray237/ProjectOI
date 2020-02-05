@@ -20,6 +20,7 @@ class GameWorld
     internal var actors:[SentientActor] = []
     internal var gameObjects:[GameObject] = []
     internal var enemies:[Enemy] = []
+    internal var walls:[Wall] = []
 
     
     //Guarantee the following two arrays to have same array size.
@@ -27,6 +28,7 @@ class GameWorld
     internal var spriteScene:SKScene = SKScene()
     internal var player:Player = Player()
 
+    
     
     func updateWithDelta(delta:CFTimeInterval)
     {
@@ -63,6 +65,12 @@ class GameWorld
     func addObject(obj: GameObject)
     {
         gameObjects.append(obj)
+    }
+    
+    func addWall(wall: Wall)
+    {
+        gameObjects.append(wall)
+        walls.append(wall)
     }
     
     func getActorAtIndex(index:Int)->SentientActor?

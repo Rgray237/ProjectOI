@@ -29,9 +29,24 @@ class nmeIdleState : EnemyState
     
     func updateWithDelta(enemy: Enemy,plyr:Player, delta: CFTimeInterval) {
         
-    let direction = CommonMath().getAngleBtwnPoints(enemy.pos,plyr.pos)
+    let direction = Math2d().getAngleBtwnPoints(enemy.pos,plyr.pos)
         
     enemy.setVelocity(velocity: Vector3(cos(direction) * enemy.speed, sin(direction)*enemy.speed, 0))
+        if Math2d().getSqDist(enemy.pos, plyr.pos) < 10
+        {
+            enemy.attackActorFor(dmg: 100, victim: plyr)
+        }
+    }
+}
+
+class nmeAttackState : EnemyState
+{
+    func updateWithDelta(enemy:Enemy,plyr:Player, delta:CFTimeInterval)
+    {
+        let direction = Math2d().getAngleBtwnPoints(enemy.pos,plyr.pos)
+            
+        enemy.setVelocity(velocity: Vector3(cos(direction) * 4*enemy.speed, sin(direction)*4*enemy.speed, 0))
+        
     }
 }
 

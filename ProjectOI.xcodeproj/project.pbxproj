@@ -50,6 +50,8 @@
 		D47F71DC23E1CDE700C90BA4 /* TestGameSettings.xml in Resources */ = {isa = PBXBuildFile; fileRef = D47F71DB23E1CDE700C90BA4 /* TestGameSettings.xml */; };
 		D47F71DE23E1D86900C90BA4 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47F71DD23E1D86900C90BA4 /* Math.swift */; };
 		D47F71E223E1D88100C90BA4 /* MathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47F71E123E1D88100C90BA4 /* MathTests.swift */; };
+		D47F71EA23EB0B9300C90BA4 /* Vector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47F71E923EB0B9300C90BA4 /* Vector2.swift */; };
+		D47F71EC23EB0F3C00C90BA4 /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47F71EB23EB0F3C00C90BA4 /* Wall.swift */; };
 		D49B2D3A23C4D72B00C1E1C6 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B2D3923C4D72B00C1E1C6 /* GameScene.swift */; };
 		D49B2D4023C4D8D700C1E1C6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B2D3F23C4D8D700C1E1C6 /* MainViewController.swift */; };
 		D49B2D4223C61EA100C1E1C6 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B2D4123C61EA100C1E1C6 /* Node.swift */; };
@@ -118,6 +120,8 @@
 		D47F71DB23E1CDE700C90BA4 /* TestGameSettings.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TestGameSettings.xml; sourceTree = "<group>"; };
 		D47F71DD23E1D86900C90BA4 /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		D47F71E123E1D88100C90BA4 /* MathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathTests.swift; sourceTree = "<group>"; };
+		D47F71E923EB0B9300C90BA4 /* Vector2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector2.swift; sourceTree = "<group>"; };
+		D47F71EB23EB0F3C00C90BA4 /* Wall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
 		D49B2D3923C4D72B00C1E1C6 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		D49B2D3F23C4D8D700C1E1C6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D49B2D4123C61EA100C1E1C6 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
@@ -158,6 +162,8 @@
 				D417057323DE447F002425B1 /* GameTimer.swift */,
 				D47F71D523E0856E00C90BA4 /* GameSettingsXML.swift */,
 				D47F71DD23E1D86900C90BA4 /* Math.swift */,
+				D47F71E923EB0B9300C90BA4 /* Vector2.swift */,
+				D47F71EB23EB0F3C00C90BA4 /* Wall.swift */,
 			);
 			path = "Game Classes";
 			sourceTree = "<group>";
@@ -404,12 +410,14 @@
 				D4713E6723ABC3E000259583 /* Player.swift in Sources */,
 				D49B2D4223C61EA100C1E1C6 /* Node.swift in Sources */,
 				D477F6CC239E934000B8BB56 /* Enemy.swift in Sources */,
+				D47F71EC23EB0F3C00C90BA4 /* Wall.swift in Sources */,
 				D4713E5B23A8619900259583 /* MySceneViewController.swift in Sources */,
 				D477F68F239DA3FA00B8BB56 /* AppDelegate.swift in Sources */,
 				D4713E7823ABCBB500259583 /* GameObject.swift in Sources */,
 				D4713E7A23B4F9CF00259583 /* SentientActor.swift in Sources */,
 				D4713E5D23A868C000259583 /* BufferProvider.swift in Sources */,
 				D4713E6623ABC3E000259583 /* GameWorld.swift in Sources */,
+				D47F71EA23EB0B9300C90BA4 /* Vector2.swift in Sources */,
 				D4CB89FD23CD603400A76D64 /* Input.swift in Sources */,
 				D477F6D423A55C5B00B8BB56 /* Vertex.swift in Sources */,
 				D477F6C1239DC86D00B8BB56 /* Level.swift in Sources */,

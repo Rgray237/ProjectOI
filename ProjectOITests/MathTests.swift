@@ -21,7 +21,7 @@ class MathTests: XCTestCase {
 
     func testGetAngleBetweenPoints()
     {
-        let mth = CommonMath()
+        let mth = Math2d()
         let pnt1 = Vector3(0, 0, 0)
         let pnt2 = Vector3(4, 4, 0)
         let pnt3 = Vector3(-4,4,0)
@@ -43,6 +43,23 @@ class MathTests: XCTestCase {
         XCTAssertEqual(mth.getAngleBtwnPoints(pnt1, pnt7), Double.pi * 3/2.0)
         XCTAssertEqual(mth.getAngleBtwnPoints(pnt1, pnt8), 0)
         XCTAssertEqual(mth.getAngleBtwnPoints(pnt1, pnt9), Double.pi)
+    }
+    
+    func testGetSquareDistance()
+    {
+        let mth = Math2d()
+        let pnt1 = Vector3(0,0,0)
+        let pnt2 = Vector3(1,0,0)
+        let pnt3 = Vector3(4,0,0)
+        let pnt4 = Vector3(2,2,0)
+        let pnt5 = Vector3(-2,-2,0)
+        
+        XCTAssertEqual(mth.getSqDist(pnt1,pnt2), 1)
+        XCTAssertEqual(mth.getSqDist(pnt3,pnt1), 16)
+        XCTAssertEqual(mth.getSqDist(pnt1,pnt3), 16)
+        XCTAssertEqual(mth.getSqDist(pnt4, pnt1), 8)
+        XCTAssertEqual(mth.getSqDist(pnt5, pnt1), 8)
+        XCTAssertEqual(mth.getSqDist(pnt1, pnt1), 0)
     }
 
     func testPerformanceExample() {

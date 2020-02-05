@@ -15,6 +15,7 @@ class GameObject
     var dynamic:Bool = false
     var renderNode:Node!
     
+    
     init()
     {
         

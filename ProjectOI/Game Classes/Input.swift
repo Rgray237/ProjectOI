@@ -32,6 +32,10 @@ class Tap : Input
     }
 }
 
+class NA : Input
+{
+    
+}
 class Untap : Input
 {
     

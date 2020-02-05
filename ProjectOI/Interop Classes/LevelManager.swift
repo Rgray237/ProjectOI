@@ -53,6 +53,7 @@ class LevelManager: NSObject, XMLParserDelegate
     {
         addPlayerCharacterToGameWorld()
         addEnemiesToGameWorld()
+        addWallsToGameWorld()
     }
     
     private func loadRenderObjects()
@@ -60,6 +61,7 @@ class LevelManager: NSObject, XMLParserDelegate
         addGameWorldOrigin()
         addRenderNodesToPlayer()
         addRenderNodesToEnemies()
+        addRenderNodesToWalls()
 
     }
     
@@ -100,6 +102,14 @@ class LevelManager: NSObject, XMLParserDelegate
         }
     }
     
+    func addWallsToGameWorld()
+    {
+        let wall = Wall(position: Vector3(0,-100,0),dynamic: false)
+        
+        gameWorld.addWall(wall: wall)
+        
+    }
+    
     func addGameWorldOrigin()
     {
         gameWorld.addObject(obj: gameWorld.origin)
@@ -115,7 +125,7 @@ class LevelManager: NSObject, XMLParserDelegate
         gameWorld.player.renderNode.blendMode = .alpha
     }
     
-    func addRenderNodesToEnemies()
+    private func addRenderNodesToEnemies()
     {
         for enmy in gameWorld.enemies
         {
@@ -125,6 +135,14 @@ class LevelManager: NSObject, XMLParserDelegate
         }
     }
     
+    private func addRenderNodesToWalls()
+    {
+        for wall in gameWorld.walls {
+            mainGameScene.addNodeToObject(renderNode: Node(imageNamed:"Wall.png"), obj: wall)
+            wall.renderNode.setScale(3)
+            wall.renderNode.blendMode  = .alpha
+        }
+    }
     
     internal func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         
