@@ -59,12 +59,15 @@ class Enemy: SentientActor
     var state:EnemyState = nmeIdleState()
     var speed:Double = 20
     
+    
+    
     init (Type:String, X:String, Y:String, ID:String)
     {
         super.init()
         type = Type
         pos = Vector3(Double(X) ?? 0, Double(Y) ?? 0, 0)
         id = Int(ID) ?? 0
+        size = CGSize(width: 50, height: 50)
     }
     /*
     init (type:EnemyType, X:String, Y:String, ID:String)

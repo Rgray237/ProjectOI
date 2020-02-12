@@ -36,7 +36,7 @@ class GameObjectTests: XCTestCase {
     
     func testDynamics()
     {
-        let gameObj = GameObject(position: Vector3(0,0,0),velocity: Vector3(4,2,5),dynamic: false)
+        let gameObj = GameObject(position: Vector3(0,0,0),velocity: Vector3(4,2,5),dynamic: false, size:CGSize(width:1,height:1))
         //gameObj.update()
         XCTAssert(gameObj.pos.x == 0)
         gameObj.dynamic = true
@@ -44,6 +44,18 @@ class GameObjectTests: XCTestCase {
         XCTAssert(gameObj.pos.x == 4)
         gameObj.update()
         XCTAssert(gameObj.pos.z == 10)
+    }
+    
+    func testRenderNodeScaling()
+    {
+        let gameObj = GameObject(position: Vector3(0,0,0),velocity: Vector3(4,2,5),dynamic: false, size:CGSize(width:10,height:10))
+        
+        let nd = Node(imageNamed: "Odie.png")
+        gameObj.addNode(node:nd)
+        //XCTAssertEqual(nd.size,CGSize(width:376.0,height:576.0))
+        gameObj.setRenderNodeSizeToFactorOfRealSize(factor:1)
+        XCTAssertEqual(nd.size.width,gameObj.size.width)
+    
     }
 
     func testPerformanceExample() {

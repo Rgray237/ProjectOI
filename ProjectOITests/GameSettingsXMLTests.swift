@@ -11,8 +11,11 @@ import XCTest
 
 class GameSettingsXMLTests: XCTestCase {
 
+    var gs : GameSettings!
+    
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        gs = GameSettings(fileName: "TestGameSettings")
     }
 
     override func tearDown() {
@@ -21,9 +24,14 @@ class GameSettingsXMLTests: XCTestCase {
     
     func testCanLoadPlayerSpeed()
     {
-        let gs = GameSettings(fileName: "TestGameSettings")
         XCTAssert(gs.getPlayerSpeed() > 0)
         XCTAssertNotNil(gs.getPlayerSpeed())
+    }
+    
+    func testCanLoadPlayerSize()
+    {
+        XCTAssertEqual(gs.getPlayerHeight(),10)
+        XCTAssertEqual(gs.getPlayerSize(),CGSize(width: 10,height: 10))
     }
     
     func testShouldShowFPS()

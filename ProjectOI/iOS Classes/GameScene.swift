@@ -119,7 +119,7 @@ class GameScene: SKScene {
         obj.renderNode = renderNode
         let vec = worldPosToScenePos(pos: obj.pos)
         obj.renderNode.position = CGPoint(x: vec.x,y: vec.y)
-        
+        obj.setRenderNodeSizeToFactorOfRealSize(factor: 1)
         self.addChild(renderNode)
     }
     

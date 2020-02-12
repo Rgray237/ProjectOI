@@ -13,9 +13,14 @@ class GameSettings : NSObject, XMLParserDelegate
     internal var elementName = String()
     internal var strPlayerSpeed = String()
     internal var strShowFPS = String()
+    internal var strPlayerHeight = String()
+    internal var strPlayerWidth = String()
+    
 
     internal var PlayerSpeed : Double = 0
     internal var ShowFPS : Bool = false
+    internal var PlayerHeight : Double = 0
+    internal var PlayerWidth : Double = 0
     
     override init()
     {
@@ -40,6 +45,21 @@ class GameSettings : NSObject, XMLParserDelegate
         return ShowFPS
     }
     
+    func getPlayerHeight()->Double
+    {
+        return PlayerHeight
+    }
+    
+    func getPlayerWidth()->Double
+    {
+        return PlayerWidth
+    }
+    
+    func getPlayerSize()->CGSize
+    {
+        return CGSize(width: PlayerWidth, height: PlayerHeight)
+    }
+    
     private func parseXMLFile(fileName:String) {
         if let path = Bundle.main.url(forResource: fileName, withExtension: "xml") {
             if let parser = XMLParser(contentsOf: path) {
@@ -62,6 +82,16 @@ class GameSettings : NSObject, XMLParserDelegate
         {
             strShowFPS = String()
         }
+        
+        if elementName == "PlayerHeight"
+        {
+            strPlayerHeight = String()
+        }
+        
+        if elementName == "PlayerWidth"
+        {
+            strPlayerWidth = String()
+        }
         self.elementName = elementName
     }
     
@@ -75,6 +105,14 @@ class GameSettings : NSObject, XMLParserDelegate
             {
                 strShowFPS += data
             }
+            else if self.elementName == "PlayerHeight"
+            {
+                strPlayerHeight += data
+            }
+            else if self.elementName == "PlayerWidth"
+            {
+                strPlayerWidth += data
+            }
         }
     }
     
@@ -87,11 +125,26 @@ class GameSettings : NSObject, XMLParserDelegate
                 }
                }
         
-        if elementName == "ShowFPS"
+        else if elementName == "ShowFPS"
         {
             if let showfps = strShowFPS == "1" ? true : false
             {
                 ShowFPS = showfps
+            }
+        }
+        
+        else if elementName == "PlayerHeight"
+        {
+            if let plyht = Double(strPlayerHeight)
+            {
+                PlayerHeight = plyht
+            }
+        }
+        else if elementName == "PlayerWidth"
+        {
+            if let plywdth = Double(strPlayerWidth)
+            {
+                PlayerWidth = plywdth
             }
         }
     }

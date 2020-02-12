@@ -2,6 +2,8 @@
 <catalog>
 
 <PlayerSpeed>51</PlayerSpeed>
+<PlayerHeight>10</PlayerHeight>
+<PlayerWidth>10</PlayerWidth>
 <ShowFPS>1</ShowFPS>
 
 </catalog>

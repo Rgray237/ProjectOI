@@ -29,14 +29,15 @@ class LevelManager: NSObject, XMLParserDelegate
     internal var mainGameView = SKView()
     internal var chosenLevel = Int()
     internal var llParentViewController = UIViewController()
-     var gameWorld:GameWorld
-
+    var gameWorld:GameWorld
+    var gameSettings:GameSettings
     
     
     
     init (lvl: Int, scene: GameScene, view:SKView)
     {
         gameWorld = scene.gameWorld
+        gameSettings = GameSettings(fileName: "GameSettings")
         super.init()
         chosenLevel = lvl
         mainGameView = view
@@ -90,7 +91,7 @@ class LevelManager: NSObject, XMLParserDelegate
 
     func addPlayerCharacterToGameWorld()
     {
-        gameWorld.addActor(actor: Player())
+        gameWorld.addActor(actor: Player(settings:gameSettings))
     }
     
     func addEnemiesToGameWorld()
@@ -107,39 +108,36 @@ class LevelManager: NSObject, XMLParserDelegate
         let wall = Wall(position: Vector3(0,-100,0),dynamic: false)
         
         gameWorld.addWall(wall: wall)
+        wall.size = CGSize(width: 100, height: 100)
         
     }
     
     func addGameWorldOrigin()
     {
         gameWorld.addObject(obj: gameWorld.origin)
-        
+        gameWorld.origin.size = CGSize(width:20,height:20)
         mainGameScene.addNodeToObject(renderNode: Node(imageNamed:"Origin.png"), obj: gameWorld.origin)
-        gameWorld.origin.renderNode.setScale(0.05)
     }
     
     private func addRenderNodesToPlayer()
     {
         mainGameScene.addNodeToObject(renderNode: Node(imageNamed: "Player.png"), obj: gameWorld.getPlayer())
-        gameWorld.player.renderNode.setScale(0.2)
         gameWorld.player.renderNode.blendMode = .alpha
     }
     
-    private func addRenderNodesToEnemies()
+    func addRenderNodesToEnemies()
     {
         for enmy in gameWorld.enemies
         {
             mainGameScene.addNodeToObject(renderNode: Node(imageNamed:"Odie.png"), obj: enmy)
-            enmy.renderNode.setScale(0.2)
             enmy.renderNode.blendMode = .replace
         }
     }
     
-    private func addRenderNodesToWalls()
+    func addRenderNodesToWalls()
     {
         for wall in gameWorld.walls {
             mainGameScene.addNodeToObject(renderNode: Node(imageNamed:"Wall.png"), obj: wall)
-            wall.renderNode.setScale(3)
             wall.renderNode.blendMode  = .alpha
         }
     }

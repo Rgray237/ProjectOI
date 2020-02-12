@@ -24,7 +24,7 @@ class SentientActor : GameObject
     
     func takeDamage(dmg:Int)
     {
-        print(health)
+        print(health!)
         health -= dmg
         if (health <= 0)
         {

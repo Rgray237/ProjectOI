@@ -14,7 +14,12 @@ class GameWorld
   //var planes: [Plane]
     var pos:Vector3 = Vector3(0, 0, 0)
     var vel:Vector3 = Vector3(0, 0, 0)
-    var origin:GameObject = GameObject(position: Vector3(0, 0, 0), velocity: Vector3(0, 0, 0), dynamic: false)
+    var origin:GameObject = GameObject()
+    
+    var worldTop:Double = 100
+    var worldRight:Double = 100
+    var WorldLeft:Double = -100
+    var WorldBottom:Double = -100
     
     internal var loaded:Bool = false
     internal var actors:[SentientActor] = []
@@ -38,6 +43,12 @@ class GameWorld
             actor.updateWithDelta(delta: delta)
         }
         
+        resolveCollisions()
+        
+    }
+    
+    func resolveCollisions()
+    {
         
     }
 

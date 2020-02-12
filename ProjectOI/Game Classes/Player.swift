@@ -170,12 +170,18 @@ class Player : SentientActor
     internal var timer:GameTimer?
     internal var dashSpeed:Double = 5
     
+    
     override init() {
         super.init()
         dashSpeed = GameSettings().getPlayerSpeed()
     }
 
-    
+    init (settings: GameSettings)
+    {
+        super.init()
+        dashSpeed = settings.getPlayerSpeed()
+        self.size = settings.getPlayerSize()
+    }
     
     func handleInput(inp:Input)
     {
