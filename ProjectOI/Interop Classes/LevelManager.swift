@@ -190,7 +190,7 @@ class LevelManager: NSObject, XMLParserDelegate
         
         if elementName == "enemy"
         {
-            let enemy = Enemy(Type: enemyType, X: enemyX, Y: enemyY, ID:enemyID)
+            let enemy = Enemy(Type: 1, X: Double(enemyX) as! Double, Y: Double(enemyY) as! Double, ID: Int(enemyID) as! Int)
             enemies.append(enemy)
         }
     }

@@ -30,6 +30,9 @@ class DamageState : PlayerState
         plyr.pos.x += plyr.vel.x*delta
         plyr.pos.y += plyr.vel.y*delta
         plyr.pos.z += plyr.vel.z*delta
+        plyr.rot += plyr.w*delta
+        plyr.calculateVertices()
+        plyr.calculateAABB()
     }
     
     
@@ -72,6 +75,9 @@ class IdleState : PlayerState
        plyr.pos.x += plyr.vel.x*delta
        plyr.pos.y += plyr.vel.y*delta
        plyr.pos.z += plyr.vel.z*delta
+        plyr.rot += plyr.w*delta
+        plyr.calculateVertices()
+        plyr.calculateAABB()
     }
 }
 
@@ -93,7 +99,9 @@ class DashingState1 : PlayerState
         plyr.pos.x += plyr.vel.x*delta
         plyr.pos.y += plyr.vel.y*delta
         plyr.pos.z += plyr.vel.z*delta
-        
+        plyr.rot += plyr.w*delta
+        plyr.calculateVertices()
+        plyr.calculateAABB()
         dashing1Timer.poll(currTime: CFAbsoluteTimeGetCurrent())
 
         if dashing1Timer.timesUp()
@@ -128,7 +136,9 @@ class DashingState : PlayerState
         plyr.pos.x += plyr.vel.x*delta
         plyr.pos.y += plyr.vel.y*delta
         plyr.pos.z += plyr.vel.z*delta
-        
+        plyr.rot += plyr.w*delta
+        plyr.calculateVertices()
+        plyr.calculateAABB()
         dashingTimer.poll(currTime: CFAbsoluteTimeGetCurrent())
 
         if dashingTimer.timesUp()
@@ -173,14 +183,22 @@ class Player : SentientActor
     
     override init() {
         super.init()
-        dashSpeed = GameSettings().getPlayerSpeed()
+        let settings = GameSettings()
+        dynamic = true
+        dashSpeed = settings.getPlayerSpeed()
+        self.size = settings.getPlayerSize()
+        calculateVertices()
+        calculateAABB()
     }
 
     init (settings: GameSettings)
     {
         super.init()
+        dynamic = true
         dashSpeed = settings.getPlayerSpeed()
         self.size = settings.getPlayerSize()
+        calculateVertices()
+        calculateAABB()
     }
     
     func handleInput(inp:Input)

@@ -78,11 +78,11 @@ class GameWorldTests: XCTestCase {
   
     
     
-    func testMoveTo()
+    func testSetPos()
     {
         let player = Player()
         XCTAssertEqual(player.pos, Vector3(0, 0, 0))
-        player.moveTo(pos: Vector3(10, 30, -1))
+        player.setPos(pos: Vector3(10, 30, -1))
         XCTAssertEqual(player.pos, Vector3(10, 30, -1))
         
     }
@@ -96,6 +96,18 @@ class GameWorldTests: XCTestCase {
         XCTAssertEqual(gw.pos, Vector3(3, 32, -5))
     }
     
+    func testAreColliding()
+    {
+        let A = GameObject(position: Vector3(0,0,0),velocity: Vector3(4,2,5),dynamic: true, size:CGSize(width:5,height:10))
+        let B = GameObject(position: Vector3(0,0,0),velocity: Vector3(4,2,5),dynamic: true, size:CGSize(width:10,height:10))
+        XCTAssert(gw.areColliding(A,B))
+        
+        B.setPos(pos:Vector3(3,0,0))
+        XCTAssert(gw.areColliding(A,B))
+        B.setPos(pos:Vector3(7.6,0,0))
+        XCTAssert(!gw.areColliding(A,B))
+
+    }
     
     
   func testProperNumberOfEnemies()

@@ -61,6 +61,17 @@ class MathTests: XCTestCase {
         XCTAssertEqual(mth.getSqDist(pnt5, pnt1), 8)
         XCTAssertEqual(mth.getSqDist(pnt1, pnt1), 0)
     }
+    
+    
+    func testPointsAreClose()
+    {
+            let mth = Math2d()
+            let pnt2 = Vector2(1,0)
+        let pnt11 = Vector2(1.00000000001,0)
+         XCTAssert(mth.pointsAreNegligiblyClose(pnt2,pnt11))
+        
+    }
+    
 
     func testPerformanceExample() {
         // This is an example of a performance test case.

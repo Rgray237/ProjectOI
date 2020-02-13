@@ -11,7 +11,7 @@ import XCTest
 
 class EnemyTests: XCTestCase {
 
-    var enmy  = Enemy(Type: "basic", X: "3", Y: "4", ID: "2")
+    var enmy  = Enemy(Type: 1, X: 3, Y: 4, ID: 2)
     
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

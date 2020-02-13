@@ -32,10 +32,11 @@ class nmeIdleState : EnemyState
     let direction = Math2d().getAngleBtwnPoints(enemy.pos,plyr.pos)
         
     enemy.setVelocity(velocity: Vector3(cos(direction) * enemy.speed, sin(direction)*enemy.speed, 0))
-        if Math2d().getSqDist(enemy.pos, plyr.pos) < 10
+       /* if Math2d().getSqDist(enemy.pos, plyr.pos) < 10
         {
             enemy.attackActorFor(dmg: 100, victim: plyr)
         }
+ */
     }
 }
 
@@ -60,15 +61,18 @@ class Enemy: SentientActor
     var speed:Double = 20
     
     
-    
-    init (Type:String, X:String, Y:String, ID:String)
+    init(Type:Int,X:Double,Y:Double,ID:Int)
     {
+        
         super.init()
-        type = Type
-        pos = Vector3(Double(X) ?? 0, Double(Y) ?? 0, 0)
-        id = Int(ID) ?? 0
-        size = CGSize(width: 50, height: 50)
+        type = "basic"
+        pos = Vector3(X,Y,0)
+        id = ID
+        size = CGSize(width:50,height:50)
+        w = 0.5
+        
     }
+    
     /*
     init (type:EnemyType, X:String, Y:String, ID:String)
     {
@@ -81,6 +85,8 @@ class Enemy: SentientActor
     */
     
     func updateWithDelta(delta: CFTimeInterval, player:Player) {
+        self.calculateVertices()
+        self.calculateAABB()
         state.updateWithDelta(enemy: self,plyr: player, delta: delta)
     }
     

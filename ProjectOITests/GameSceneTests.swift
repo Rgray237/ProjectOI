@@ -27,32 +27,34 @@ class GameSceneTests: XCTestCase {
 
     func testHasGameWorld()
     {
-        scene.gameWorld.addActor(actor: Enemy(Type: "basic", X: "4", Y: "6", ID: "1"))
+        scene.gameWorld.addActor(actor: Enemy(Type: 1, X: 4, Y: 6, ID: 1))
         XCTAssertEqual(scene.gameWorld.getNumActors(),1)
     }
 
     func testUpdatesGameWorld()
     {
-        scene.gameWorld.addActor(actor: Enemy(Type: "basic", X: "4", Y: "6", ID: "1"))
-        scene.gameWorld.getActorAtIndex(index: 0)?.setVelocity(velocity: Vector3(3, 3, 3))
+        scene.gameWorld.addActor(actor: Player())
+        scene.gameWorld.addActor(actor: Enemy(Type: 1, X: 4, Y: 6, ID: 1))
+        scene.gameWorld.getActorAtIndex(index: 1)!.setVelocity(velocity: Vector3(3, 3, 3))
         
         scene.update(3)
-        XCTAssertEqual(scene.gameWorld.getActorAtIndex(index: 0)?.pos,Vector3(13, 15, 9))
+        XCTAssertEqual(scene.gameWorld.getActorAtIndex(index: 1)!.pos,Vector3(13, 15, 9))
         
     }
     
     func testNodesStayTiedToWorldObjects()
     {
-        
-        scene.gameWorld.addActor(actor: Enemy(Type: "basic", X: "4", Y: "6", ID: "1"))
-        scene.gameWorld.getActorAtIndex(index: 0)?.setVelocity(velocity: Vector3(3, 3, 3))
+        scene.gameWorld.addActor(actor:Player())
+        scene.gameWorld.addActor(actor: Enemy(Type: 1, X: 4, Y: 6, ID: 1))
+        scene.gameWorld.getActorAtIndex(index: 1)!.setVelocity(velocity: Vector3(3, 3, 3))
         let myNode = Node(imageNamed:"Odie.png")
-    scene.addNodeToObject(renderNode:myNode,obj:scene.gameWorld.getActorAtIndex(index: 0)!)
+        print("made it")
+    scene.addNodeToObject(renderNode:myNode,obj:scene.gameWorld.getActorAtIndex(index: 1)!)
 
         scene.update(3)
         
-        XCTAssertEqual(scene.gameWorld.getActorAtIndex(index: 0)?.pos,Vector3(13, 15, 9))
-        XCTAssertEqual(scene.gameWorld.getActorAtIndex(index: 0)?.renderNode.position, CGPoint(x: 13, y: 15))
+        XCTAssertEqual(scene.gameWorld.getActorAtIndex(index: 1)?.pos,Vector3(13, 15, 9))
+        XCTAssertEqual(scene.gameWorld.getActorAtIndex(index: 1)?.renderNode.position, CGPoint(x: 13, y: 15))
         
         XCTAssertEqual(scene.children.count, 1 )
     }

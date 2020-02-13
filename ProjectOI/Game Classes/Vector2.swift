@@ -18,6 +18,12 @@ class Vector2 : Equatable
         self.y = y
     }
     
+    init(x:Double,y:Double)
+    {
+        self.x = x
+        self.y = y
+    }
+    
     func equals(vec:Vector2)->Bool
     {
         if (vec.x != x || vec.y != y)
@@ -57,6 +63,11 @@ class Vector2 : Equatable
     
     
     static func + (lhs: Vector2, rhs: Vector2) ->Vector2
+    {
+        return Vector2(lhs.x+rhs.x, lhs.y+rhs.y)
+    }
+    
+    static func + (lhs: Vector2, rhs: Vector3) ->Vector2
     {
         return Vector2(lhs.x+rhs.x, lhs.y+rhs.y)
     }

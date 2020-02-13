@@ -31,7 +31,7 @@ class GameWorld
     //Guarantee the following two arrays to have same array size.
     internal var renderObjects:[Node] = []
     internal var spriteScene:SKScene = SKScene()
-    internal var player:Player = Player()
+    internal var player:Player!
 
     
     
@@ -42,9 +42,43 @@ class GameWorld
         for actor in actors {
             actor.updateWithDelta(delta: delta)
         }
-        
+        checkForCollisions()
         resolveCollisions()
         
+    }
+    
+    func checkForCollisions()
+    {
+        
+        
+        for A in gameObjects{
+            for B in gameObjects{
+                if (A === B)
+                {
+                    continue
+                }
+                else if ((A is Player && B is Enemy) && areColliding(A, B))
+                    {
+                        collisionBetween(obj1: A, obj2: B)
+                }
+                
+            }
+            
+        }
+ 
+    }
+    
+    func areColliding(_ A:GameObject,_ B:GameObject)->Bool
+    {
+        
+        
+        return !(A.aabb2.x < B.aabb1.x || B.aabb2.x < A.aabb1.x || A.aabb2.y > B.aabb1.y || B.aabb2.y > A.aabb1.y)
+    }
+    
+    
+    func collisionBetween(obj1:GameObject,obj2:GameObject)
+    {
+        print("COllision!")
     }
     
     func resolveCollisions()

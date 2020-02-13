@@ -40,10 +40,28 @@ class GameObjectTests: XCTestCase {
         //gameObj.update()
         XCTAssert(gameObj.pos.x == 0)
         gameObj.dynamic = true
-        gameObj.update()
+        gameObj.updateWithDelta(delta:1)
         XCTAssert(gameObj.pos.x == 4)
-        gameObj.update()
+        gameObj.updateWithDelta(delta:1)
         XCTAssert(gameObj.pos.z == 10)
+    }
+    
+    func testRotationAndAngularVelocity()
+    {
+        let gameObj = GameObject(position: Vector3(0,0,0),velocity: Vector3(4,2,5),dynamic: false, size:CGSize(width:1,height:1))
+        gameObj.setAngleDeg(90)
+        XCTAssertEqual(gameObj.getAngle(),Double.pi/2)
+        gameObj.w = Double.pi*2
+        gameObj.updateWithDelta(delta:1)
+        XCTAssertEqual(gameObj.getAngle(),Double.pi/2)
+        gameObj.dynamic = true
+        gameObj.updateWithDelta(delta:1)
+        XCTAssertEqual(gameObj.getAngle(),Double.pi/2)
+        gameObj.w = Double.pi*2+Double.pi/2
+        gameObj.updateWithDelta(delta:1)
+        XCTAssertEqual(gameObj.getAngle(),Double.pi)
+        gameObj.setAngleDeg(360)
+        XCTAssertEqual(gameObj.getAngle(),0)
     }
     
     func testRenderNodeScaling()
@@ -58,6 +76,18 @@ class GameObjectTests: XCTestCase {
     
     }
 
+    func testAABBCalc()
+    {
+        let gameObj = GameObject(position: Vector3(0,0,0),velocity: Vector3(4,2,5),dynamic: false, size:CGSize(width:5,height:10))
+        XCTAssertEqual(gameObj.aabb1,Vector2(x: -2.5,y: 5))
+        XCTAssertEqual(gameObj.aabb2,Vector2(x: 2.5,y: -5))
+        
+        gameObj.setAngle(Double.pi/2)
+    XCTAssert(Math2d().pointsAreNegligiblyClose(gameObj.aabb1,Vector2(x:-5,y:2.5)))
+        
+    XCTAssert(Math2d().pointsAreNegligiblyClose(gameObj.aabb2,Vector2(x:5,y:-2.5)))
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {

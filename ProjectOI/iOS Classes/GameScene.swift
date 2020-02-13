@@ -107,7 +107,7 @@ class GameScene: SKScene {
             {
                 let vec = worldPosToScenePos(pos: obj.pos) 
                 obj.renderNode!.position = CGPoint(x:vec.x,y:vec.y)
-
+                obj.renderNode!.zRotation = CGFloat(obj.rot)
             }
         }
         previousTime = currentTime

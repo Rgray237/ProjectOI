@@ -44,5 +44,26 @@ class Math2d
         return pow(pnt2.x-pnt1.x,2) + pow(pnt2.y-pnt1.y,2)
     }
     
+    func getPntAfterRotation(inPoint:Vector2,angleRad:Double)->Vector2
+    {
+        let x2 = inPoint.x * cos(angleRad) - inPoint.y * sin(angleRad)
+        let y2 = inPoint.x * sin(angleRad) + inPoint.y * cos(angleRad)
+        return Vector2(x: x2, y: y2)
+    }
+    
+    func pointsAreNegligiblyClose(_ pnt1:Vector2,_ pnt2:Vector2)->Bool
+    {
+        let diff1 = pnt1.x-pnt2.x
+        let diff2 = pnt1.y-pnt2.y
+        print(diff1)
+        print(diff2)
+        if abs(diff1) < 0.0000001 && abs(diff2) < 0.0000001
+        {
+            return true
+        }
+        
+        return false
+    }
+    
     
 }

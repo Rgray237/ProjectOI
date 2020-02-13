@@ -21,7 +21,7 @@ class LevelTests: XCTestCase {
     
     func testLevel()
     {
-        let enms : [Enemy] = [Enemy(Type: "basic", X: "4", Y: "5", ID: "1") , Enemy(Type: "basic", X: "6", Y: "7", ID: "2")]
+        let enms : [Enemy] = [Enemy(Type: 1, X: 4, Y: 5, ID: 1) , Enemy(Type: 1, X: 6, Y: 7, ID: 2)]
         
         let lvl = Level(enemies: enms)
         XCTAssertEqual(lvl.getNumEnemies(), 2)
