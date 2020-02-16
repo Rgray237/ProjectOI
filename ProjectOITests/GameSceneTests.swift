@@ -36,7 +36,7 @@ class GameSceneTests: XCTestCase {
         scene.gameWorld.addActor(actor: Player())
         scene.gameWorld.addActor(actor: Enemy(Type: 1, X: 4, Y: 6, ID: 1))
         scene.gameWorld.getActorAtIndex(index: 1)!.setVelocity(velocity: Vector3(3, 3, 3))
-        
+        print(scene.gameWorld.enemies.count)
         scene.update(3)
         XCTAssertEqual(scene.gameWorld.getActorAtIndex(index: 1)!.pos,Vector3(13, 15, 9))
         

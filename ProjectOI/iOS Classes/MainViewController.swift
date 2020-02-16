@@ -27,16 +27,11 @@ class MainViewController: UIViewController {
         //gameScene.anchorPoint = CGPoint(x: 0.5,y: 0.5)
         print(gameScene.size)
         
-        let lvlMngr = LevelManager(lvl:1,scene:gameScene, view:skView)
-
-        lvlMngr.dotherest()
-        
-        
+        let lvlMngr = LevelManager(scene:gameScene,view:skView)//LevelManager(lvl:1,scene:gameScene, view:skView)
+        lvlMngr.loadLevel(lvl: 1)
+        //lvlMngr.dotherest()
         skView.presentScene(gameScene)
        
-        
-        
-        
         // Do any additional setup after loading the view.
     }
     

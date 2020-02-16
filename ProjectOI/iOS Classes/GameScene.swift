@@ -99,9 +99,6 @@ class GameScene: SKScene {
         gameWorld.updateWithDelta(delta: diff)
         //worldPosToScenePos(pos: gameWorld.getPlayer().pos).toCGPoint2D()
         for obj in gameWorld.gameObjects {
-            if let nme = obj as? Enemy{
-                nme.updateWithDelta(delta: diff, player: gameWorld.player)
-            }
             
             if obj.renderNode != nil
             {

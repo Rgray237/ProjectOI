@@ -17,6 +17,15 @@ class GameTimer
     var scheduledDuration : CFTimeInterval = 0
     var timerDescription : String = ""
     
+    init(duration:CFTimeInterval, descrip:String)
+    {
+        startTime = CFAbsoluteTimeGetCurrent()
+        scheduledDuration = duration
+        timerDescription = descrip
+        timeRemaining = duration
+    }
+    
+    
     func poll(currTime:CFTimeInterval)
     {
         timeRemaining = scheduledDuration - (currTime - startTime)
@@ -28,13 +37,6 @@ class GameTimer
     }
     
     
-    init(duration:CFTimeInterval, descrip:String)
-    {
-        startTime = CFAbsoluteTimeGetCurrent()
-        scheduledDuration = duration
-        timerDescription = descrip
-        timeRemaining = duration
-    }
     
     func timesUp()->Bool
     {

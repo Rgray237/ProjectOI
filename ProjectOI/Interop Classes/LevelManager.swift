@@ -43,11 +43,50 @@ class LevelManager: NSObject, XMLParserDelegate
         mainGameView = view
         mainGameScene = scene
         parseXMLFile()
+        gameWorld.lvlManger = self
 
         //dotherest()
     }
     
+    init (scene: GameScene, view:SKView)
+    {
+        gameWorld = scene.gameWorld
+        gameSettings = GameSettings(fileName: "GameSettings")
+        super.init()
+        mainGameView = view
+        mainGameScene = scene
+        gameWorld.lvlManger = self
+    }
     
+    func loadLevel(lvl:Int)
+    {
+        levels.removeAll()
+        enemies.removeAll()
+        mainGameScene.removeAllChildren()
+        mainGameScene.gameWorld = GameWorld()
+        gameWorld = mainGameScene.gameWorld
+        gameWorld.lvlManger = self
+        chosenLevel = lvl
+        parseXMLFile()
+        dotherest()
+    }
+    
+    func reload()
+    {
+        levels.removeAll()
+        enemies.removeAll()
+        mainGameScene.removeAllChildren()
+        mainGameScene.gameWorld = GameWorld()
+        gameWorld = mainGameScene.gameWorld
+        gameWorld.lvlManger = self
+        parseXMLFile()
+        dotherest()
+    }
+    
+    func reset()
+    {
+        print("resetting")
+    }
     
     
     private func loadEverythingToGameWorld()
@@ -55,7 +94,9 @@ class LevelManager: NSObject, XMLParserDelegate
         addPlayerCharacterToGameWorld()
         addEnemiesToGameWorld()
         addWallsToGameWorld()
+        addConnectPointsToGameWorld()
     }
+    
     
     private func loadRenderObjects()
     {
@@ -63,7 +104,7 @@ class LevelManager: NSObject, XMLParserDelegate
         addRenderNodesToPlayer()
         addRenderNodesToEnemies()
         addRenderNodesToWalls()
-
+        addRenderNodesToConnectPoints()
     }
     
     private func parseXMLFile() {
@@ -91,6 +132,7 @@ class LevelManager: NSObject, XMLParserDelegate
 
     func addPlayerCharacterToGameWorld()
     {
+        
         gameWorld.addActor(actor: Player(settings:gameSettings))
     }
     
@@ -99,6 +141,7 @@ class LevelManager: NSObject, XMLParserDelegate
         for enmy in levels[chosenLevel].enemiesInLevel
         {
             //enmy.printInfo()
+            //enmy.setState(state: nmeChasingState())
             gameWorld.addActor(actor: enmy)
         }
     }
@@ -110,6 +153,14 @@ class LevelManager: NSObject, XMLParserDelegate
         gameWorld.addWall(wall: wall)
         wall.size = CGSize(width: 100, height: 100)
         
+    }
+    
+    func addConnectPointsToGameWorld()
+    {
+        let pnt = ConnectPoint(position: Vector3(200,0,0),dynamic: false)
+        
+        gameWorld.addObject(obj: pnt)
+        pnt.size = CGSize(width: 50, height: 50)
     }
     
     func addGameWorldOrigin()
@@ -139,6 +190,16 @@ class LevelManager: NSObject, XMLParserDelegate
         for wall in gameWorld.walls {
             mainGameScene.addNodeToObject(renderNode: Node(imageNamed:"Wall.png"), obj: wall)
             wall.renderNode.blendMode  = .alpha
+        }
+    }
+    
+    func addRenderNodesToConnectPoints()
+    {
+        for obj in gameWorld.gameObjects{
+            if obj is ConnectPoint
+            {
+                mainGameScene.addNodeToObject(renderNode: Node(imageNamed:"ConnectPoint.png"), obj: obj)
+            }
         }
     }
     
@@ -190,7 +251,7 @@ class LevelManager: NSObject, XMLParserDelegate
         
         if elementName == "enemy"
         {
-            let enemy = Enemy(Type: 1, X: Double(enemyX) as! Double, Y: Double(enemyY) as! Double, ID: Int(enemyID) as! Int)
+            let enemy = Enemy(Type: 1, X: Double(enemyX)!, Y: Double(enemyY)!, ID: Int(enemyID)!)
             enemies.append(enemy)
         }
     }

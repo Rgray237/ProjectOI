@@ -38,6 +38,60 @@ class Math2d
         return angle
     }
     
+    func getAngleBtwnPoints(_ pnt1:Vector2,_ pnt2:Vector2)->Double
+       {
+           if pnt1 == pnt2
+           {
+               return 0
+           }
+           let diff = pnt2 - pnt1
+           if diff.x == 0
+           {
+               return diff.y >= 0 ? Double.pi/2.0 : Double.pi*3/2.0
+           }
+           if diff.y == 0
+           {
+               return diff.x >= 0 ? 0 : Double.pi
+           }
+           
+           //tan = opposite over adjacent
+           var angle = atan(diff.y/diff.x)
+           
+           if diff.x < 0
+           {angle += Double.pi}
+           
+           else if diff.y < 0
+           {angle += Double.pi*2}
+           return angle
+       }
+    
+    func getAngleBtwnPoints(_ pnt1:CGPoint,_ pnt2:CGPoint)->Double
+       {
+           if pnt1 == pnt2
+           {
+               return 0
+           }
+            let diff = CGPoint(x: pnt2.x - pnt1.x,y: pnt2.y - pnt1.y)
+           if diff.x == 0
+           {
+               return diff.y >= 0 ? Double.pi/2.0 : Double.pi*3/2.0
+           }
+           if diff.y == 0
+           {
+               return diff.x >= 0 ? 0 : Double.pi
+           }
+           
+           //tan = opposite over adjacent
+           var angle = atan(Double(diff.y/diff.x))
+           
+           if diff.x < 0
+           {angle += Double.pi}
+           
+           else if diff.y < 0
+           {angle += Double.pi*2}
+           return angle
+       }
+    
     func getSqDist(_ pnt1:Vector3,_ pnt2:Vector3)->Double
     {
         

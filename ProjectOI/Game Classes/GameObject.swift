@@ -64,6 +64,7 @@ class GameObject
         vel = velocity
     }
     
+    //e.g.
     //1 means make their sizes equal.
     //2 means make the render node display twice as large as actual object
     func setRenderNodeSizeToFactorOfRealSize(factor:Double)
@@ -107,8 +108,13 @@ class GameObject
         calculateVertices()
         calculateAABB()
         }
-        
     }
+    
+    func bounce()
+    {
+        self.vel = self.vel * -1.0
+    }
+    
     
     func calculateVertices()
     {

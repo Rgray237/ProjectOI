@@ -46,7 +46,6 @@ class Vector3 : Equatable
     }
     
     
-    
     static func * (lhs: Vector3,rhs: Double)->Vector3
     {
         return Vector3(lhs.x*rhs, lhs.y*rhs, lhs.z*rhs)

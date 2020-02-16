@@ -32,16 +32,26 @@ class GameWorld
     internal var renderObjects:[Node] = []
     internal var spriteScene:SKScene = SKScene()
     internal var player:Player!
-
+    internal var lvlManger:LevelManager!
     
     
     func updateWithDelta(delta:CFTimeInterval)
     {
-        pos = pos + vel * delta
-        
-        for actor in actors {
-            actor.updateWithDelta(delta: delta)
+        if (player.isDead())
+        {
+            print("DEAD")
+            clearAll()
+            lvlManger.loadLevel(lvl: 1)
+            
         }
+        pos = pos + vel * delta
+        player.updateWithDelta(delta: delta)
+        
+        for nme in enemies
+        {
+            nme.updateWithDelta(delta: delta, player: player)
+        }
+        
         checkForCollisions()
         resolveCollisions()
         
@@ -49,8 +59,6 @@ class GameWorld
     
     func checkForCollisions()
     {
-        
-        
         for A in gameObjects{
             for B in gameObjects{
                 if (A === B)
@@ -62,23 +70,44 @@ class GameWorld
                         collisionBetween(obj1: A, obj2: B)
                 }
                 
+                else if ((A is Player && B is Wall) && areColliding(A, B))
+                {
+                    collisionBetween(obj1: A, obj2: B)
+
+                }
+                else if ((A is Player && B is ConnectPoint) && areColliding(A, B))
+                {
+                    collisionBetween(obj1: A, obj2: B)
+                }
             }
-            
         }
- 
     }
     
     func areColliding(_ A:GameObject,_ B:GameObject)->Bool
     {
-        
-        
         return !(A.aabb2.x < B.aabb1.x || B.aabb2.x < A.aabb1.x || A.aabb2.y > B.aabb1.y || B.aabb2.y > A.aabb1.y)
     }
     
     
     func collisionBetween(obj1:GameObject,obj2:GameObject)
     {
-        print("COllision!")
+        if let en = obj2 as? Enemy
+        {
+            en.attackActorFor(dmg: 100, victim: player)
+            en.setState(state: nmeChasingState())
+            print ("Collision with " + String(en.id))
+        }
+        
+        if let wl = obj2 as? Wall
+        {
+            print("Wall collision")
+            obj1.bounce()
+        }
+        
+        if let pnt = obj2 as? ConnectPoint
+        {
+            print("CONNECT POINT")
+        }
     }
     
     func resolveCollisions()
@@ -100,9 +129,9 @@ class GameWorld
         }
         if actor is Player
         {
+            print("added")
             player = actor as! Player
         }
-        
         actors.append(actor)
         gameObjects.append(actor)
     }
@@ -158,6 +187,18 @@ class GameWorld
     func getPlayer()->Player
     {
         return player
+    }
+    
+    func clearAll()
+    {
+        enemies.removeAll()
+        actors.removeAll()
+        walls.removeAll()
+        gameObjects.removeAll()
+        renderObjects.removeAll()
+        pos = Vector3(0,0,0)
+        vel = Vector3(0,0,0)
+        spriteScene.removeAllChildren()
     }
     
 }

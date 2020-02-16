@@ -25,18 +25,24 @@ protocol  EnemyState
 
 class nmeIdleState : EnemyState
 {
-    
-    
-    func updateWithDelta(enemy: Enemy,plyr:Player, delta: CFTimeInterval) {
-        
-    let direction = Math2d().getAngleBtwnPoints(enemy.pos,plyr.pos)
-        
-    enemy.setVelocity(velocity: Vector3(cos(direction) * enemy.speed, sin(direction)*enemy.speed, 0))
-       /* if Math2d().getSqDist(enemy.pos, plyr.pos) < 10
+    var timer = GameTimer(duration:1,descrip:"Countdown")
+    func updateWithDelta(enemy: Enemy, plyr: Player, delta: CFTimeInterval) {
+        enemy.w = 0
+        timer.poll(currTime: CFAbsoluteTimeGetCurrent())
+        if (timer.timesUp())
         {
-            enemy.attackActorFor(dmg: 100, victim: plyr)
+            enemy.setState(state: nmeChasingState())
         }
- */
+    }
+}
+
+class nmeChasingState : EnemyState
+{
+    func updateWithDelta(enemy: Enemy,plyr:Player, delta: CFTimeInterval) {
+        enemy.w = 5
+    let direction = Math2d().getAngleBtwnPoints(enemy.pos,plyr.pos)
+
+    enemy.setVelocity(velocity: Vector3(cos(direction) * enemy.speed, sin(direction)*enemy.speed, 0))
     }
 }
 
@@ -44,9 +50,7 @@ class nmeAttackState : EnemyState
 {
     func updateWithDelta(enemy:Enemy,plyr:Player, delta:CFTimeInterval)
     {
-        let direction = Math2d().getAngleBtwnPoints(enemy.pos,plyr.pos)
-            
-        enemy.setVelocity(velocity: Vector3(cos(direction) * 4*enemy.speed, sin(direction)*4*enemy.speed, 0))
+        
         
     }
 }
@@ -58,12 +62,11 @@ class Enemy: SentientActor
     var id:Int = 0
     var mEnemyType:EnemyType = .basic
     var state:EnemyState = nmeIdleState()
-    var speed:Double = 20
+    var speed:Double = 30
     
     
     init(Type:Int,X:Double,Y:Double,ID:Int)
     {
-        
         super.init()
         type = "basic"
         pos = Vector3(X,Y,0)
@@ -73,25 +76,20 @@ class Enemy: SentientActor
         
     }
     
-    /*
-    init (type:EnemyType, X:String, Y:String, ID:String)
-    {
-        super.init()
-        mEnemyType = type
-        x = Int(X) ?? 0
-        y = Int(Y) ?? 0
-        id = Int(ID) ?? 0
-    }
-    */
-    
     func updateWithDelta(delta: CFTimeInterval, player:Player) {
-        self.calculateVertices()
-        self.calculateAABB()
         state.updateWithDelta(enemy: self,plyr: player, delta: delta)
+
+        self.updateWithDelta(delta: delta)
+    }
+    
+    func setState(state:EnemyState)
+    {
+        self.state = state
     }
     
     func printInfo()
     {
+        print("Enemy Info:")
         print("ID: " + String(id) + " -- Type: " + String(describing: mEnemyType) + " -- X: " + String(pos.x) + " -- Y: " + String(pos.y))
     }
 }

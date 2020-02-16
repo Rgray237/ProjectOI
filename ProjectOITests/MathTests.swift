@@ -34,6 +34,7 @@ class MathTests: XCTestCase {
         let pnt9 = Vector3(-1,0,0)
         
         XCTAssertEqual(mth.getAngleBtwnPoints(pnt1,pnt2), Double.pi/4)
+        XCTAssertEqual(mth.getAngleBtwnPoints(pnt2,pnt1), Double.pi +  Double.pi/4)
         XCTAssertEqual(mth.getAngleBtwnPoints(pnt1, pnt3),Double.pi*3/4.0)
         XCTAssertEqual(mth.getAngleBtwnPoints(pnt1, pnt4), Double.pi*5/4.0)
         XCTAssertEqual(mth.getAngleBtwnPoints(pnt1, pnt5), Double.pi*7/4.0)

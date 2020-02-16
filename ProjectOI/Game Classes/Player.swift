@@ -83,7 +83,7 @@ class IdleState : PlayerState
 
 class DashingState1 : PlayerState
 {
-    var dashing1Timer = GameTimer(duration:0.25,descrip:"dashing1 timer")
+    var dashing1Timer = GameTimer(duration:0.1,descrip:"dashing1 timer")
 
     func enter(plyr: Player, inp: Input, prevState: PlayerState) {
         plyr.setVelocity(velocity: plyr.vel * 2)
@@ -115,13 +115,14 @@ class DashingState1 : PlayerState
 
 class DashingState : PlayerState
 {
-    var dashingTimer = GameTimer(duration:0.1,descrip:"dashing timer")
+    var dashingTimer = GameTimer(duration:0.05,descrip:"dashing timer")
     
     func enter(plyr: Player, inp: Input, prevState: PlayerState) {
         //print ("Dashing")
         if let tap = inp as? Tap
         {
-        plyr.setVelocity(velocity: Vector3(Double(tap.tapPos.x)*plyr.dashSpeed, Double(tap.tapPos.y)*plyr.dashSpeed, 0))
+            let angle = Math2d().getAngleBtwnPoints(CGPoint(x: 0,y: 0), tap.tapPos)
+        plyr.setVelocity(velocity: Vector3(plyr.dashSpeed * cos(angle), plyr.dashSpeed * sin(angle), 0))
         }
     }
     
@@ -233,6 +234,11 @@ class Player : SentientActor
             return "dashing"
         }
         return "none"
+    }
+    
+    func setState(state:PlayerState)
+    {
+        self.state = state
     }
     
 }
