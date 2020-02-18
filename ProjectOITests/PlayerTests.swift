@@ -44,8 +44,13 @@ class PlayerTests: XCTestCase {
         player.handleInput(inp: Tap(pos: CGPoint(x: 3, y: 4)))
         XCTAssertEqual(player.getState(), "dashing")
         player.handleInput(inp: Untap())
-        XCTAssertEqual(player.getState(), "dashing") //Still dashing after untap for some time. 
-
+        XCTAssertEqual(player.getState(), "dashing") //Still dashing after untap for some time.
+    }
+    
+    func testDragConnection()
+    {
+        player.startDraggingConnection(pnt:ConnectPoint(id:1))
+        player.touch
     }
 
     func testPerformanceExample() {

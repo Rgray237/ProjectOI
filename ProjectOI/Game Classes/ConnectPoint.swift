@@ -8,7 +8,60 @@
 
 import Foundation
 
-class ConnectPoint : GameObject
+class ConnectPoint : GameObject , Equatable
 {
+    static func == (lhs: ConnectPoint, rhs: ConnectPoint) -> Bool {
+        return lhs.ID == rhs.ID
+    }
     
+    var ID:Int = 0
+    var dragging:Bool = false
+    internal var connected:Bool = false
+    
+    init(id:Int)
+    {
+        super.init()
+        ID = id
+    }
+    
+    init(id:Int,position:Vector3)
+    {
+        super.init(position: position, dynamic: false)
+        ID = id
+    }
+    
+    func startedDragging()
+    {
+        dragging = true
+    }
+    
+    func dropped()
+    {
+        dragging = false
+        
+    }
+    
+    func playerContacts()
+    {
+        if !isConnected()
+        {
+            startedDragging()
+        }
+    }
+    
+    func isConnected()->Bool
+    {
+        return connected
+    }
+    
+    func connectToPoint(pnt:ConnectPoint)
+    {
+        connected = true
+        dragging = false
+        pnt.connected = true
+        pnt.dragging = false
+        renderNode.alpha = 1
+        pnt.renderNode.alpha = 1
+        
+    }
 }

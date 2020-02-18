@@ -157,10 +157,13 @@ class LevelManager: NSObject, XMLParserDelegate
     
     func addConnectPointsToGameWorld()
     {
-        let pnt = ConnectPoint(position: Vector3(200,0,0),dynamic: false)
+        let pnt = ConnectPoint(id:1,position: Vector3(200,0,0))
         
         gameWorld.addObject(obj: pnt)
         pnt.size = CGSize(width: 50, height: 50)
+        let pnt2 = ConnectPoint(id:2,position: Vector3(0,200,0))
+        gameWorld.addObject(obj: pnt2)
+        pnt2.size = CGSize(width:50,height: 50)
     }
     
     func addGameWorldOrigin()
@@ -199,6 +202,7 @@ class LevelManager: NSObject, XMLParserDelegate
             if obj is ConnectPoint
             {
                 mainGameScene.addNodeToObject(renderNode: Node(imageNamed:"ConnectPoint.png"), obj: obj)
+                obj.renderNode.alpha = 0.5
             }
         }
     }

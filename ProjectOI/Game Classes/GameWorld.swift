@@ -95,18 +95,17 @@ class GameWorld
         {
             en.attackActorFor(dmg: 100, victim: player)
             en.setState(state: nmeChasingState())
-            print ("Collision with " + String(en.id))
         }
         
         if let wl = obj2 as? Wall
         {
-            print("Wall collision")
             obj1.bounce()
         }
         
         if let pnt = obj2 as? ConnectPoint
         {
-            print("CONNECT POINT")
+            player.touchesConnectPoint(pnt: pnt)
+            pnt.playerContacts()
         }
     }
     

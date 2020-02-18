@@ -180,7 +180,8 @@ class Player : SentientActor
     internal var state:PlayerState = IdleState()
     internal var timer:GameTimer?
     internal var dashSpeed:Double = 5
-    
+    internal var draggingConnection:Bool = false
+    internal var pntDragged:ConnectPoint?
     
     override init() {
         super.init()
@@ -212,6 +213,27 @@ class Player : SentientActor
         }
     }
 
+    func touchesConnectPoint(pnt:ConnectPoint)
+    {
+        if let draggedPnt = pntDragged{
+        if pnt != draggedPnt
+        {
+            pnt.connectToPoint(pnt: draggedPnt)
+        }
+        }
+        
+        else
+        {
+            startDraggingConnection(pnt: pnt)
+        }
+    }
+    
+    func startDraggingConnection(pnt:ConnectPoint)
+    {
+        draggingConnection = true
+        pntDragged = pnt
+        
+    }
     
     
     override func updateWithDelta(delta: CFTimeInterval) {
