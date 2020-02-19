@@ -50,7 +50,6 @@ class PlayerTests: XCTestCase {
     func testDragConnection()
     {
         player.startDraggingConnection(pnt:ConnectPoint(id:1))
-        player.touch
     }
 
     func testPerformanceExample() {

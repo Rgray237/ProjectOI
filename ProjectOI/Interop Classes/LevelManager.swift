@@ -95,8 +95,16 @@ class LevelManager: NSObject, XMLParserDelegate
         addEnemiesToGameWorld()
         addWallsToGameWorld()
         addConnectPointsToGameWorld()
+        addVectorGraphics()
     }
     
+    func addVectorGraphics()
+    {
+        var pth = UIBezierPath(roundedRect: CGRect(x: -128, y: -128, width: 256, height: 256), cornerRadius: 64).cgPath
+        let shape = VectorNode(path: pth)
+        mainGameScene.addChild(shape)
+        
+    }
     
     private func loadRenderObjects()
     {

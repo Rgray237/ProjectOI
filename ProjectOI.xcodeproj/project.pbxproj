@@ -57,6 +57,10 @@
 		D49B2D3A23C4D72B00C1E1C6 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B2D3923C4D72B00C1E1C6 /* GameScene.swift */; };
 		D49B2D4023C4D8D700C1E1C6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B2D3F23C4D8D700C1E1C6 /* MainViewController.swift */; };
 		D49B2D4223C61EA100C1E1C6 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B2D4123C61EA100C1E1C6 /* Node.swift */; };
+		D4A3BFEA23FD761D00D1162C /* VectorNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A3BFE923FD761D00D1162C /* VectorNode.swift */; };
+		D4A3BFEC23FD764700D1162C /* VectorNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A3BFEB23FD764700D1162C /* VectorNodeTests.swift */; };
+		D4A3BFEE23FD803900D1162C /* DraggingPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A3BFED23FD803900D1162C /* DraggingPathTests.swift */; };
+		D4A3BFF023FD804200D1162C /* DraggingPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A3BFEF23FD804200D1162C /* DraggingPath.swift */; };
 		D4CB89FD23CD603400A76D64 /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CB89FC23CD603400A76D64 /* Input.swift */; };
 /* End PBXBuildFile section */
 
@@ -129,6 +133,10 @@
 		D49B2D3923C4D72B00C1E1C6 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		D49B2D3F23C4D8D700C1E1C6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D49B2D4123C61EA100C1E1C6 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		D4A3BFE923FD761D00D1162C /* VectorNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorNode.swift; sourceTree = "<group>"; };
+		D4A3BFEB23FD764700D1162C /* VectorNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorNodeTests.swift; sourceTree = "<group>"; };
+		D4A3BFED23FD803900D1162C /* DraggingPathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggingPathTests.swift; sourceTree = "<group>"; };
+		D4A3BFEF23FD804200D1162C /* DraggingPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggingPath.swift; sourceTree = "<group>"; };
 		D4CB89FC23CD603400A76D64 /* Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,6 +177,7 @@
 				D47F71E923EB0B9300C90BA4 /* Vector2.swift */,
 				D47F71EB23EB0F3C00C90BA4 /* Wall.swift */,
 				D47F71ED23FA016C00C90BA4 /* ConnectPoint.swift */,
+				D4A3BFEF23FD804200D1162C /* DraggingPath.swift */,
 			);
 			path = "Game Classes";
 			sourceTree = "<group>";
@@ -181,6 +190,7 @@
 				D49B2D3923C4D72B00C1E1C6 /* GameScene.swift */,
 				D477F692239DA3FA00B8BB56 /* Main.storyboard */,
 				D477F68E239DA3FA00B8BB56 /* AppDelegate.swift */,
+				D4A3BFE923FD761D00D1162C /* VectorNode.swift */,
 			);
 			path = "iOS Classes";
 			sourceTree = "<group>";
@@ -264,6 +274,8 @@
 				D47F71D723E0857E00C90BA4 /* GameSettingsXMLTests.swift */,
 				D47F71E123E1D88100C90BA4 /* MathTests.swift */,
 				D47F71F023FC286F00C90BA4 /* ConnectPointTests.swift */,
+				D4A3BFEB23FD764700D1162C /* VectorNodeTests.swift */,
+				D4A3BFED23FD803900D1162C /* DraggingPathTests.swift */,
 			);
 			path = ProjectOITests;
 			sourceTree = "<group>";
@@ -417,6 +429,7 @@
 				D49B2D4223C61EA100C1E1C6 /* Node.swift in Sources */,
 				D477F6CC239E934000B8BB56 /* Enemy.swift in Sources */,
 				D47F71EC23EB0F3C00C90BA4 /* Wall.swift in Sources */,
+				D4A3BFF023FD804200D1162C /* DraggingPath.swift in Sources */,
 				D4713E5B23A8619900259583 /* MySceneViewController.swift in Sources */,
 				D477F68F239DA3FA00B8BB56 /* AppDelegate.swift in Sources */,
 				D4713E7823ABCBB500259583 /* GameObject.swift in Sources */,
@@ -426,6 +439,7 @@
 				D47F71EA23EB0B9300C90BA4 /* Vector2.swift in Sources */,
 				D4CB89FD23CD603400A76D64 /* Input.swift in Sources */,
 				D477F6D423A55C5B00B8BB56 /* Vertex.swift in Sources */,
+				D4A3BFEA23FD761D00D1162C /* VectorNode.swift in Sources */,
 				D477F6C1239DC86D00B8BB56 /* Level.swift in Sources */,
 				D47F71EE23FA016C00C90BA4 /* ConnectPoint.swift in Sources */,
 				D4713E5123A6BCD300259583 /* Matrix4.m in Sources */,
@@ -443,8 +457,10 @@
 			files = (
 				D4713E7423ABC8B300259583 /* PlayerTests.swift in Sources */,
 				D47F71F123FC286F00C90BA4 /* ConnectPointTests.swift in Sources */,
+				D4A3BFEC23FD764700D1162C /* VectorNodeTests.swift in Sources */,
 				D477F6A4239DA3FA00B8BB56 /* ProjectOITests.swift in Sources */,
 				D47F71E223E1D88100C90BA4 /* MathTests.swift in Sources */,
+				D4A3BFEE23FD803900D1162C /* DraggingPathTests.swift in Sources */,
 				D4233D6B23CB902E00152411 /* GameSceneTests.swift in Sources */,
 				D417056A23D39476002425B1 /* InputTests.swift in Sources */,
 				D47F71D823E0857E00C90BA4 /* GameSettingsXMLTests.swift in Sources */,

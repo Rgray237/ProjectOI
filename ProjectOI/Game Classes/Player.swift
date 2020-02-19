@@ -113,6 +113,49 @@ class DashingState1 : PlayerState
     }
 }
 
+class DraggingState : PlayerState
+{
+    var dragPathUpdateTimer = GameTimer(duration: 0.1, descrip: "Dragtimer")
+    
+    func enter(plyr: Player, inp: Input, prevState: PlayerState) {
+           //print ("Dashing")
+           if let tap = inp as? Tap
+           {
+               let angle = Math2d().getAngleBtwnPoints(CGPoint(x: 0,y: 0), tap.tapPos)
+           plyr.setVelocity(velocity: Vector3(plyr.dragSpeed * cos(angle), plyr.dragSpeed * sin(angle), 0))
+           }
+       }
+    
+    func updateWithDelta(plyr:Player, delta:CFTimeInterval)
+    {
+        plyr.pos.x += plyr.vel.x*delta
+        plyr.pos.y += plyr.vel.y*delta
+        plyr.pos.z += plyr.vel.z*delta
+        plyr.rot += plyr.w*delta
+        plyr.calculateVertices()
+        plyr.calculateAABB()
+        dragPathUpdateTimer.poll(currTime: CFAbsoluteTimeGetCurrent())
+
+        if dragPathUpdateTimer.timesUp()
+        {
+            plyr.addToDragPath(curPos:plyr.pos)
+            dragPathUpdateTimer.reset()
+        }
+    }
+    
+    func handleInput(plyr:Player,inp:Input)->PlayerState
+    {
+        if let tap = inp as? Tap
+        {
+        let angle = Math2d().getAngleBtwnPoints(CGPoint(x: 0,y: 0), tap.tapPos)
+        plyr.setVelocity(velocity: Vector3(plyr.dragSpeed * cos(angle), plyr.dragSpeed * sin(angle), 0))
+        }
+        return DraggingState()
+            
+    }
+
+}
+
 class DashingState : PlayerState
 {
     var dashingTimer = GameTimer(duration:0.05,descrip:"dashing timer")
@@ -180,8 +223,10 @@ class Player : SentientActor
     internal var state:PlayerState = IdleState()
     internal var timer:GameTimer?
     internal var dashSpeed:Double = 5
+    internal var dragSpeed:Double = 2
     internal var draggingConnection:Bool = false
     internal var pntDragged:ConnectPoint?
+    internal var dragPath:DraggingPath?
     
     override init() {
         super.init()
@@ -232,7 +277,23 @@ class Player : SentientActor
     {
         draggingConnection = true
         pntDragged = pnt
+        self.state = DraggingState()
+        var pth = CGMutablePath()
+        pth.move(to: pnt.pos.toCGPoint2D())
+        pth.addLine(to: pnt.pos.toCGPoint2D())
+        dragPath = DraggingPath(path: pth)
+    }
+    
+    func addToDragPath(curPos:Vector3)
+    {
+        let pth = CGMutablePath()
+        if let drgPth = dragPath
+        {
+            pth.addPath(drgPth.path!)
+            pth.addLine(to: curPos.toCGPoint2D())
         
+        dragPath = DraggingPath(path: pth)
+        }
     }
     
     

@@ -36,7 +36,12 @@ class GameTimer
         }
     }
     
-    
+    func reset()
+    {
+        startTime = CFAbsoluteTimeGetCurrent()
+        timeRemaining = scheduledDuration
+        isTimeUp = false
+    }
     
     func timesUp()->Bool
     {

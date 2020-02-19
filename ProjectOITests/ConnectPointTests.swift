@@ -16,6 +16,7 @@ class ConnectPointTests: XCTestCase {
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         pnt = ConnectPoint(id:1)
+        pnt.renderNode = Node(imageNamed: "Odie.png")
     }
 
     override func tearDown() {
@@ -27,7 +28,9 @@ class ConnectPointTests: XCTestCase {
         XCTAssertFalse(pnt.dragging)
         pnt.playerContacts()
         XCTAssertTrue(pnt.dragging)
-        pnt.connectToPoint(pnt: ConnectPoint(id:2))
+        let pnt2 = ConnectPoint(id:2)
+        pnt2.renderNode = Node(imageNamed: "Odie.png")
+        pnt.connectToPoint(pnt: pnt2)
         XCTAssertTrue(pnt.isConnected())
         XCTAssertFalse(pnt.dragging)
         pnt.playerContacts()
