@@ -48,5 +48,6 @@ class Drag : Input
     init(dragStartPoint:CGPoint)
     {
         locationStartedDrag = dragStartPoint
+        print("drag finger")
     }
 }

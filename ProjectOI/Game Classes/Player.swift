@@ -118,12 +118,10 @@ class DraggingState : PlayerState
     var dragPathUpdateTimer = GameTimer(duration: 0.1, descrip: "Dragtimer")
     
     func enter(plyr: Player, inp: Input, prevState: PlayerState) {
-           //print ("Dashing")
-           if let tap = inp as? Tap
-           {
-               let angle = Math2d().getAngleBtwnPoints(CGPoint(x: 0,y: 0), tap.tapPos)
-           plyr.setVelocity(velocity: Vector3(plyr.dragSpeed * cos(angle), plyr.dragSpeed * sin(angle), 0))
-           }
+           print ("dragging")
+            
+        let angle = Math2d().getAngleOfVector(plyr.vel)
+        plyr.setVelocity(velocity: Vector3(plyr.dragSpeed * cos(angle), plyr.dragSpeed * sin(angle), 0))
        }
     
     func updateWithDelta(plyr:Player, delta:CFTimeInterval)
@@ -136,11 +134,6 @@ class DraggingState : PlayerState
         plyr.calculateAABB()
         dragPathUpdateTimer.poll(currTime: CFAbsoluteTimeGetCurrent())
 
-        if dragPathUpdateTimer.timesUp()
-        {
-            plyr.addToDragPath(curPos:plyr.pos)
-            dragPathUpdateTimer.reset()
-        }
     }
     
     func handleInput(plyr:Player,inp:Input)->PlayerState
@@ -149,6 +142,11 @@ class DraggingState : PlayerState
         {
         let angle = Math2d().getAngleBtwnPoints(CGPoint(x: 0,y: 0), tap.tapPos)
         plyr.setVelocity(velocity: Vector3(plyr.dragSpeed * cos(angle), plyr.dragSpeed * sin(angle), 0))
+        }
+        
+        if let drag = inp as? Drag
+        {
+            
         }
         return DraggingState()
             
@@ -223,7 +221,7 @@ class Player : SentientActor
     internal var state:PlayerState = IdleState()
     internal var timer:GameTimer?
     internal var dashSpeed:Double = 5
-    internal var dragSpeed:Double = 2
+    internal var dragSpeed:Double = 200
     internal var draggingConnection:Bool = false
     internal var pntDragged:ConnectPoint?
     internal var dragPath:DraggingPath?
@@ -261,13 +259,15 @@ class Player : SentientActor
     func touchesConnectPoint(pnt:ConnectPoint)
     {
         if let draggedPnt = pntDragged{
-        if pnt != draggedPnt
+        if pnt.isOpen()
         {
             pnt.connectToPoint(pnt: draggedPnt)
+            self.state = IdleState()
+            self.state.enter(plyr: self, inp: NA(), prevState: DraggingState())
         }
         }
         
-        else
+        else if (pnt.isOpen())
         {
             startDraggingConnection(pnt: pnt)
         }
@@ -277,7 +277,9 @@ class Player : SentientActor
     {
         draggingConnection = true
         pntDragged = pnt
+        let prevstate = self.state
         self.state = DraggingState()
+        self.state.enter(plyr: self, inp: NA() , prevState: prevstate)
         var pth = CGMutablePath()
         pth.move(to: pnt.pos.toCGPoint2D())
         pth.addLine(to: pnt.pos.toCGPoint2D())
@@ -286,14 +288,6 @@ class Player : SentientActor
     
     func addToDragPath(curPos:Vector3)
     {
-        let pth = CGMutablePath()
-        if let drgPth = dragPath
-        {
-            pth.addPath(drgPth.path!)
-            pth.addLine(to: curPos.toCGPoint2D())
-        
-        dragPath = DraggingPath(path: pth)
-        }
     }
     
     

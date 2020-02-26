@@ -36,6 +36,33 @@ class ConnectPointTests: XCTestCase {
         pnt.playerContacts()
         XCTAssertFalse(pnt.dragging)
     }
+    
+    func testOpenClosed()
+    {
+        XCTAssert(pnt.isOpen())
+        pnt.playerContacts()
+        XCTAssert(pnt.isClosed())
+        let pnt2 = ConnectPoint(id:2)
+        pnt2.renderNode = Node(imageNamed: "Odie.png")
+        XCTAssert(pnt2.isOpen())
+        pnt.connectToPoint(pnt: pnt2)
+        XCTAssert(pnt.isClosed())
+        XCTAssert(pnt2.isClosed())
+        
+        
+    }
+    
+    func testGetConnectionPoint()
+    {
+        XCTAssertNil(pnt.getConnectedPoint())
+        
+        let pnt2 = ConnectPoint(id:2)
+        pnt2.renderNode = Node(imageNamed: "Odie.png")
+        
+        pnt.connectToPoint(pnt: pnt2)
+        XCTAssertEqual(pnt.getConnectedPoint(), pnt2)
+        XCTAssertEqual(pnt2.getConnectedPoint(), pnt)
+    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.

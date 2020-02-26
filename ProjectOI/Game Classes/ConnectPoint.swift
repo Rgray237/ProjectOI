@@ -17,6 +17,7 @@ class ConnectPoint : GameObject , Equatable
     var ID:Int = 0
     var dragging:Bool = false
     internal var connected:Bool = false
+    internal var cnctdPnt:ConnectPoint?
     
     init(id:Int)
     {
@@ -41,6 +42,24 @@ class ConnectPoint : GameObject , Equatable
         
     }
     
+    func isOpen()->Bool
+    {
+        if dragging || connected
+        {
+            return false
+        }
+        return true
+    }
+    
+    func isClosed()->Bool
+    {
+        if dragging || connected
+        {
+            return true
+        }
+        return false
+    }
+    
     func playerContacts()
     {
         if !isConnected()
@@ -62,6 +81,16 @@ class ConnectPoint : GameObject , Equatable
         pnt.dragging = false
         renderNode.alpha = 1
         pnt.renderNode.alpha = 1
-        
+        cnctdPnt = pnt
+        pnt.cnctdPnt = self
+    }
+    
+    func getConnectedPoint()->ConnectPoint?
+    {
+        if let PNT = cnctdPnt as? ConnectPoint
+        {
+            return PNT
+        }
+        return nil
     }
 }

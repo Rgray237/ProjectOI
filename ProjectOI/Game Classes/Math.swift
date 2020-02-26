@@ -92,6 +92,33 @@ class Math2d
            return angle
        }
     
+    func getMagnitudeOfVector(_ vec:Vector3)->Double
+    {
+        return 1
+    }
+    
+    func getAngleOfVector(_ vec:Vector3)->Double
+    {
+        if (vec.x == 0)
+        {
+            if vec.y >= 0
+            {return Double.pi/2}
+            
+            else
+            {return Double.pi * 3/2}
+        }
+        
+        if (vec.x < 0)
+        {
+            return atan(vec.y/vec.x) + Double.pi
+        }
+        if (vec.y < 0)
+        {
+            return atan(vec.y/vec.x) + Double.pi*2
+        }
+        return atan(vec.y/vec.x)
+    }
+    
     func getSqDist(_ pnt1:Vector3,_ pnt2:Vector3)->Double
     {
         

@@ -46,6 +46,29 @@ class MathTests: XCTestCase {
         XCTAssertEqual(mth.getAngleBtwnPoints(pnt1, pnt9), Double.pi)
     }
     
+    func testGetAngleOfVector()
+    {
+        let mth = Math2d()
+        let pnt1 = Vector3(0,0,0)
+        let pnt2 = Vector3(1,0,0)
+        let pnt3 = Vector3(0,1,0)
+        let pnt4 = Vector3(1,1,0)
+        let pnt5 = Vector3(-1,1,0)
+        let pnt6 = Vector3(-1,0,0)
+        let pnt7 = Vector3(-1,-1,0)
+        let pnt8 = Vector3(0,-1,0)
+        let pnt9 = Vector3(1,-1,0)
+        XCTAssertEqual(mth.getAngleOfVector(pnt1), Double.pi/2)
+        XCTAssertEqual(mth.getAngleOfVector(pnt2), 0)
+        XCTAssertEqual(mth.getAngleOfVector(pnt3), Double.pi/2)
+        XCTAssertEqual(mth.getAngleOfVector(pnt4), Double.pi/4)
+        XCTAssertEqual(mth.getAngleOfVector(pnt5), Double.pi * 3/4)
+        XCTAssertEqual(mth.getAngleOfVector(pnt6), Double.pi)
+        XCTAssertEqual(mth.getAngleOfVector(pnt7), Double.pi * 5/4)
+        XCTAssertEqual(mth.getAngleOfVector(pnt8), Double.pi * 3/2)
+        XCTAssertEqual(mth.getAngleOfVector(pnt9), Double.pi * 7/4)
+    }
+    
     func testGetSquareDistance()
     {
         let mth = Math2d()
