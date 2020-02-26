@@ -23,14 +23,27 @@ class TimerTests: XCTestCase {
 
     func testTimeElapsed()
     {
-        time = GameTimer(duration:5, descrip:"Testing time")
-        XCTAssertEqual(time.timeRemaining, 5 )
+        time = GameTimer(duration:1, descrip:"Testing time")
+        XCTAssertEqual(time.timeRemaining, 1 )
         XCTAssertEqual(time.timesUp(), false)
-        sleep(5)
+        sleep(1)
         time.poll(currTime: CFAbsoluteTimeGetCurrent())
         XCTAssert(time.timeRemaining <= 0)
         XCTAssertEqual(time.timesUp(), true)
         
+    }
+    
+    func testTimesUp()
+    {
+        time = GameTimer(duration:1, descrip:"Testing time")
+        XCTAssertEqual(time.timeRemaining, 1)
+        XCTAssertEqual(time.timesUp(), false)
+        sleep(1)
+        time.poll(currTime: CFAbsoluteTimeGetCurrent())
+        XCTAssertEqual(time.timesUp(), true)
+        sleep(1)
+        time.poll(currTime: CFAbsoluteTimeGetCurrent())
+        XCTAssertEqual(time.timesUp(), true)
     }
 
     func testPerformanceExample() {

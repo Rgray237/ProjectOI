@@ -34,6 +34,7 @@ class ConnectPoint : GameObject , Equatable
     func startedDragging()
     {
         dragging = true
+        renderNode.alpha = 1
     }
     
     func dropped()

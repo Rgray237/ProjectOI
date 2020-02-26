@@ -41,13 +41,17 @@ class Untap : Input
     
 }
 
-class Drag : Input
+class Pan : Input
 {
-    var locationStartedDrag : CGPoint
+    var locationStartedPan : CGPoint
+    var curLocation : CGPoint
     
-    init(dragStartPoint:CGPoint)
+    init(panStartPoint:CGPoint, newPoint:CGPoint)
     {
-        locationStartedDrag = dragStartPoint
-        print("drag finger")
+        locationStartedPan = panStartPoint
+        curLocation = newPoint
+        //print("pan finger from: ",locationStartedPan,",to : ",curLocation)
+        
+    
     }
 }

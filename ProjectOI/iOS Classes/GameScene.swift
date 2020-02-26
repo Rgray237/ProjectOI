@@ -15,6 +15,7 @@ class GameScene: SKScene {
     var previousTime:CFTimeInterval = 0
     var inputWatcher:Input = Input()
     var gameTimer:GameTimer!
+    var touchStartPoint:CGPoint?
     
     override var anchorPoint: CGPoint
     {
@@ -53,7 +54,8 @@ class GameScene: SKScene {
 
         let location = touch.location(in: self)
         
-                
+        touchStartPoint = location
+        
         gameWorld.player.handleInput(inp: Tap(pos: location))
         
 
@@ -65,13 +67,16 @@ class GameScene: SKScene {
             return
         }
         let location = touch.location(in: self)
-        
-        gameWorld.player.handleInput(inp: Drag(dragStartPoint: location))
+        if let orgTouch = touchStartPoint
+        {
+            gameWorld.player.handleInput(inp: Pan(panStartPoint: orgTouch, newPoint: location))
+        }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let untap = Untap()
         gameWorld.player.handleInput(inp: untap)
+        touchStartPoint = nil
     }
     
     

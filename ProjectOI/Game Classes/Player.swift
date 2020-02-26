@@ -34,8 +34,6 @@ class DamageState : PlayerState
         plyr.calculateVertices()
         plyr.calculateAABB()
     }
-    
-    
 }
 
 class DyingState : PlayerState
@@ -59,6 +57,7 @@ class IdleState : PlayerState
 {
     func enter(plyr: Player, inp: Input, prevState: PlayerState) {
         plyr.setVelocity(velocity: plyr.vel * 0)
+        print("Idle")
     }
     
    func handleInput(plyr:Player,inp:Input)->PlayerState
@@ -67,6 +66,7 @@ class IdleState : PlayerState
         {
         return DashingState()
         }
+        
         return IdleState()
     }
 
@@ -87,11 +87,19 @@ class DashingState1 : PlayerState
 
     func enter(plyr: Player, inp: Input, prevState: PlayerState) {
         plyr.setVelocity(velocity: plyr.vel * 2)
+        print("dashing 1")
     }
     func handleInput(plyr:Player,inp:Input)->PlayerState
     {
+        if dashing1Timer.timesUp()
+        {
+            return IdleState()
+        }
+        else
+        {
+            return plyr.state
+        }
         
-        return DashingState1()
     }
 
      func updateWithDelta(plyr:Player, delta:CFTimeInterval)
@@ -112,6 +120,55 @@ class DashingState1 : PlayerState
         
     }
 }
+
+
+class DashingState : PlayerState
+{
+    var dashingTimer = GameTimer(duration:0.05,descrip:"dashing timer")
+    
+    func enter(plyr: Player, inp: Input, prevState: PlayerState) {
+        print ("Dashing")
+        if let tap = inp as? Tap
+        {
+            let angle = Math2d().getAngleBtwnPoints(CGPoint(x: 0,y: 0), tap.tapPos)
+        plyr.setVelocity(velocity: Vector3(plyr.dashSpeed * cos(angle), plyr.dashSpeed * sin(angle), 0))
+        }
+    }
+    
+     func handleInput(plyr:Player,inp:Input)->PlayerState
+    {
+        print(inp)
+        print(dashingTimer.timeRemaining)
+        if (dashingTimer.timesUp())
+        {
+            return DashingState1()
+        }
+        else
+        {
+            return plyr.state
+        }
+    }
+
+     func updateWithDelta(plyr:Player, delta:CFTimeInterval)
+    {
+        plyr.pos.x += plyr.vel.x*delta
+        plyr.pos.y += plyr.vel.y*delta
+        plyr.pos.z += plyr.vel.z*delta
+        plyr.rot += plyr.w*delta
+        plyr.calculateVertices()
+        plyr.calculateAABB()
+        dashingTimer.poll(currTime: CFAbsoluteTimeGetCurrent())
+
+        if dashingTimer.timesUp()
+        {
+            plyr.state = DashingState1()
+            plyr.state.enter(plyr: plyr, inp: NA(), prevState: self)
+                
+        }
+        
+    }
+}
+
 
 class DraggingState : PlayerState
 {
@@ -144,73 +201,15 @@ class DraggingState : PlayerState
         plyr.setVelocity(velocity: Vector3(plyr.dragSpeed * cos(angle), plyr.dragSpeed * sin(angle), 0))
         }
         
-        if let drag = inp as? Drag
+        if let drag = inp as? Pan
         {
-            
+            let angle = Math2d().getAngleBtwnPoints(CGPoint(x: 0, y: 0), drag.curLocation)
+            plyr.setVelocity(velocity: Vector3(plyr.dragSpeed * cos(angle), plyr.dragSpeed * sin(angle), 0))
         }
         return DraggingState()
             
     }
 
-}
-
-class DashingState : PlayerState
-{
-    var dashingTimer = GameTimer(duration:0.05,descrip:"dashing timer")
-    
-    func enter(plyr: Player, inp: Input, prevState: PlayerState) {
-        //print ("Dashing")
-        if let tap = inp as? Tap
-        {
-            let angle = Math2d().getAngleBtwnPoints(CGPoint(x: 0,y: 0), tap.tapPos)
-        plyr.setVelocity(velocity: Vector3(plyr.dashSpeed * cos(angle), plyr.dashSpeed * sin(angle), 0))
-        }
-    }
-    
-     func handleInput(plyr:Player,inp:Input)->PlayerState
-    {
-        
-        return DashingState()
-    }
-
-     func updateWithDelta(plyr:Player, delta:CFTimeInterval)
-    {
-        plyr.pos.x += plyr.vel.x*delta
-        plyr.pos.y += plyr.vel.y*delta
-        plyr.pos.z += plyr.vel.z*delta
-        plyr.rot += plyr.w*delta
-        plyr.calculateVertices()
-        plyr.calculateAABB()
-        dashingTimer.poll(currTime: CFAbsoluteTimeGetCurrent())
-
-        if dashingTimer.timesUp()
-        {
-            plyr.state = DashingState1()
-            plyr.state.enter(plyr: plyr, inp: NA(), prevState: self)
-                
-        }
-        
-    }
-}
-
-class CooldownState : PlayerState
-{
-    func enter(plyr: Player, inp: Input, prevState: PlayerState) {
-        
-    }
-    
-    func enter(plyr: Player,inp:Input) {
-        
-    }
-    
-     func handleInput(plyr:Player,inp:Input)->PlayerState
-    {
-        return DashingState()
-    }
-
-     func updateWithDelta(plyr:Player, delta:CFTimeInterval)
-    {
-    }
 }
 
 
