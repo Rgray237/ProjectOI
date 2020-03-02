@@ -183,7 +183,7 @@ class LevelManager: NSObject, XMLParserDelegate
     
     private func addRenderNodesToPlayer()
     {
-        mainGameScene.addNodeToObject(renderNode: Node(imageNamed: "Player.png"), obj: gameWorld.getPlayer())
+        mainGameScene.addNodeToObject(renderNode: Node(imageNamed: "Guy1.png"), obj: gameWorld.getPlayer())
         gameWorld.player.renderNode.blendMode = .alpha
     }
     
