@@ -253,8 +253,13 @@ class Player : SentientActor
     internal var draggingConnection:Bool = false
     internal var pntDragged:ConnectPoint?
     internal var dragPath:DraggingPath?
-    
+    var animation:GOAnimation
+
     override init() {
+        let nd1 = Node(imageNamed: "Guy1.png")
+        let nd2 = Node(imageNamed: "Guy2.png")
+        let nds = [nd1,nd2]
+        animation = GOAnimation(arrNodes: nds, intervalMS: 100)
         super.init()
         let settings = GameSettings()
         dynamic = true
@@ -266,6 +271,10 @@ class Player : SentientActor
 
     init (settings: GameSettings)
     {
+        let nd1 = Node(imageNamed: "Guy1.png")
+        let nd2 = Node(imageNamed: "Guy2.png")
+        let nds = [nd1,nd2]
+        animation = GOAnimation(arrNodes: nds, intervalMS: 100)
         super.init()
         dynamic = true
         dashSpeed = settings.getPlayerSpeed()
@@ -273,6 +282,7 @@ class Player : SentientActor
         calculateVertices()
         calculateAABB()
     }
+    
     
     func handleInput(inp:Input)
     {
@@ -325,6 +335,7 @@ class Player : SentientActor
         self.state = DyingState()
         }
         state.updateWithDelta(plyr: self, delta: delta)
+        animation.update(pnt: self.pos.toCGPoint2D())
     }
     
     func getState()->String

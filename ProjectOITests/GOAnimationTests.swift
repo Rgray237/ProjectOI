@@ -24,13 +24,54 @@ class GOAnimationTests: XCTestCase {
     {
         let plyr = Player(settings: GameSettings(fileName: "TestGameSettings"))
         plyr.renderNode = Node(imageNamed: "Guy1.png")
-        let nd = [Node(imageNamed: "Guy1.png"),Node(imageNamed:"Guy2.png")] as! [Node]
-        let go = GOAnimation(obj:plyr,arrNodes:nd)
+        let nd = [Node(imageNamed: "Guy1.png"),Node(imageNamed:"Guy2.png")]
+        let go = GOAnimation(arrNodes:nd,intervalMS:100);
      
         XCTAssertEqual(go.animNodes[0].description, Node(imageNamed: "Guy1.png").description)
         XCTAssertEqual(go.animNodes[1].description, Node(imageNamed: "Guy2.png").description)
 
     }
+    
+    func testGOAnimationInterval()
+    {
+        let nd1 = Node(imageNamed: "Guy1.png")
+        let nd2 = Node(imageNamed: "Guy2.png")
+           let plyr = Player(settings: GameSettings(fileName: "TestGameSettings"))
+           plyr.renderNode = Node(imageNamed: "Guy1.png")
+           let nd = [nd1,nd2] as [Node]
+           let go = GOAnimation(arrNodes:nd,intervalMS:1000);
+        
+        XCTAssertEqual(go.currentNode().description, nd1.description)
+        sleep(1)
+        go.update()
+        XCTAssertEqual(go.currentNode().description, nd2.description)
+        sleep(1)
+        go.update()
+        XCTAssertEqual(go.currentNode().description, nd1.description)
+
+    }
+    
+    func testInactiveNodesAreInvisible()
+    {
+        let nd1 = Node(imageNamed: "Guy1.png")
+        let nd2 = Node(imageNamed: "Guy2.png")
+       let plyr = Player(settings: GameSettings(fileName: "TestGameSettings"))
+       plyr.renderNode = Node(imageNamed: "Guy1.png")
+       let nd = [nd1,nd2] as [Node]
+       let go = GOAnimation(arrNodes:nd,intervalMS:1000);
+    
+        XCTAssertEqual(go.currentNode().alpha , 1)
+        sleep(1)
+        go.update()
+        XCTAssertEqual(go.currentNode().alpha, 1)
+        XCTAssertEqual(go.animNodes[0].alpha, 0)
+        sleep(1)
+        go.update()
+        XCTAssertEqual(go.animNodes[1].alpha ,0 )
+        XCTAssertEqual(go.animNodes[0].alpha, 1)
+    }
+    
+    
 
     func testPerformanceExample() {
         // This is an example of a performance test case.

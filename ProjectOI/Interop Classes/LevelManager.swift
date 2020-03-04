@@ -113,6 +113,16 @@ class LevelManager: NSObject, XMLParserDelegate
         addRenderNodesToEnemies()
         addRenderNodesToWalls()
         addRenderNodesToConnectPoints()
+        addPlayerAnimationToScene()
+        
+    }
+    
+    func addPlayerAnimationToScene()
+    {
+        for nd in gameWorld.getPlayer().animation.animNodes {
+            nd.setScale(0.2)
+            mainGameScene.addChild(nd)
+        }
     }
     
     private func parseXMLFile() {
@@ -185,6 +195,7 @@ class LevelManager: NSObject, XMLParserDelegate
     {
         mainGameScene.addNodeToObject(renderNode: Node(imageNamed: "Guy1.png"), obj: gameWorld.getPlayer())
         gameWorld.player.renderNode.blendMode = .alpha
+        gameWorld.player.renderNode.alpha = 0
     }
     
     func addRenderNodesToEnemies()

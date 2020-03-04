@@ -10,13 +10,50 @@ import Foundation
 
 class GOAnimation
 {
-    var animObject:GameObject
     var animNodes:[Node]
+    var animIntervalMS:Double
+    var currNode:Node
+    var currNodeIndex:Int
+    var timer:GameTimer
+    var ndCnt:Int
     
-    init(obj:GameObject, arrNodes:[Node]) {
-        animObject = obj
+    init(arrNodes:[Node],intervalMS:Double) {
         animNodes = arrNodes
+        animIntervalMS = intervalMS
+        currNodeIndex = 0
+        currNode = arrNodes[currNodeIndex]
+        timer = GameTimer(duration: intervalMS/1000.0, descrip: "time between node change")
+        ndCnt = arrNodes.count
+    }
+    
+    func currentNode()->Node
+    {
+        return currNode
+    }
+    
+    func nextNode()
+    {
+        timer.reset()
+        currNode.alpha = 0
+        currNodeIndex += 1
         
+        if (currNodeIndex >= ndCnt)
+        {
+            currNodeIndex = 0
+        }
+        currNode = animNodes[currNodeIndex]
+        currNode.alpha = 1
+    }
+    
+    func update(pnt:CGPoint)
+    {
+        
+        timer.poll(currTime: CFAbsoluteTimeGetCurrent())
+        if (timer.timesUp())
+        {
+            nextNode()
+        }
+        //currNode.position = pnt
     }
     
 }
