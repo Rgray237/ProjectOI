@@ -26,7 +26,7 @@ class GameObject
     
     init()
     {
-        
+        renderNode = Node(imageNamed: "Default.png")
     }
     
     init(position:Vector3, dynamic:Bool, size:CGSize)

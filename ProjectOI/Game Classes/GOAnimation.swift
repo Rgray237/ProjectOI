@@ -53,7 +53,7 @@ class GOAnimation
         {
             nextNode()
         }
-        //currNode.position = pnt
+        currNode.position = pnt
     }
     
 }

@@ -57,7 +57,7 @@ class IdleState : PlayerState
 {
     func enter(plyr: Player, inp: Input, prevState: PlayerState) {
         plyr.setVelocity(velocity: plyr.vel * 0)
-        print("Idle")
+        //print("Idle")
     }
     
    func handleInput(plyr:Player,inp:Input)->PlayerState
@@ -87,7 +87,7 @@ class DashingState1 : PlayerState
 
     func enter(plyr: Player, inp: Input, prevState: PlayerState) {
         plyr.setVelocity(velocity: plyr.vel * 2)
-        print("dashing 1")
+        //print("dashing 1")
     }
     func handleInput(plyr:Player,inp:Input)->PlayerState
     {
@@ -127,7 +127,7 @@ class DashingState : PlayerState
     var dashingTimer = GameTimer(duration:0.05,descrip:"dashing timer")
     
     func enter(plyr: Player, inp: Input, prevState: PlayerState) {
-        print ("Dashing")
+        //print ("Dashing")
         if let tap = inp as? Tap
         {
             let angle = Math2d().getAngleBtwnPoints(CGPoint(x: 0,y: 0), tap.tapPos)
@@ -137,8 +137,8 @@ class DashingState : PlayerState
     
      func handleInput(plyr:Player,inp:Input)->PlayerState
     {
-        print(inp)
-        print(dashingTimer.timeRemaining)
+        //print(inp)
+        //print(dashingTimer.timeRemaining)
         if (dashingTimer.timesUp())
         {
             return DashingState1()
@@ -318,10 +318,8 @@ class Player : SentientActor
         let prevstate = self.state
         self.state = DraggingState()
         self.state.enter(plyr: self, inp: NA() , prevState: prevstate)
-        var pth = CGMutablePath()
-        pth.move(to: pnt.pos.toCGPoint2D())
-        pth.addLine(to: pnt.pos.toCGPoint2D())
-        dragPath = DraggingPath(path: pth)
+        
+        dragPath = DraggingPath(startPnt: pnt.pos.toCGPoint2D())
     }
     
     func addToDragPath(curPos:Vector3)
@@ -335,7 +333,7 @@ class Player : SentientActor
         self.state = DyingState()
         }
         state.updateWithDelta(plyr: self, delta: delta)
-        animation.update(pnt: self.pos.toCGPoint2D())
+        animation.update(pnt: CGPoint(x: 0,y: 0))
     }
     
     func getState()->String

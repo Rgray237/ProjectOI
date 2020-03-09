@@ -40,13 +40,13 @@ class GOAnimationTests: XCTestCase {
            plyr.renderNode = Node(imageNamed: "Guy1.png")
            let nd = [nd1,nd2] as [Node]
            let go = GOAnimation(arrNodes:nd,intervalMS:1000);
-        
+        let pnt = CGPoint(x:0,y:0)
         XCTAssertEqual(go.currentNode().description, nd1.description)
         sleep(1)
-        go.update()
+        go.update(pnt: pnt)
         XCTAssertEqual(go.currentNode().description, nd2.description)
         sleep(1)
-        go.update()
+        go.update(pnt: pnt)
         XCTAssertEqual(go.currentNode().description, nd1.description)
 
     }
@@ -59,14 +59,14 @@ class GOAnimationTests: XCTestCase {
        plyr.renderNode = Node(imageNamed: "Guy1.png")
        let nd = [nd1,nd2] as [Node]
        let go = GOAnimation(arrNodes:nd,intervalMS:1000);
-    
+        let pnt = CGPoint(x:0,y:0)
         XCTAssertEqual(go.currentNode().alpha , 1)
         sleep(1)
-        go.update()
+        go.update(pnt: pnt)
         XCTAssertEqual(go.currentNode().alpha, 1)
         XCTAssertEqual(go.animNodes[0].alpha, 0)
         sleep(1)
-        go.update()
+        go.update(pnt: pnt)
         XCTAssertEqual(go.animNodes[1].alpha ,0 )
         XCTAssertEqual(go.animNodes[0].alpha, 1)
     }

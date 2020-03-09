@@ -26,7 +26,7 @@ class GameWorld
     internal var gameObjects:[GameObject] = []
     internal var enemies:[Enemy] = []
     internal var walls:[Wall] = []
-
+    internal var draggingPath:DraggingPath?
     
     //Guarantee the following two arrays to have same array size.
     internal var renderObjects:[Node] = []
@@ -104,9 +104,20 @@ class GameWorld
         
         if let pnt = obj2 as? ConnectPoint
         {
+            if (!player.draggingConnection && pnt.isOpen())
+            {
+                createDraggingPath(pnt.pos.toCGPoint2D())
+            }
             player.touchesConnectPoint(pnt: pnt)
             pnt.playerContacts()
         }
+    }
+    
+    func createDraggingPath(_ pnt: CGPoint)
+    {
+        print("Creating a shape")
+        let dp = DraggingPath(startPnt: pnt)
+        self.spriteScene.addChild(dp.shapeNode)
     }
     
     func resolveCollisions()
