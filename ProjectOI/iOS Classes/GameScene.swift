@@ -118,6 +118,11 @@ class GameScene: SKScene {
                 obj.renderNode!.zRotation = CGFloat(obj.rot)
             }
         }
+        
+        for shape in gameWorld.gameShapes
+        {
+            
+        }
         previousTime = currentTime
     }
     

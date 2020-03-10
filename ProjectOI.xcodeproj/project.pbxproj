@@ -12,6 +12,8 @@
 		D417057423DE447F002425B1 /* GameTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D417057323DE447F002425B1 /* GameTimer.swift */; };
 		D417057623DE4495002425B1 /* GameTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D417057523DE4495002425B1 /* GameTimerTests.swift */; };
 		D4233D6B23CB902E00152411 /* GameSceneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4233D6A23CB902E00152411 /* GameSceneTests.swift */; };
+		D42DF6922417255400559768 /* ShapeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DF6912417255400559768 /* ShapeNode.swift */; };
+		D42DF694241725DF00559768 /* GameShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DF693241725DF00559768 /* GameShape.swift */; };
 		D4713E4923A6B31200259583 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = D4713E4823A6B31200259583 /* Shaders.metal */; };
 		D4713E5123A6BCD300259583 /* Matrix4.m in Sources */ = {isa = PBXBuildFile; fileRef = D4713E5023A6BCD300259583 /* Matrix4.m */; };
 		D4713E5323A6BD6B00259583 /* Node3d.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4713E5223A6BD6B00259583 /* Node3d.swift */; };
@@ -80,6 +82,8 @@
 		D417057323DE447F002425B1 /* GameTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTimer.swift; sourceTree = "<group>"; };
 		D417057523DE4495002425B1 /* GameTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTimerTests.swift; sourceTree = "<group>"; };
 		D4233D6A23CB902E00152411 /* GameSceneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneTests.swift; sourceTree = "<group>"; };
+		D42DF6912417255400559768 /* ShapeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeNode.swift; sourceTree = "<group>"; };
+		D42DF693241725DF00559768 /* GameShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameShape.swift; sourceTree = "<group>"; };
 		D4713E4823A6B31200259583 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		D4713E4F23A6BCD200259583 /* Matrix4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix4.h; sourceTree = "<group>"; };
 		D4713E5023A6BCD300259583 /* Matrix4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Matrix4.m; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 				D47F71EB23EB0F3C00C90BA4 /* Wall.swift */,
 				D47F71ED23FA016C00C90BA4 /* ConnectPoint.swift */,
 				D4A3BFF1240D530000D1162C /* GOAnimation.swift */,
+				D42DF693241725DF00559768 /* GameShape.swift */,
 			);
 			path = "Game Classes";
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 				D477F692239DA3FA00B8BB56 /* Main.storyboard */,
 				D477F68E239DA3FA00B8BB56 /* AppDelegate.swift */,
 				D4A3BFEF23FD804200D1162C /* DraggingPath.swift */,
+				D42DF6912417255400559768 /* ShapeNode.swift */,
 			);
 			path = "iOS Classes";
 			sourceTree = "<group>";
@@ -436,8 +442,10 @@
 				D4713E7A23B4F9CF00259583 /* SentientActor.swift in Sources */,
 				D4713E5D23A868C000259583 /* BufferProvider.swift in Sources */,
 				D4713E6623ABC3E000259583 /* GameWorld.swift in Sources */,
+				D42DF6922417255400559768 /* ShapeNode.swift in Sources */,
 				D47F71EA23EB0B9300C90BA4 /* Vector2.swift in Sources */,
 				D4CB89FD23CD603400A76D64 /* Input.swift in Sources */,
+				D42DF694241725DF00559768 /* GameShape.swift in Sources */,
 				D4A3BFF2240D530000D1162C /* GOAnimation.swift in Sources */,
 				D477F6D423A55C5B00B8BB56 /* Vertex.swift in Sources */,
 				D477F6C1239DC86D00B8BB56 /* Level.swift in Sources */,

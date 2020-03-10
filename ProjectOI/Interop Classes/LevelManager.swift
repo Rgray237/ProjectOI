@@ -44,7 +44,6 @@ class LevelManager: NSObject, XMLParserDelegate
         mainGameScene = scene
         parseXMLFile()
         gameWorld.lvlManger = self
-        gameWorld.spriteScene = mainGameScene
         //dotherest()
     }
     
@@ -55,8 +54,6 @@ class LevelManager: NSObject, XMLParserDelegate
         super.init()
         mainGameView = view
         mainGameScene = scene
-        gameWorld.lvlManger = self
-        gameWorld.spriteScene = mainGameScene
 
     }
     
@@ -67,6 +64,7 @@ class LevelManager: NSObject, XMLParserDelegate
         mainGameScene.removeAllChildren()
         mainGameScene.gameWorld = GameWorld()
         gameWorld = mainGameScene.gameWorld
+        gameWorld.spriteScene = mainGameScene
         gameWorld.lvlManger = self
         chosenLevel = lvl
         parseXMLFile()
@@ -102,8 +100,15 @@ class LevelManager: NSObject, XMLParserDelegate
     
     func addVectorGraphics()
     {
-        
-        
+        /*
+        let shape = SKShapeNode()
+               shape.path = UIBezierPath(roundedRect: CGRect(x: -128, y: -128, width: 256, height: 256), cornerRadius: 64).cgPath
+            shape.position = CGPoint(x:0,y:0)
+               shape.fillColor = UIColor.red
+               shape.strokeColor = UIColor.blue
+               shape.lineWidth = 10
+        mainGameScene.addChild(shape)
+ */
     }
     
     private func loadRenderObjects()

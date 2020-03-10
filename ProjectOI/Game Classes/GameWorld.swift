@@ -24,13 +24,14 @@ class GameWorld
     internal var loaded:Bool = false
     internal var actors:[SentientActor] = []
     internal var gameObjects:[GameObject] = []
+    internal var gameShapes:[GameShape] = []
     internal var enemies:[Enemy] = []
     internal var walls:[Wall] = []
     internal var draggingPath:DraggingPath?
     
     //Guarantee the following two arrays to have same array size.
     internal var renderObjects:[Node] = []
-    internal var spriteScene:SKScene = SKScene()
+    internal var spriteScene:GameScene?
     internal var player:Player!
     internal var lvlManger:LevelManager!
     
@@ -117,7 +118,15 @@ class GameWorld
     {
         print("Creating a shape")
         let dp = DraggingPath(startPnt: pnt)
-        self.spriteScene.addChild(dp.shapeNode)
+        gameShapes.append(dp.shapeNode)
+        guard let scene:GameScene = self.spriteScene
+        else
+        {
+            print("fuuuk")
+            return
+        }
+        print("we in it")
+        scene.addChild(dp.shapeNode)
     }
     
     func resolveCollisions()
@@ -208,7 +217,10 @@ class GameWorld
         renderObjects.removeAll()
         pos = Vector3(0,0,0)
         vel = Vector3(0,0,0)
-        spriteScene.removeAllChildren()
+        if let scene = spriteScene as GameScene?
+        {
+            scene.removeAllChildren()
+        }
     }
     
 }

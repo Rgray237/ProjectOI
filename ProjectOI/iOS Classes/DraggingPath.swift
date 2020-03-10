@@ -9,13 +9,13 @@
 import Foundation
 import SpriteKit
 
-class DraggingPath : GameObject
+class DraggingPath : GameShape
 {
     var pnts : [CGPoint]
     var numPnts : Int
     var timer : GameTimer
     var interval : CFTimeInterval = 0.1
-    var shapeNode : SKShapeNode
+    var shapeNode : ShapeNode
     var path : CGMutablePath
     
     init(startPnt: CGPoint)
@@ -24,14 +24,14 @@ class DraggingPath : GameObject
         pnts = []
         timer = GameTimer(duration: interval, descrip: "Time between segments added")
         path = CGMutablePath()
-        let shape = SKShapeNode()
-        shape.path = UIBezierPath(roundedRect: CGRect(x: -128, y: -128, width: 256, height: 256), cornerRadius: 64).cgPath
-        shape.position = startPnt
+        let shape = ShapeNode()
+        shape.path = UIBezierPath(roundedRect: CGRect(x: -5, y: -5, width: 100, height: 100), cornerRadius: 1).cgPath
+        shape.position = CGPoint(x:0,y:0)
         shape.fillColor = UIColor.red
         shape.strokeColor = UIColor.blue
         shape.lineWidth = 10
         shapeNode = shape
-        super.init()
+        super.init(position: Vector3(Double(startPnt.x),Double(startPnt.y),0))
         pos = Vector3(Double(startPnt.x),Double(startPnt.y),0)
         pnts.append(startPnt)
         path.move(to: startPnt)
